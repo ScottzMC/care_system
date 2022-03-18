@@ -1,0 +1,6 @@
+@media screen and (max-width: 1920px){
+    .page {
+        left: 280px;
+        width: calc(100% - 275px);
+    }
+}

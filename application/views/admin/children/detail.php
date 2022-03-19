@@ -53,7 +53,7 @@
                                     <?php if(!empty($children)){ ?>
                                     <div class="card-body">
                                         <div class="user_avtar">
-                                            <img class="rounded-circle" height="200" width="200" src="https://scottnnaghor.com/care_system/uploads/children/<?php echo $child->image; ?>" 
+                                            <img class="rounded-circle" height="200" width="200" src="<?php echo base_url('uploads/children/'.$child->image); ?>" 
                                             alt="<?php echo $child->fullname; ?>">
                                         </div>
                                         <br><br>

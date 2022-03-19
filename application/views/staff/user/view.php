@@ -68,7 +68,6 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Image</th>
                                         <th>Full Name</th>
                                         <th>Email Address</th>
@@ -80,9 +79,8 @@
                                 <tbody>
                                   <?php if($users){ foreach($users as $usr){ ?>
                                     <tr>
-                                        <td><?php echo $usr->id; ?></td>
                                         <td class="w60">
-                                            <img class="avatar" src="https://scottnnaghor.com/care_system/uploads/profile/<?php echo $usr->photo; ?>" alt="<?php echo $usr->firstname; ?>">
+                                            <img class="avatar" src="<?php echo base_url('uploads/profile/'.$usr->photo); ?>" alt="<?php echo $usr->firstname; ?>">
                                         </td>
                                         <td>
                                             <a href="<?= site_url("staff/user/profile/$usr->id/$usr->code"); ?>">

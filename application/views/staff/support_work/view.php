@@ -181,8 +181,7 @@
                                                 <br>
                                                 <?php if(!empty($task)){ 
                                                 foreach($task as $tsk){ ?>
-                                                <input type="hidden" name="task_id[]" value="<?php echo $tsk->id; ?>">
-                                                 <input type="checkbox" name="task[]" value="<?php echo $tsk->title; ?>"> <?php echo $tsk->title; ?>
+                                                 <input type="checkbox" name="task[]" value="<?php echo $tsk->id; ?>"> <?php echo $tsk->title; ?>
                                                 <br>
                                                 <?php } } ?>
                                             </div>

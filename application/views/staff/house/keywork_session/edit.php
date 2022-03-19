@@ -73,7 +73,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Comments and further actions</label>
-                                                <textarea name="summary" class="form-control" aria-label="With textarea"><?php echo $keywork->summary; ?></textarea>
+                                                <textarea name="summary" rows="5" cols="5" class="form-control" aria-label="With textarea"><?php echo $keywork->summary; ?></textarea>
                                             </div>
                                         </div>
                                         

@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
@@ -75,7 +75,6 @@
                                             </div>  
                                             <br>
                                             
-                                            <div class="pull-right"><a href="<?php echo site_url("staff/house/staff_communication/edit/$det->id/$code"); ?>">Edit</a></div>
                                         </div>
                                         
                                         <div class="timeline_item ">

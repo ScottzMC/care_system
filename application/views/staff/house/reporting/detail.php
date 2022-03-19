@@ -31,12 +31,12 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Bi">Edit <?php echo $det->title; ?></a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Bi"><?php echo $det->title; ?></a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>

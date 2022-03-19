@@ -54,7 +54,7 @@
                                 <h3 class="card-title">Edit Independent Living Skills</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('staff/keywork_session/edit_independent_living/'.$independent->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('staff/house/keywork_session/edit_independent_living/'.$independent->id.'/'.$code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">

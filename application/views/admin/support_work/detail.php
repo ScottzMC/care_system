@@ -72,21 +72,6 @@
                                                 <div class="pull-right"><?php echo $det->review_period; ?></div>
                                             </li>
                                             <li class="list-group-item">
-                                            <b>Target task </b>
-                                                <?php 
-                                                  $check = explode(',', $det->task);
-                                            
-                                                  foreach($check as $tsk) {
-                                                
-                                                ?>
-                                                <br>
-                                                <div class="pull-right">
-                                                <?php echo $tsk; ?>
-                                                </div>
-                                                <br>
-                                                <?php } ?>
-                                            </li>
-                                            <li class="list-group-item">
                                                 <b>Start Date</b>
                                                 <div class="pull-right"><?php echo date('j M Y', strtotime($det->start_date)); ?></div>
                                             </li>
@@ -127,8 +112,7 @@
                             </div>
                             
                             <?php if(!empty($detail)){
-                            $task = explode(',', $det->task_id);
-                            $title = explode(',', $det->task);
+                            $task = explode(',', $det->task);
 
                             foreach($task as $task_id){
                             ?>

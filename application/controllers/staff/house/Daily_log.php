@@ -104,7 +104,6 @@
                         'summary' => $summary,
                         'staff_initial' => $staff_initial,
                         'time' => $time,
-                        'created_time' => $uploaded_time,
                         'created_date' => $date
                     );
                     

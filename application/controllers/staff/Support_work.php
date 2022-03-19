@@ -92,7 +92,6 @@
                 'house_name' => $house_name,
                 'image' => $fileName,
                 'review_period' => $review_period,
-                'task_id' => $imp_task_id,
                 'task' => $imp_task,
                 'start_date' => $start_date,
                 'target_date' => $target_date,
@@ -271,7 +270,7 @@
                     $array = array(
                     'title' => $title,
                     'body' => $body,
-                    'children' => $children,
+                    'child_name' => $children,
                     'house_name' => $house_name,
                     'review_period' => $review_period,
                     'start_date' => $start_date,

@@ -44,9 +44,7 @@
             $review_period = $this->input->post('review_period');
             $task = $this->input->post('task');
             $imp_task = implode(',', $task);
-            $task_id = $this->input->post('task_id');
-            $imp_task_id = implode(',', $task_id);
-            
+
             $start_date = $this->input->post('start_date');
             $target_date = $this->input->post('target_date');
             $completed_date = $this->input->post('completed_date');
@@ -92,7 +90,6 @@
                 'house_name' => $house_name,
                 'image' => $fileName,
                 'review_period' => $review_period,
-                'task_id' => $imp_task_id,
                 'task' => $imp_task,
                 'start_date' => $start_date,
                 'target_date' => $target_date,
@@ -271,7 +268,7 @@
                     $array = array(
                     'title' => $title,
                     'body' => $body,
-                    'children' => $children,
+                    'child_name' => $children,
                     'house_name' => $house_name,
                     'review_period' => $review_period,
                     'start_date' => $start_date,

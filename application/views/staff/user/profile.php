@@ -54,7 +54,7 @@
                                 <div class="card">
                                     <div class="card-body w_user">
                                         <div class="user_avtar">
-                                            <img class="rounded-circle" height="90" width="120" src="https://scottnnaghor.com/care_system/uploads/profile/<?php echo $prof->photo; ?>" 
+                                            <img class="rounded-circle" height="90" width="120" src="<?php echo base_url('uploads/profile/'.$prof->photo); ?>" 
                                             alt="<?php echo $prof->firstname; ?> <?php echo $prof->lastname; ?>">
                                         </div>
                                         <div class="wid-u-info">

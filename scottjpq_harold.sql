@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 18, 2022 at 07:03 PM
+-- Generation Time: Mar 19, 2022 at 04:15 PM
 -- Server version: 10.3.34-MariaDB-log-cll-lve
 -- PHP Version: 7.3.32
 
@@ -116,7 +116,12 @@ INSERT INTO `area_of_support_comment` (`id`, `code`, `house_code`, `house`, `are
 (35, 'ABXSO123', 'csdf897fks', 'Collin A', '2', ' Fire Drill', 'comment'),
 (34, 'ABXSO123', 'csdf897fks', 'Collin A', '1', ' Budgeting & Managing Finance', 'Budgeting'),
 (40, 'UYCVXDABT7', 'abcdefghzxcqwe881', 'Collin C', '10', ' Laundry and Re-sheeting of my bed', ''),
-(41, 'UYCVXDABT7', 'abcdefghzxcqwe881', 'Collin C', '6', ' Maintaining tenancy', '');
+(41, 'UYCVXDABT7', 'abcdefghzxcqwe881', 'Collin C', '6', ' Maintaining tenancy', ''),
+(42, 'DUYBVCXAT1', 'csdf897fks', 'Collin A', '1', ' Budgeting & Managing Finance', ''),
+(43, 'DUYBVCXAT1', 'csdf897fks', 'Collin A', '2', ' Fire Drill', ''),
+(44, 'DUYBVCXAT1', 'csdf897fks', 'Collin A', '9', ' Food shopping', ''),
+(45, 'DUYBVCXAT1', 'csdf897fks', 'Collin A', '4', ' Home Security', ''),
+(46, 'DUYBVCXAT1', 'csdf897fks', 'Collin A', '6', ' Maintaining tenancy', '');
 
 -- --------------------------------------------------------
 
@@ -414,8 +419,8 @@ CREATE TABLE `children_keywork_session` (
 --
 
 INSERT INTO `children_keywork_session` (`id`, `house_code`, `house`, `code`, `child_name`, `date_title`, `title`, `summary`, `independent_living`, `staff_initial`, `hours_spent`, `length_time`, `image1`, `image2`, `image3`, `image4`, `image5`, `created_date`) VALUES
-(14, 'CSDF897FKS', 'Collin A', 'ABXSO123', 'Tommy Oxbridge', '12/03/2022', 'New keywork record', 'No need information has been added', 'Bathing,Eating a meal,Filling a form', 'SMD', '16', '', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-24.jpg', 'featured-image-23.jpg', '2022-03-12 00:00:00'),
-(15, 'csdf897fks', 'Collin A', 'ABXSO123', 'Tommy Oxbridge', '12/03/2022', 'Eriks', 'test', 'Eating a meal,Filling a form,Freedom', 'SMD', '16', '3 weeks', 'banner1.jpg', 'banner2.jpg', 'banner3.jpg', 'banner1.jpg', 'banner2.jpg', '2022-03-12 00:00:00'),
+(14, 'CSDF897FKS', 'Collin A', 'ABXSO123', 'Tommy Oxbridge', '12/03/2022', 'New keywork', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Filling a form,Freedom', 'SMD', '16', '', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-24.jpg', 'featured-image-23.jpg', '2022-03-12 00:00:00'),
+(15, 'csdf897fks', 'Collin A', 'ABXSO123', 'Tommy Oxbridge', '12/03/2022', 'Eriks', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ', 'Bathing,Eating a meal,Filling a form,Freedom', 'SMD', '16', '3 weeks', 'featured-image-21.jpg', 'featured-image-23.jpg', 'featured-image-22.jpg', 'featured-image-21.jpg', 'featured-image-23.jpg', '2022-03-19 00:00:00'),
 (16, 'abcdefghzxcqwe881', 'Collin C', 'UYCVXDABT7', 'Mike Mikaela', '18/03/2022', 'A new keywork session', 'Comments and further actions', 'Bathing,Eating a meal,Filling a form,Freedom', 'SMD', '16', '3 weeks', 'featured-image-24.jpg', 'featured-image-22.jpg', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-24.jpg', '2022-03-18 00:00:00');
 
 -- --------------------------------------------------------
@@ -540,9 +545,10 @@ INSERT INTO `daily_log` (`id`, `code`, `house`, `title`, `summary`, `staff_initi
 (8, 'CSDF897FKS', 'Collin A', '08/03/2022', '<p>We started the meeting </p>', 'SMD', '12:25pm', '2022-03-08 05:00:00'),
 (9, 'AV98DNA9D9', 'Collin B', '08/03/2022', 'We drank tea', 'SMD', '12:28pm', '2022-03-08 05:00:00'),
 (10, 'CSDF897FKS', 'Collin A', '08/03/2022', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.&nbsp;<span style=\"background-color: rgb(231, 99, 99); color: rgb(0, 0, 0);\">Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,&nbsp;</span>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'SMD', '12:50pm', '2022-03-08 05:00:00'),
-(12, 'csdf897fks', 'Collin A', '12/03/2022', '<p>Test</p>', 'SMD', '9am', '2022-03-12 05:00:00'),
-(14, 'csdf897fks', 'Collin A', '16/03/2022', '<p>This is a test</p>', 'SMD', '9am', '2022-03-16 04:00:00'),
-(16, 'abcdefghzxcqwe881', 'Collin C', '18/03/2022', 'Comments and further actions which is needed', 'SMD', '9am', '2022-03-18 04:00:00');
+(12, 'csdf897fks', 'Collin A', '12/03/2022', '<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'SMD', '9am', '2022-03-19 04:00:00'),
+(14, 'csdf897fks', 'Collin A', '16/03/2022', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.&nbsp;</p>', 'SMD', '9am', '2022-03-19 04:00:00'),
+(16, 'abcdefghzxcqwe881', 'Collin C', '18/03/2022', 'Comments and further actions which is needed', 'SMD', '9am', '2022-03-18 04:00:00'),
+(17, 'csdf897fks', 'Collin A', '19/03/2022', '<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like PageMaker including versions of Lorem Ipsum.</p>', 'SMD', '10am', '2022-03-19 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -638,7 +644,8 @@ CREATE TABLE `guest_ban` (
 INSERT INTO `guest_ban` (`id`, `code`, `child_name`, `house_code`, `house`, `room_number`, `guest_name`, `reason_for_ban`, `additional_info`, `start_date`, `end_date`) VALUES
 (3, 'UYCVXDABT7', 'Mike Mikaela', 'csdf897fks', 'Collin A', '102', 'Andrew ', '<p>The guest was rude</p>', 'Very annoying', '2022-03-11', '2022-03-12'),
 (2, 'ABXSO123', 'Tommy Oxbridge', 'csdf897fks', 'Collin A', '101', 'Andrew ', '<p>The guest is rude</p>', 'none', '2022-03-09', '2022-03-11'),
-(4, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', '101', 'Andrew ', '<p><span style=\"color: rgb(67, 74, 84);\">Reason for ban</span><br></p>', 'Additional Info', '2022-03-16', '2022-03-18');
+(4, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', '101', 'Andrew ', '<p><span style=\"color: rgb(67, 74, 84);\">Reason for ban</span><br></p>', 'Additional Info', '2022-03-16', '2022-03-18'),
+(5, 'DUYBVCXAT1', 'Tom Brady', 'csdf897fks', 'Collin A', '103', 'Andrew ', '<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br></p>', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', '2022-03-14', '2022-03-18');
 
 -- --------------------------------------------------------
 
@@ -679,7 +686,8 @@ CREATE TABLE `handover` (
 INSERT INTO `handover` (`id`, `title`, `house_code`, `housename`, `actions`, `gaming`, `keys_pettycash`, `keys_pettycash_comment`, `cleanliness`, `occupancy`, `edt_police_comment`, `safeguarding`, `appointments_diary`, `appointments_diary_support`, `appointments_diary_remind`, `service_user`, `maintenance`, `additional_info`, `health_wellbeing`, `ingoing_staff`, `outgoing_staff`, `time`, `date`) VALUES
 (8, '18/03/2022', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Are there any Service Users who are near their missing people’s time, or are away from the unit? *', 'Does Edt or the Police need to be updated? *', 'Any Safeguarding Concerns? If yes, has this been logged and reported to the safeguarding officer. *', 'Yes', 'Yes', 'Yes', 'Handover of each Service User:', 'Are there any maintenance issues you need to deal with during your shift? If so, do you know who to contact?', '', 'Yes', 'staff@email.com', 'steve@harold.com', '9am', '2022-03-18'),
 (7, '18/03/2022', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', ' with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Are there any Service Users who are near their missing people’s time, or are away from the unit? *', 'Does Edt or the Police need to be updated? *', 'Any Safeguarding Concerns? If yes, has this been logged and reported to the safeguarding officer. *', 'Yes', 'Yes', 'Yes', 'Handover of each Service User:', '', '', 'Yes', 'staff@email.com', 'mike275@gmail.com', '9am', '2022-03-18'),
-(9, '18/03/2022', 'abcdefghzxcqwe881', 'Collin C', 'Yes', 'Yes', 'Yes', '10000', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Are there any Service Users who are near their missing people’s time, or are away from the unit? *', 'Does Edt or the Police need to be updated? *', 'Any Safeguarding Concerns? If yes, has this been logged and reported to the safeguarding officer. *', 'Yes', 'Yes', 'Yes', 'Handover of each Service User:', 'Are there any maintenance issues you need to deal with during your shift? If so, do you know who to contact?', 'Any other information?(Passwords, PC)', 'Yes', 'oscar@harold.com', 'admin@harold.com', '10am', '2022-03-18');
+(9, '18/03/2022', 'abcdefghzxcqwe881', 'Collin C', 'Yes', 'Yes', 'Yes', '10000', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Are there any Service Users who are near their missing people’s time, or are away from the unit? *', 'Does Edt or the Police need to be updated? *', 'Any Safeguarding Concerns? If yes, has this been logged and reported to the safeguarding officer. *', 'Yes', 'Yes', 'Yes', 'Handover of each Service User:', 'Are there any maintenance issues you need to deal with during your shift? If so, do you know who to contact?', 'Any other information?(Passwords, PC)', 'Yes', 'oscar@harold.com', 'admin@harold.com', '10am', '2022-03-18'),
+(10, '19/03/2022', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Yes', 'Yes', 'Yes', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', '', 'Yes', 'staff@email.com', 'oscar@harold.com', '10am', '2022-03-19');
 
 -- --------------------------------------------------------
 
@@ -711,7 +719,8 @@ CREATE TABLE `health_safety` (
 --
 
 INSERT INTO `health_safety` (`id`, `code`, `child_name`, `title`, `additional_info`, `room_number`, `safety_check`, `recorded_by`, `due_date`, `image1`, `image2`, `image3`, `image4`, `image5`, `document`, `created_date`) VALUES
-(5, 'ABXSO123', 'Tommy Oxbridge', 'New record', 'This is a new comment', '101', 'none', 'Matthew', '2022-01-31 05:00:00', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-21.jpg', 'featured-image-24.jpg', 'installation.pdf', '2022-01-31 05:00:00');
+(7, 'DUYBVCXAT1', 'Tom Brady', 'Heath for Brady', 'Comments and further actions', '102', 'none', 'Matthew', '2022-03-19 04:00:00', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-24.jpg', 'featured-image-21.jpg', '5_6233106464102154839.pdf', '2022-03-19 04:00:00'),
+(5, 'ABXSO123', 'Tommy Oxbridge', 'New health record', 'This is a new comment', '101', 'none', 'Matthew', '2022-03-19 04:00:00', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-21.jpg', 'featured-image-24.jpg', 'installation.pdf', '2022-03-19 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -963,10 +972,11 @@ CREATE TABLE `reporting` (
 --
 
 INSERT INTO `reporting` (`id`, `code`, `child_name`, `house_code`, `house`, `title`, `summary`, `area_of_risk`, `keywork_session`, `self_care`, `education`, `independent_skills`, `family`, `missing`, `area_of_progress`, `staff`, `social_worker`, `duration`, `created_date`) VALUES
-(1, 'ABXSO123', 'Tommy Oxbridge', 'CSDF897FKS', 'Collin A', 'New Information', 'More information should be provided especially when it comes to the child.', 'There has been no concern. This is a test for the Areas of Risk for this user.', 'There has been no concern. This is a test for the Keywork session for this user.', 'There has been no concern. This is a test for the Self care for this user.', 'There has been no concern. This is a test for the Education for this user.', 'There has been no concern. This is a test for the Independent Living for this user.', 'There has been no concern. This is a test for the Family or Friends for this user.', 'There has been no concern. This is a test for the UNAUTHORISED ABSENCES for this user.', 'There has been no concern. This is a test for the Area of progress for this user.', 'Richard Ricky', 'Stacy', '2 hours', '2021-12-08 05:00:00'),
-(3, 'UYCVXDABT7', 'Mike Mikaela', 'CSDF897FKS', 'Collin A', 'New event', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'James Arnold', '', '1 hour', '2022-01-03 05:00:00'),
+(1, 'ABXSO123', 'Tommy Oxbridge', 'CSDF897FKS', 'Collin A', 'New Information', 'More information should be provided especially when it comes to the child.', 'There has been no concern. This is a test for the Areas of Risk for this user.', 'There has been no concern. This is a test for the Keywork session for this user.', 'There has been no concern. This is a test for the Self care for this user.', 'There has been no concern. This is a test for the Education for this user.', 'There has been no concern. This is a test for the Independent Living for this user.', 'There has been no concern. This is a test for the Family or Friends for this user.', 'There has been no concern. This is a test for the UNAUTHORISED ABSENCES for this user.', 'There has been no concern. This is a test for the Area of progress for this user.', 'Oscar Piastri', 'Stacy', '01/03/2022-12/03/2022', '2021-12-08 05:00:00'),
+(3, 'UYCVXDABT7', 'Mike Mikaela', 'CSDF897FKS', 'Collin A', 'New event made', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'This is a new report that has been added', 'Oscar Piastri', 'Stacy', '01/03/2022-12/03/2022', '2022-01-03 05:00:00'),
 (6, 'ABXSO123', 'Tommy Oxbridge', 'csdf897fks', 'Collin A', 'New risk of reporting', 'Comments and further actions', 'Areas of Risk/Concern', 'Key Work Sessions', 'Health/Self-Care', 'Education/Employment/Training', 'Independent Living Skills', 'Family/Friends Contact', 'Unauthorised Absences/Missing/Legal', 'Areas of Progress', 'Mike Mikaela', 'Stacy', '01/03/2022-12/03/2022', '2022-03-12 05:00:00'),
-(7, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', 'New report on Mike', 'Comments and further actions', 'Areas of Risk/Concern', 'Key Work Sessions', 'Health/Self-Care', 'Education/Employment/Training', 'Independent Living Skills', 'Family/Friends Contact', 'Unauthorised Absences/Missing/Legal', 'Areas of Progress', 'Steven Hockendon', 'Stacy', '01/03/2022-12/03/2022', '2022-03-18 04:00:00');
+(7, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', 'New report on Mike', 'Comments and further actions', 'Areas of Risk/Concern', 'Key Work Sessions', 'Health/Self-Care', 'Education/Employment/Training', 'Independent Living Skills', 'Family/Friends Contact', 'Unauthorised Absences/Missing/Legal', 'Areas of Progress', 'Steven Hockendon', 'Stacy', '01/03/2022-12/03/2022', '2022-03-18 04:00:00'),
+(8, 'DUYBVCXAT1', 'Tom Brady', 'csdf897fks', 'Collin A', 'Brady reporting', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries', 'It has survived not only five centuries, but also the leap into electronic typesetting', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic', 'It has survived not only five centuries', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap', 'Steven Hockendon', 'Stacy', '01/03/2022-12/03/2022', '2022-03-19 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -1024,8 +1034,9 @@ CREATE TABLE `risk_assessment` (
 
 INSERT INTO `risk_assessment` (`id`, `code`, `child_name`, `house_code`, `house`, `title`, `criminal_risk_level`, `criminal_level`, `violent_risk_level`, `violent_level`, `weapon_risk_level`, `weapon_level`, `behaviour_community_risk_level`, `behaviour_community_level`, `bully_risk_level`, `bully_level`, `discrimination_risk_level`, `discrimination_level`, `damage_property_risk_level`, `damage_property_level`, `arson_risk_level`, `arson_level`, `missue_illegal_risk_level`, `missue_illegal_level`, `missing_risk_level`, `missing_level`, `self_harm_risk_level`, `self_harm_level`, `sexual_risk_level`, `sexual_level`, `medication_risk_level`, `medication_level`, `family_risk_level`, `family_level`, `allegation_risk_level`, `allegation_level`, `travel_risk_level`, `travel_level`, `additional_info`, `created_time`, `created_date`) VALUES
 (8, 'ABXSO123', 'Tommy Oxbridge', 'CSDF897FKS', 'Collin A', 'New plan', 'Risk', 'Medium', 'Risk', 'Medium', 'Risk', 'High', 'Risk', 'Medium', 'Risk', 'High', 'Risk', 'Medium', 'Risk', 'High', 'Risk', 'Medium', 'Risk', 'High', 'Risk', 'Medium', 'Risk', 'Medium', 'Risk', 'Low', 'Risk', 'High', 'Risk', 'Medium', 'Risk', 'High', 'Risk', 'Low', 'Risk', 1643619592, '2022-01-31 00:00:00'),
-(10, 'ABXSO123', 'Tommy Oxbridge', 'csdf897fks', 'Collin A', 'New risk', 'risky factors that affect criminals', 'Low', 'risky factors that affect violence', 'Low', 'risky factors for weapons', 'Low', 'risky factors of behaviour in the community', 'Low', 'risky factors of being bullies', 'Low', 'risky factors of discrimination', 'Medium', 'risk factors to damage to property', 'High', 'risk factors to Arson', 'Low', 'risk factors for Misuse of illegal substances', 'Low', 'risk factors to going missing.', 'Low', 'risk factors for emotional wellbeing & self harm', 'Low', 'risk factors for sexual health.', 'Low', 'risk factors for health & medication', 'Low', 'risk factors for Family & friends', 'Low', 'risk factors of Allegations', 'Medium', 'risk factors of travelling in vehicle', 'Low', 'risky factor that has been added', 1647076659, '2022-03-12 00:00:00'),
-(11, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', 'Mike Assessment', 'Criminal/Offending Behaviour', 'Medium', 'Violent toward others', 'High', 'Use of weapons', 'Low', 'Behaviour in the community', 'High', 'Bully', 'High', 'Discrimination', 'High', 'Damage to property', 'Medium', 'Arson', 'Medium', 'Misuse of illegal substances/alcohol/smoking', 'Medium', 'Going missing', 'High', 'Emotional wellbeing & self-harm', 'Low', 'Sexual health', 'Medium', 'Health & Medication', 'Medium', 'Family & Friend Contacts', 'Medium', 'Allegations', 'Medium', 'Travel in vehicle', 'Low', 'Additional Info', 1647633164, '2022-03-18 00:00:00');
+(10, 'ABXSO123', 'Tommy Oxbridge', 'csdf897fks', 'Collin A', 'New risk Assessment', 'risky factors that affect criminals', 'Low', 'risky factors that affect violence', 'Low', 'risky factors for weapons', 'Low', 'risky factors of behaviour in the community', 'Low', 'risky factors of being bullies', 'Low', 'risky factors of discrimination', 'Medium', 'risk factors to damage to property', 'High', 'risk factors to Arson', 'Low', 'risk factors for Misuse of illegal substances', 'Low', 'risk factors to going missing.', 'Low', 'risk factors for emotional wellbeing & self harm', 'Low', 'risk factors for sexual health.', 'Low', 'risk factors for health & medication', 'Low', 'risk factors for Family & friends', 'Low', 'risk factors of Allegations', 'Medium', 'risk factors of travelling in vehicle', 'Low', 'risky factor that has been added', 1647076659, '2022-03-12 00:00:00'),
+(11, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', 'Mike Assessment', 'Criminal/Offending Behaviour', 'Medium', 'Violent toward others', 'High', 'Use of weapons', 'Low', 'Behaviour in the community', 'High', 'Bully', 'High', 'Discrimination', 'High', 'Damage to property', 'Medium', 'Arson', 'Medium', 'Misuse of illegal substances/alcohol/smoking', 'Medium', 'Going missing', 'High', 'Emotional wellbeing & self-harm', 'Low', 'Sexual health', 'Medium', 'Health & Medication', 'Medium', 'Family & Friend Contacts', 'Medium', 'Allegations', 'Medium', 'Travel in vehicle', 'Low', 'Additional Info', 1647633164, '2022-03-18 00:00:00'),
+(12, 'DUYBVCXAT1', 'Tom Brady', 'csdf897fks', 'Collin A', 'Brady risk', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Low', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'High', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'High', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'High', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Low', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Low', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Low', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'High', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Medium', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1647718748, '2022-03-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1166,8 +1177,9 @@ CREATE TABLE `support_plan` (
 
 INSERT INTO `support_plan` (`id`, `code`, `child_name`, `house_code`, `house`, `title`, `plan_of_action`, `support_me`, `area_of_support`, `often_will_support`, `hours_spent_task`, `additional_info`, `created_time`, `created_date`) VALUES
 (10, 'ABXSO123', 'Tommy Oxbridge', 'CSDF897FKS', 'Collin A', 'New record', '<p>Additional information needs to be added</p>', 'James Arnold', '', 'Everyday', '10', 'none', 1644282821, '2022-02-08 00:00:00'),
-(43, 'ABXSO123', 'Tommy Oxbridge', 'csdf897fks', 'Collin A', 'Ghost', '<p>mom</p>', 'James Arnold', '1,2', 'Everyday', '10', 'none', 1647104005, '2022-03-12 00:00:00'),
-(49, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', 'This is a support', '<p><span style=\"color: rgb(67, 74, 84);\">Comments and further actions</span><br></p>', 'Steven Hockendon', '1,2,9,4,10,6', 'Everyday', '10', 'Additional Information', 1647633480, '2022-03-18 00:00:00');
+(43, 'ABXSO123', 'Tommy Oxbridge', 'csdf897fks', 'Collin A', 'New plan on Brady', '<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>', 'James Arnold', ' Budgeting & Managing Finance, Fire Drill, Food shopping, Home Security', 'Everyday', '10', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1647719553, '2022-03-19 00:00:00'),
+(49, 'UYCVXDABT7', 'Mike Mikaela', 'abcdefghzxcqwe881', 'Collin C', 'This is a support', '<p><span style=\"color: rgb(67, 74, 84);\">Comments and further actions</span><br></p>', 'Steven Hockendon', '1,2,9,4,10,6', 'Everyday', '10', 'Additional Information', 1647633480, '2022-03-18 00:00:00'),
+(50, 'DUYBVCXAT1', 'Tom Brady', 'csdf897fks', 'Collin A', 'Support Brady', '<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br></p>', 'Oscar Piastri', '1,2,9,4,6', 'Everyday', '10', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 1647719511, '2022-03-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1184,7 +1196,6 @@ CREATE TABLE `support_work` (
   `house_name` varchar(200) NOT NULL,
   `image` text NOT NULL,
   `review_period` text NOT NULL,
-  `task_id` varchar(100) NOT NULL,
   `task` longtext NOT NULL,
   `start_date` date NOT NULL,
   `target_date` date NOT NULL,
@@ -1196,10 +1207,11 @@ CREATE TABLE `support_work` (
 -- Dumping data for table `support_work`
 --
 
-INSERT INTO `support_work` (`id`, `code`, `child_name`, `title`, `body`, `house_name`, `image`, `review_period`, `task_id`, `task`, `start_date`, `target_date`, `completed_date`, `created_date`) VALUES
-(34, 'ABXSO123', 'Tommy Oxbridge', 'Ght', 'Comments', 'Collin A', 'featured-image-21.jpg', '1 month', '1', 'Complete your homework', '2022-03-07', '2022-03-11', '2022-03-12', '2022-03-12 00:00:00'),
-(35, 'UYCVXDABT7', 'Mike Mikaela', 'New work', 'This is a new work that has been added', 'Collin A', 'banner1.jpg', '1 month', '1,3', 'Complete your homework,Going to the movies', '2022-03-07', '2022-03-12', '2022-03-14', '2022-03-15 00:00:00'),
-(39, 'ABXSO123', 'Tommy Oxbridge', 'New gold', 'This is a comment', 'Collin A', 'banner1.jpg', '1 month', '1,4,3', 'Complete your homework,Going to dinner,Going to the movies', '2022-03-14', '2022-03-17', '2022-03-17', '2022-03-18 00:00:00');
+INSERT INTO `support_work` (`id`, `code`, `child_name`, `title`, `body`, `house_name`, `image`, `review_period`, `task`, `start_date`, `target_date`, `completed_date`, `created_date`) VALUES
+(34, 'ABXSO123', 'ABXSO123', 'Ghost', 'Comments', 'Collin A', 'featured-image-21.jpg', '', '1', '2022-03-14', '2022-03-17', '2022-03-18', '2022-03-19 00:00:00'),
+(35, 'UYCVXDABT7', 'Mike Mikaela', 'New work', 'This is a new work that has been added', 'Collin A', 'banner1.jpg', '1 month', '1,3', '2022-03-07', '2022-03-12', '2022-03-14', '2022-03-15 00:00:00'),
+(40, 'DUYBVCXAT1', 'Tom Brady', 'Brady own target', 'Comments and further actions', 'Collin B', 'banner1.jpg', '1 month', '3,4', '2022-03-14', '2022-03-17', '2022-03-19', '2022-03-19 00:00:00'),
+(42, 'DUYBVCXAT1', 'DUYBVCXAT1', 'Disney gold', 'Comments', 'Collin B', 'banner1.jpg', '', '4', '2022-03-14', '2022-03-17', '2022-03-18', '2022-03-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1225,7 +1237,8 @@ INSERT INTO `support_work_subtask` (`id`, `task_id`, `subtitle`) VALUES
 (5, 1, 'Do Arts'),
 (6, 3, 'Watch Marvel with my friends'),
 (7, 3, 'Watch Supersonic'),
-(8, 3, 'Seeing a bunch with friends');
+(8, 3, 'Seeing a bunch with friends'),
+(9, 5, 'Fried eggs ');
 
 -- --------------------------------------------------------
 
@@ -1245,7 +1258,8 @@ CREATE TABLE `support_work_task` (
 INSERT INTO `support_work_task` (`id`, `title`) VALUES
 (1, 'Complete your homework'),
 (4, 'Going to dinner'),
-(3, 'Going to the movies');
+(3, 'Going to the movies'),
+(5, 'Prepare breakfast');
 
 -- --------------------------------------------------------
 
@@ -1305,8 +1319,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `code`, `firstname`, `lastname`, `email`, `password`, `role`, `telephone`, `address1`, `address2`, `postcode`, `city`, `state`, `photo`, `logged_in_time`, `logged_in_date`, `created_time`, `created_date`) VALUES
 (1, 'AXVKBEOMLSO789', 'Scott', 'Nnaghor', 'scottphenix24@gmail.com', '$2a$08$hOKXiDR3/phlWyFNo2ioY.bmXiMZfVW.QtQ8JaZIRcWOkGPeDJob.', 'Admin', '07368660611', '93 Wilmington Gardens', 'none', 'IG11 9TR', 'Barking', 'London', '116-1168169_pictures-of-dragon-ying-yang-wallpapers-data-src.jpg', 1644269291, '2022-02-07 21:28:11', 1630515388, '2021-09-01 16:56:28'),
 (6, 'AJJOKBEMLSO749', 'Tommy', 'Harden', 'hr@email.com', '$2a$08$VClqZ.XQ.IvdeiokzGVwQ.gasbjJWIrUfVNyn3SqfReh.pjKq7wki', 'HR', '07448457194', '54 Test Avenue, London', 'none', 'TR12 9ML', 'Coventry', 'London', 'banner1.jpg', 1647609226, '2022-03-18 13:13:46', 1635363009, '2021-10-27 19:30:09'),
-(8, 'AXVKBEOMCXZ234', 'James', 'Arnold', 'staff@email.com', '$2a$08$qDmZ.EFdkkLzvz6j/tE7IOaCf9kMjR39MHzQH41lur2aF4X4RRHf.', 'Staff', '', '', '', '', '', '', 'banner1.jpg', 1647608686, '2022-03-18 13:04:46', 1636391984, '2021-11-08 17:19:44'),
-(9, 'AXZCDWEKNIA343', 'Steve', 'Terry', 'admin@harold.com', '$2a$08$g69CZNb.dusxrtc0pBTcXeq7qfyp/nfGHEBDeDdc.8DbO97uz7XKK', 'Admin', '', '', '', '', '', '', 'banner3.jpg', 1647609272, '2022-03-18 13:14:32', 1637228399, '2021-11-18 09:39:59'),
+(8, 'AXVKBEOMCXZ234', 'James', 'Arnold', 'staff@email.com', '$2a$08$qDmZ.EFdkkLzvz6j/tE7IOaCf9kMjR39MHzQH41lur2aF4X4RRHf.', 'Staff', '', '', '', '', '', '', 'banner1.jpg', 1647703653, '2022-03-19 15:27:33', 1636391984, '2021-11-08 17:19:44'),
+(9, 'AXZCDWEKNIA343', 'Steve', 'Terry', 'admin@harold.com', '$2a$08$g69CZNb.dusxrtc0pBTcXeq7qfyp/nfGHEBDeDdc.8DbO97uz7XKK', 'Admin', '', '', '', '', '', '', 'banner3.jpg', 1647703625, '2022-03-19 15:27:05', 1637228399, '2021-11-18 09:39:59'),
 (12, 'AZZ2EOMALOD223', 'Mike', 'Mikaela', 'mike275@gmail.com', '$2a$08$c4R8fLMWnTugGxxs/ORRA.u63P.U9jI65wpEi/jLyDkvBrRGz2mWC', 'Staff', '07448457194', '42 Manser Road', 'none', 'RM13 8N', 'London', 'London', 'banner1.jpg', 0, '2021-11-26 10:45:41', 1637923541, '2021-11-26 10:45:41'),
 (13, 'ABCDEFGHZXCQWE237', 'Richard', 'Ricky', 'staff@harold.com', '$2a$08$z4XknsfuJrK5Zh.SMYNNHeNM2bk9eYjZQ1hwCkTE.oMuxR8nloB.i', 'Staff', '02023429481', '32 Great baker street, London', '', 'EC1 2RY', 'London', 'London', 'banner3.jpg', 1646005271, '2022-02-27 23:41:11', 1644281398, '2022-02-08 00:49:58'),
 (14, 'ABCDEFGHZXCQWE964', 'Steven', 'Hockendon', 'steve@harold.com', '$2a$08$jxbVYdX0xpGZJcXRTUtCOeQ75KowElnWGYAwxLCUv2iLzgW5HybUe', 'Staff', '02023429481', '32 Baker Street, London', '', 'EC1 2RY', 'London', 'London', '1.png', 0, '2022-02-08 12:59:37', 1644325177, '2022-02-08 12:59:37'),
@@ -1647,7 +1661,7 @@ ALTER TABLE `area_of_support`
 -- AUTO_INCREMENT for table `area_of_support_comment`
 --
 ALTER TABLE `area_of_support_comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `audit_reviews`
@@ -1743,7 +1757,7 @@ ALTER TABLE `children_supervision_action`
 -- AUTO_INCREMENT for table `daily_log`
 --
 ALTER TABLE `daily_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `dbs_certificate`
@@ -1767,19 +1781,19 @@ ALTER TABLE `explode_communication`
 -- AUTO_INCREMENT for table `guest_ban`
 --
 ALTER TABLE `guest_ban`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `handover`
 --
 ALTER TABLE `handover`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `health_safety`
 --
 ALTER TABLE `health_safety`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `independent_living`
@@ -1839,13 +1853,13 @@ ALTER TABLE `reminders`
 -- AUTO_INCREMENT for table `reporting`
 --
 ALTER TABLE `reporting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `risk_assessment`
 --
 ALTER TABLE `risk_assessment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `shift_management`
@@ -1875,25 +1889,25 @@ ALTER TABLE `staff_file`
 -- AUTO_INCREMENT for table `support_plan`
 --
 ALTER TABLE `support_plan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `support_work`
 --
 ALTER TABLE `support_work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `support_work_subtask`
 --
 ALTER TABLE `support_work_subtask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `support_work_task`
 --
 ALTER TABLE `support_work_task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `training_calendar`

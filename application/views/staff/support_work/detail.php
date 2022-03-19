@@ -25,12 +25,12 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/support_work'); ?>">Support Work </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Support">Edit <?php echo $det->title; ?></a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Support"><?php echo $det->title; ?></a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>
@@ -70,21 +70,6 @@
                                             <li class="list-group-item">
                                                 <b>Review Period </b>
                                                 <div class="pull-right"><?php echo $det->review_period; ?></div>
-                                            </li>
-                                            <li class="list-group-item">
-                                            <b>Target task </b>
-                                                <?php 
-                                                  $check = explode(',', $det->task);
-                                            
-                                                  foreach($check as $tsk) {
-                                                
-                                                ?>
-                                                <br>
-                                                <div class="pull-right">
-                                                <?php echo $tsk; ?>
-                                                </div>
-                                                <br>
-                                                <?php } ?>
                                             </li>
                                             <li class="list-group-item">
                                                 <b>Start Date</b>
@@ -127,8 +112,7 @@
                             </div>
                             
                             <?php if(!empty($detail)){
-                            $task = explode(',', $det->task_id);
-                            $title = explode(',', $det->task);
+                            $task = explode(',', $det->task);
 
                             foreach($task as $task_id){
                             ?>

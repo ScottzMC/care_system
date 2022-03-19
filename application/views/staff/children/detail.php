@@ -27,12 +27,12 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/all'); ?>">Young People </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $child->fullname; ?> Children</li>
+                            <li class="breadcrumb-item active" aria-current="page"> <?php echo $child->fullname; ?> Children</li>
                         </ol>
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Children-profile">Edit <?php echo $child->fullname; ?></a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Children-profile"> <?php echo $child->fullname; ?></a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>
@@ -53,7 +53,7 @@
                                     <?php if(!empty($children)){ ?>
                                     <div class="card-body">
                                         <div class="user_avtar">
-                                            <img class="rounded-circle" height="200" width="200" src="https://scottnnaghor.com/harold/uploads/children/<?php echo $child->image; ?>" 
+                                            <img class="rounded-circle" height="200" width="200" src="<?php echo base_url('uploads/children/'.$child->image); ?>" 
                                             alt="<?php echo $child->fullname; ?>">
                                         </div>
                                         <br><br>

@@ -227,18 +227,6 @@
            $id = $this->input->post('del_id');
            $this->User_model->delete_user($id); 
         }
-        
-        public function search(){
-          $search_query = $this->input->post('search_query');
-          
-          $this->load->model('User_model');
-          
-          $email = $this->session->userdata('uemail');
-    
-          $data["search"] = $this->User_model->fetch_search_data($search_query);
-
-          $this->load->view('staff/user/search', $data);
-        }
 
     }
 

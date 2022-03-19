@@ -44,89 +44,6 @@
                 
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="admin-Dashboard" role="tabpanel">
-                        <div class="row clearfix">
-                            <div class="col-xl-12">
-                                <div class="card">
-                                    <!--<div class="card-header">
-                                        <h3 class="card-title">University Report</h3>
-                                        <div class="card-options">
-                                            <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
-                                            <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
-                                            <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="d-sm-flex justify-content-between">
-                                            <div class="font-12 mb-2"><span>Measure How Fast You’re Growing Monthly Recurring Revenue. <a href="#">Learn More</a></span></div>
-                                            <div class="selectgroup w250">
-                                                <label class="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="low" class="selectgroup-input" checked="">
-                                                    <span class="selectgroup-button">1D</span>
-                                                </label>
-                                                <label class="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="medium" class="selectgroup-input">
-                                                    <span class="selectgroup-button">1W</span>
-                                                </label>
-                                                <label class="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="high" class="selectgroup-input">
-                                                    <span class="selectgroup-button">1M</span>
-                                                </label>
-                                                <label class="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="veryhigh" class="selectgroup-input">
-                                                    <span class="selectgroup-button">1Y</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div id="apex-chart-line-column"></div>
-                                    </div>-->
-                                    
-                                    <!--<div class="card-footer">
-                                        <div class="row">
-                                            <div class="col-xl-3 col-md-6 mb-2">
-                                                <div class="clearfix">
-                                                    <div class="float-left"><strong>Fees</strong></div>
-                                                    <div class="float-right"><small class="text-muted">35%</small></div>
-                                                </div>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-indigo" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span class="text-uppercase font-10">Compared to last year</span>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 mb-2">
-                                                <div class="clearfix">
-                                                    <div class="float-left"><strong>Donation</strong></div>
-                                                    <div class="float-right"><small class="text-muted">61%</small></div>
-                                                </div>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-yellow" role="progressbar" style="width: 61%" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span class="text-uppercase font-10">Compared to last year</span>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 mb-2">
-                                                <div class="clearfix">
-                                                    <div class="float-left"><strong>Income</strong></div>
-                                                    <div class="float-right"><small class="text-muted">87%</small></div>
-                                                </div>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-green" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span class="text-uppercase font-10">Compared to last year</span>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 mb-2">
-                                                <div class="clearfix">
-                                                    <div class="float-left"><strong>Expense</strong></div>
-                                                    <div class="float-right"><small class="text-muted">42%</small></div>
-                                                </div>
-                                                <div class="progress progress-xs">
-                                                    <div class="progress-bar bg-pink" role="progressbar" style="width: 42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span class="text-uppercase font-10">Compared to last year</span>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                </div>
-                            </div>
-                        </div>
                         <div class="row clearfix row-deck">
                             <div class="col-xl-6 col-lg-6 col-md-12">
                                 <div class="card">
@@ -137,7 +54,6 @@
                                         <table class="table card-table table-vcenter text-nowrap table-striped mb-0">
                                             <tbody>
                                                 <tr>
-                                                    <th>Code</th>
                                                     <th>Picture</th>
                                                     <th>Full Name</th>
                                                     <th>Gender</th>
@@ -147,10 +63,9 @@
                                                 </tr>
                                                 <?php if(!empty($children)){ foreach($children as $child){ ?>
                                                 <tr>
-                                                    <td><?php echo $child->code; ?></td>
                                                     <td class="w40">
                                                         <div class="avatar">
-                                                            <img class="avatar" src="https://scottnnaghor.com/care_system/uploads/children/<?php echo $child->image; ?>" alt="<?php echo $child->fullname; ?>">
+                                                            <img class="avatar" src="<?php echo base_url('uploads/children/'.$child->image); ?>" alt="<?php echo $child->fullname; ?>">
                                                         </div>
                                                     </td>
                                                     <td>
@@ -179,10 +94,8 @@
                                         <table class="table card-table table-vcenter text-nowrap table-striped mb-0">
                                             <tbody>
                                                 <tr>
-                                                    <th>ID</th>
                                                     <th>Photo</th>
                                                     <th>Full Name</th>
-                                                    <th>Role</th>
                                                     <th>Telephone</th>
                                                     <th>City</th>
                                                     <th>State</th>
@@ -190,10 +103,9 @@
                                                 </tr>
                                                 <?php if(!empty($staff)){ foreach($staff as $stf){ ?>
                                                 <tr>
-                                                    <td><?php echo $stf->id; ?></td>
                                                     <td class="w40">
                                                         <div class="avatar">
-                                                            <img class="avatar" src="https://scottnnaghor.com/care_system/uploads/profile/<?php echo $stf->photo; ?>" alt="<?php echo $stf->firstname; ?>">
+                                                            <img class="avatar" src="<?php echo base_url('uploads/profile/'.$stf->photo); ?>" alt="<?php echo $stf->firstname; ?>">
                                                         </div>
                                                     </td>
                                                     <td>
@@ -201,7 +113,6 @@
                                                             <div><?php echo $stf->firstname; ?> <?php echo $stf->lastname; ?></div>
                                                         </a>
                                                     </td>
-                                                    <td><?php echo $stf->role; ?></td>
                                                     <td><?php echo $stf->telephone; ?></td>
                                                     <td><?php echo $stf->city; ?></td>
                                                     <td><?php echo $stf->state; ?></td>

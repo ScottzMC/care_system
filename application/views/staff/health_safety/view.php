@@ -69,7 +69,6 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Child Name</th>
                                         <th>Title</th>
                                         <th>Room Number</th>
@@ -83,7 +82,6 @@
                                 <tbody>
                                   <?php if($health_safety){ foreach($health_safety as $health){ ?>
                                     <tr>
-                                        <td><?php echo $health->id; ?></td>
                                         <td><a href="<?php echo site_url("staff/children/profile/detail/$health->code"); ?>"><span class="font-16"><?php echo $health->child_name; ?></span></a></td>
                                         <td><a href="<?php echo site_url("staff/health_safety/detail/$health->id"); ?>"><span class="font-16"><?php echo $health->title; ?></span></a></td>
                                         <td><?php echo $health->room_number; ?></td>

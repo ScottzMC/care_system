@@ -33,6 +33,7 @@
             }
             
             if(!empty($session_role) && $session_role == "Staff"){
+                $data['children'] = $this->House_model->display_all_children();
                 $data['house'] = $this->House_model->display_home($house_code);
                 $data['code'] = $house_code;
                 

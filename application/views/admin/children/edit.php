@@ -69,33 +69,32 @@
                                             <div class="form-group">
                                                 <label>Age <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="age">
-                                                    <option value="<?php echo $child->age; ?>"><?php echo $child->age; ?></option>
-                                                    <option>Select</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                    <option value="24">24</option>
-                                                    <option value="25">25</option>
+                                                <option value="<?php echo $child->age; ?>">Select</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -103,22 +102,21 @@
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Gender <span class="text-danger">*</span></label>
-                                                <select class="form-control" name="gender">
-                                                    <option><?php echo $child->gender; ?></option>
-                                                    <option>Select</option>
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                    <option value="Non-binary">Non-binary</option>
-                                                    <option value="Prefer not to say">Prefer not to say</option>
-                                                   <option value="Other">Other</option>
-                                                </select>
+                                                <input type="text" class="form-control" name="gender" value="<?php echo $child->gender; ?>">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Ethnicity <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="ethnic" value="<?php echo $child->ethnic; ?>">
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>DOB (set the date upon update) <span class="text-danger">*</span></label>
-                                                <input type="date" name="dob" class="form-control" required>
+                                                <input type="date" name="dob" class="form-control" value="empty">
                                             </div>
                                         </div>
                                         
@@ -131,36 +129,8 @@
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Ethnic Background <span class="text-danger">*</span></label>
-                                                <select class="form-control" name="ethnic">
-                                                    <option value="<?php echo $child->ethnic; ?>"><?php echo $child->ethnic; ?></option>
-                                                    <option>Select</option>
-                                                     <option value="English, Welsh, Scottish, Northern Irish or British">English, Welsh, Scottish, Northern Irish or British</option>
-                                                    <option value="Irish">Irish</option>
-                                                    <option value="Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
-                                                    <option value="Any other White background">Any other White background</option>
-                                                    <option value="White and Black Caribbean">White and Black Caribbean</option>
-                                                    <option value="White and Black African">White and Black African</option>
-                                                    <option value="White and Asian">White and Asian</option>
-                                                    <option value="Any other Mixed or Multiple ethnic background">Any other Mixed or Multiple ethnic background</option>
-                                                    <option value="Indian">Indian</option>
-                                                    <option value="Pakistani">Pakistani</option>
-                                                    <option value="Bangladeshi">Bangladeshi</option>
-                                                    <option value="Chinese">Chinese</option>
-                                                    <option value="Any other Asian background">Any other Asian background</option>
-                                                    <option value="African">African</option>
-                                                    <option value="Caribbean">Caribbean</option>
-                                                    <option value="Any other Black, African or Caribbean background">Any other Black, African or Caribbean background</option>
-                                                    <option value="Arab">Arab</option>
-                                                    <option value="Any other ethnic group">Any other ethnic group</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
                                                 <label>Child Status <span class="text-danger">*</span></label>
-                                                    <input type="text" name="child_status" class="form-control" value="<?php echo $child->child_status; ?>">
+                                                <input type="text" name="child_status" class="form-control" value="<?php echo $child->child_status; ?>">
                                             </div>
                                         </div>
                                         
@@ -168,9 +138,8 @@
                                             <div class="form-group">
                                                 <label>House Name <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="house_name">
-                                                    <option><?php echo $child->house_name; ?></option>
-                                                    <option>Select</option>
-                                                    <?php if(!empty($house)){ foreach($house as $hse){ ?>
+                                                    <option value="<?php echo $child->house_name; ?>">Select</option>
+                                                <?php if(!empty($house)){ foreach($house as $hse){ ?>
                                                     <option value="<?php echo $hse->housename; ?>"><?php echo $hse->housename; ?></option>
                                                     <?php } } ?>
                                                 </select>
@@ -191,31 +160,10 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Description of Young Person</label>
-                                                <textarea name="description" class="form-control" aria-label="With textarea"><?php echo $child->description; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>National Insurance Number <span class="text-danger">*</span></label>
-                                                <input type="text" name="nin" class="form-control" value="<?php echo $child->nin; ?>">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Date of Admission <span class="text-danger">*</span></label>
-                                                <input type="date" name="admission_date" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Date of Exit <span class="text-danger">*</span></label>
-                                                <input type="date" name="exit_date" class="form-control" required>
+                                                <input type="date" name="exit_date" value="empty" class="form-control">
                                             </div>
                                         </div>
                                         
@@ -226,37 +174,44 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-4 col-sm-12">
+                                        <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Guardian FullName <span class="text-danger">*</span></label>
-                                                <input type="text" name="guardian_fullname" class="form-control" value="<?php echo $child->guardian_fullname; ?>">
+                                                <label>Description of Young Person</label>
+                                                <textarea name="description" class="form-control" aria-label="With textarea"><?php echo $child->description; ?></textarea>
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Guardian Email <span class="text-danger">*</span></label>
+                                                <label>Social Worker <span class="text-danger">*</span></label>
+                                                <input type="text" name="guardian_fullname" class="form-control" <?php echo $child->guardian_fullname; ?>>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Social Worker Email <span class="text-danger">*</span></label>
                                                 <input type="email" name="guardian_email" class="form-control" value="<?php echo $child->guardian_email; ?>">
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Guardian Telephone Number <span class="text-danger">*</span></label>
+                                                <label>Social Worker Telephone Number <span class="text-danger">*</span></label>
                                                 <input type="text" name="guardian_telephone" class="form-control" value="<?php echo $child->guardian_telephone; ?>">
                                             </div>
                                         </div>
                                         
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Guardian Address</label>
+                                                <label>Social Worker Address</label>
                                                 <textarea name="guardian_address" class="form-control" aria-label="With textarea"><?php echo $child->guardian_address; ?></textarea>
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Date<span class="text-danger">*</span></label>
+                                                <label>Date <span class="text-danger">*</span></label>
                                                 <input type="date" name="created_date" class="form-control" required>
                                             </div>
                                         </div>

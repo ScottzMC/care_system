@@ -52,6 +52,7 @@
                       window.location.href="<?php echo site_url('staff/dashboard'); ?>";
                   </script> 
                   <?php
+                  redirect('staff/dashboard');
                   /*if(isset($_SERVER['HTTP_REFERER'])){
                     redirect($_SERVER['HTTP_REFERER']);
                   }*/

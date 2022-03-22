@@ -9,7 +9,9 @@
             $this->load->model('House_model');
             
             if(!empty($session_role) && $session_role == "Staff"){
-                $data['detail'] = $this->Handover_model->display_handover_by_id($id);
+                $data['detail'] = $this->Handover_model->display_handover_by_handover_id($id);
+                $data['ingoing'] = $this->Handover_model->display_ingoing_by_handover_id($id);
+                $data['outgoing'] = $this->Handover_model->display_outgoing_by_handover_id($id);
                 $data['house'] = $this->House_model->display_home($code);
                 $data['code'] = $code;
                 
@@ -20,88 +22,189 @@
         }
         
         public function add($code){
+            $session_role = $this->session->userdata('urole');
+            
             $this->load->model('Handover_model');
             $this->load->model('House_model');
             
-            $session_role = $this->session->userdata('urole');
-            $session_email = $this->session->userdata('uemail');
-            
             if(!empty($session_role) && $session_role == "Staff"){
+                $data['outgoing'] = $this->Handover_model->display_all_handover();
                 $data['house'] = $this->House_model->display_home($code);
-                $data['staff'] = $this->Handover_model->display_all_staff();
                 $data['code'] = $code;
                 
-                $submit_btn = $this->input->post('add');
-                
-                $house = $this->House_model->display_home($code);
-                foreach($house as $hse){
-                    $house = $hse->housename;
-                }
-                
                 $this->load->view('staff/house/handover/add', $data);
-                
-                if(isset($submit_btn)){
-                    
-                    $title = $this->input->post('title');
-                    $actions = $this->input->post('actions');
-                    $gaming = $this->input->post('gaming');
-                    $keys_pettycash = $this->input->post('keys_pettycash');
-                    $keys_pettycash_comment = $this->input->post('keys_pettycash_comment');
-                    $health_wellbeing = $this->input->post('health_wellbeing');
-                    $cleanliness = $this->input->post('cleanliness');
-                    $occupancy = $this->input->post('occupancy');
-                    $edt_police_comment = $this->input->post('edt_police_comment');
-                    $safeguarding = $this->input->post('safeguarding');
-                    $appointments_diary = $this->input->post('appointments_diary');
-                    $appointments_diary_support = $this->input->post('appointments_diary_support');
-                    $appointments_diary_remind = $this->input->post('appointments_diary_remind');
-                    $service_user = $this->input->post('service_user');
-                    $maintenance = $this->input->post('maintenance');
-                    $outgoing_staff = $this->input->post('outgoing_staff');
-                    $time = $this->input->post('time');
-                    $date = $this->input->post('date');
-                    
-                    $array = array(
-                        'title' => $title,
-                        'house_code' => $code,
-                        'housename' => $house,
-                        'actions' => $actions,
-                        'gaming' => $gaming,
-                        'keys_pettycash' => $keys_pettycash,
-                        'keys_pettycash_comment' => $keys_pettycash_comment,
-                        'health_wellbeing' => $health_wellbeing,
-                        'cleanliness' => $cleanliness,
-                        'occupancy' => $occupancy,
-                        'edt_police_comment' => $edt_police_comment,
-                        'safeguarding' => $safeguarding,
-                        'appointments_diary' => $appointments_diary,
-                        'appointments_diary_support' => $appointments_diary_support,
-                        'appointments_diary_remind' => $appointments_diary_remind,
-                        'service_user' => $service_user,
-                        'maintenance' => $maintenance,
-                        'ingoing_staff' => $session_email,
-                        'outgoing_staff' => $outgoing_staff,
-                        'time' => $time,
-                        'date' => $date
-                    );
-                    
-                    $insert = $this->Handover_model->insert_handover($array);
-                    
-                    if($insert){ ?>
-                            <script>
-                                alert('Added Successfully');
-                                window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
-                            </script>
-                  <?php }else{ ?>
-                           <script>
-                                alert('Failed');
-                                window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
-                            </script> 
-                  <?php }
-                }
             }else{
-            redirect('staff/account/login');    
-          }
+                redirect('staff/account/login');    
+            }
+        }
+        
+        public function ingoing($code){
+            $this->load->model('Handover_model');
+            $this->load->model('House_model');
+            
+            $session_email = $this->session->userdata('uemail');
+            
+            $house = $this->House_model->display_home($code);
+            foreach($house as $hse){
+                $house = $hse->housename;
+            }
+            
+            $ingoing_db = $this->Handover_model->display_ingoing($code);
+            foreach($ingoing_db as $indb){
+                $ingoing_code = $indb->handover_id;
+            }
+            
+            $handover_id = $this->input->post('handover_id');
+            $actions = $this->input->post('actions');
+            $gaming = $this->input->post('gaming');
+            $keys_pettycash = $this->input->post('keys_pettycash');
+            $keys_pettycash_comment = $this->input->post('keys_pettycash_comment');
+            $health_wellbeing = $this->input->post('health_wellbeing');
+            $cleanliness = $this->input->post('cleanliness');
+            $occupancy = $this->input->post('occupancy');
+            $edt_police_comment = $this->input->post('edt_police_comment');
+            $safeguarding = $this->input->post('safeguarding');
+            $appointments_diary = $this->input->post('appointments_diary');
+            $appointments_diary_support = $this->input->post('appointments_diary_support');
+            $appointments_diary_remind = $this->input->post('appointments_diary_remind');
+            $service_user = $this->input->post('service_user');
+            $maintenance = $this->input->post('maintenance');
+            $outstanding_task = $this->input->post('outstanding_task');
+            $time = $this->input->post('time');
+            $date = $this->input->post('date');
+            
+            $array = array(
+                'ingoing_staff' => $session_email
+            );
+            
+            if($handover_id == $ingoing_code){ ?>
+                <script>
+                    alert('Record already exist');
+                    window.location.href="<?php site_url('staff/house/all/unit/'.$code); ?>";
+                </script>
+            <?php }
+            
+            $ingoing = $this->Handover_model->update_handover($handover_id, $array);
+
+            $in_array = array(
+                'handover_id' => $handover_id,
+                'house_code' => $code,
+                'housename' => $house,
+                'actions' => $actions,
+                'gaming' => $gaming,
+                'keys_pettycash' => $keys_pettycash,
+                'keys_pettycash_comment' => $keys_pettycash_comment,
+                'health_wellbeing' => $health_wellbeing,
+                'cleanliness' => $cleanliness,
+                'occupancy' => $occupancy,
+                'edt_police_comment' => $edt_police_comment,
+                'safeguarding' => $safeguarding,
+                'appointments_diary' => $appointments_diary,
+                'appointments_diary_support' => $appointments_diary_support,
+                'appointments_diary_remind' => $appointments_diary_remind,
+                'service_user' => $service_user,
+                'maintenance' => $maintenance,
+                'outstanding_task' => $outstanding_task,
+                'time' => $time,
+                'date' => $date
+            );
+            
+            $insert = $this->Handover_model->insert_ingoing($in_array);
+            
+            if($insert && $ingoing){ ?>
+                <script>
+                    alert('Added Successfully');
+                    window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+                </script> 
+      <?php }
+        }
+        
+        public function outgoing($code){
+            $this->load->model('Handover_model');
+            $this->load->model('House_model');
+            
+            $session_email = $this->session->userdata('uemail');
+            
+            $house = $this->House_model->display_home($code);
+            foreach($house as $hse){
+                $house = $hse->housename;
+            }
+            
+            $shuffle = str_shuffle("ABCDUVXY");
+            $unique = rand(000, 999);
+            $handover_id = $shuffle.$unique;
+            $title = $this->input->post('title');
+            $actions = $this->input->post('actions');
+            $gaming = $this->input->post('gaming');
+            $keys_pettycash = $this->input->post('keys_pettycash');
+            $keys_pettycash_comment = $this->input->post('keys_pettycash_comment');
+            $health_wellbeing = $this->input->post('health_wellbeing');
+            $cleanliness = $this->input->post('cleanliness');
+            $occupancy = $this->input->post('occupancy');
+            $edt_police_comment = $this->input->post('edt_police_comment');
+            $safeguarding = $this->input->post('safeguarding');
+            $appointments_diary = $this->input->post('appointments_diary');
+            $appointments_diary_support = $this->input->post('appointments_diary_support');
+            $appointments_diary_remind = $this->input->post('appointments_diary_remind');
+            $service_user = $this->input->post('service_user');
+            $maintenance = $this->input->post('maintenance');
+            $outstanding_task = $this->input->post('outstanding_task');
+            $time = $this->input->post('time');
+            $date = $this->input->post('date');
+            
+            $array = array(
+                'handover_id' => $handover_id,
+                'title' => $title,
+                'house_code' => $code,
+                'housename' => $house,
+                'outgoing_staff' => $session_email,
+                'time' => $time,
+                'date' => $date
+            );
+            
+            $insert = $this->Handover_model->insert_handover($array);
+
+            $out_array = array(
+                'handover_id' => $handover_id,
+                'house_code' => $code,
+                'housename' => $house,
+                'actions' => $actions,
+                'gaming' => $gaming,
+                'keys_pettycash' => $keys_pettycash,
+                'keys_pettycash_comment' => $keys_pettycash_comment,
+                'health_wellbeing' => $health_wellbeing,
+                'cleanliness' => $cleanliness,
+                'occupancy' => $occupancy,
+                'edt_police_comment' => $edt_police_comment,
+                'safeguarding' => $safeguarding,
+                'appointments_diary' => $appointments_diary,
+                'appointments_diary_support' => $appointments_diary_support,
+                'appointments_diary_remind' => $appointments_diary_remind,
+                'service_user' => $service_user,
+                'maintenance' => $maintenance,
+                'outstanding_task' => $outstanding_task,
+                'time' => $time,
+                'date' => $date
+            );
+            
+            $outgoing = $this->Handover_model->insert_outgoing($out_array);
+
+            if($insert && $outgoing){ ?>
+                <script>
+                    alert('Added Successfully');
+                    window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+                </script> 
+      <?php }
         }
         
         public function delete(){
@@ -113,7 +216,7 @@
            $this->Handover_model->delete_handover($id); 
         }
         
-        public function send_mail($code){
+        /*public function send_mail($code){
             $title = $this->input->post('title');
             $actions = $this->input->post('actions');
             $gaming = $this->input->post('gaming');
@@ -186,7 +289,7 @@
                 alert("Sent to Mail");
                 window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
             </script> 
- <?php }
+ <?php }*/
 
     }
 

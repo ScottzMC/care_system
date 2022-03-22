@@ -16,6 +16,7 @@
                 $data['risk_assessment'] = $this->House_model->display_all_risk_assessment($code);
                 $data['reporting'] = $this->House_model->display_all_reporting($code);
                 $data['support_plan'] = $this->House_model->display_all_support_plan($code);
+                $data['support_work'] = $this->House_model->display_all_support_work($code);
                 $data['guest_ban'] = $this->House_model->display_all_guest_ban($code);
                 $data['children'] = $this->House_model->display_all_children();
                 $data['code'] = $code;

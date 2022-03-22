@@ -160,7 +160,6 @@
                     $age = $this->input->post('age');
                     $dob = $this->input->post('dob');
                     $child_status = $this->input->post('child_status');
-                    $admission_date = $this->input->post('admission_date');
                     $exit_date = $this->input->post('exit_date');
                     $ethnic = $this->input->post('ethnic');
                     $support_hours = $this->input->post('support_hours');
@@ -179,28 +178,37 @@
         
                     $date = $this->input->post('created_date');
                     
-                    $array = array(
-                        'fullname' => $fullname,
-                        'description' => $description,
-                        'age' => $age,
-                        'dob' => $dob,
-                        'child_status' => $child_status,
-                        'support_hours' => $support_hours,
-                        'admission_date' => $admission_date,
-                        'exit_date' => $exit_date,
-                        'ethnic' => $ethnic,
-                        'gender' => $gender,
-                        'address' => $address,
-                        'telephone' => $telephone,
-                        'guardian' => $guardian,
-                        'house_name' => $house_name,
-                        'nin' => $nin,
-                        'guardian_fullname' => $guardian_fullname,
-                        'guardian_email' => $guardian_email,
-                        'guardian_telephone' => $guardian_telephone,
-                        'guardian_address' => $guardian_address,
-                        'created_date' => $date
-                    );
+                    if(!empty($dob)){
+                        $array = array(
+                        'dob' => $dob
+                        );
+                    }
+                    
+                    if(!empty($exit_date)){
+                        $array = array(
+                        'exit_date' => $exit_date
+                        );
+                    }else{
+                        $array = array(
+                            'fullname' => $fullname,
+                            'description' => $description,
+                            'age' => $age,
+                            'child_status' => $child_status,
+                            'support_hours' => $support_hours,
+                            'ethnic' => $ethnic,
+                            'gender' => $gender,
+                            'address' => $address,
+                            'telephone' => $telephone,
+                            'guardian' => $guardian,
+                            'house_name' => $house_name,
+                            'nin' => $nin,
+                            'guardian_fullname' => $guardian_fullname,
+                            'guardian_email' => $guardian_email,
+                            'guardian_telephone' => $guardian_telephone,
+                            'guardian_address' => $guardian_address,
+                            'created_date' => $date
+                        );
+                    }
                     
                     $update_children = $this->Children_model->update_children_by_code($code, $array);
                     

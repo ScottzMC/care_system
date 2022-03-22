@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 19, 2022 at 04:15 PM
+-- Generation Time: Mar 22, 2022 at 05:54 AM
 -- Server version: 10.3.34-MariaDB-log-cll-lve
 -- PHP Version: 7.3.32
 
@@ -209,9 +209,10 @@ CREATE TABLE `children` (
 --
 
 INSERT INTO `children` (`id`, `code`, `fullname`, `email`, `description`, `age`, `dob`, `gender`, `ethnic`, `address`, `telephone`, `child_status`, `support_hours`, `admission_date`, `exit_date`, `guardian`, `nin`, `house_name`, `image`, `guardian_fullname`, `guardian_email`, `guardian_address`, `guardian_telephone`, `created_date`) VALUES
-(1, 'ABXSO123', 'Tommy Oxbridge', 'mikaela@email.com', '', 6, '2021-12-02 05:00:00', 'Male', 'Black', 'Test house, Coventry Road', '07445847194', 'Semi-Independent', '9am-5pm', '0000-00-00', '0000-00-00', 'Mother', '', 'House A', 'pexels-food-diets.jpg', 'Mikaela Oxbridge', 'mikaela@email.com', 'Test house, Coventry Avenue', '07445847194', '2021-12-01 00:00:00'),
+(1, 'ABXSO123', 'Tommy Oxbridge', 'mikaela@email.com', '', 6, '2001-01-01 05:00:00', 'Male', 'Black', 'Test house, Coventry Road', '07445847194', 'Semi-Independent', '10 hours', '2022-03-21', '2022-02-01', 'S20', '', 'House A', 'pexels-food-diets.jpg', 'Mikaela Oxbridge', 'mikaela@email.com', 'Test house, Coventry Avenue', '07445847194', '2022-03-21 00:00:00'),
 (4, 'UYCVXDABT7', 'Mike Mikaela', 'tigerphenix24@gmail.com', '', 10, '2011-01-18 05:00:00', 'Male', 'Black', '42 Manser Road\r\n', '07448457194', 'Fostered', '9am-5pm', '0000-00-00', '0000-00-00', 'Father', '', 'House A', 'banner1.jpg', 'Steve Mikaela', 'tigerphenix24@gmail.com', '42 Manser Road\r\n', '07448457194', '2021-09-20 00:00:00'),
-(10, 'DUYBVCXAT1', 'Tom Brady', 'brady@email.com', 'This is a young child', 12, '2010-05-18 04:00:00', 'Male', 'Black', '2 Manser Road', '07448457194', 'Fostered', '9am-5pm', '2022-03-17', '0000-00-00', 'Mother', 'SF9903KO', 'Collin B', 'banner3.jpg', 'Stacy', 'stacy@worker.com', '89 Jolly Tol, London', '0998987800', '2022-03-18 00:00:00');
+(10, 'DUYBVCXAT1', 'Tom Brady', 'brady@email.com', 'This is a young child', 12, '2010-05-18 04:00:00', 'Male', 'Black', '2 Manser Road', '07448457194', 'Fostered', '9am-5pm', '2022-03-17', '0000-00-00', 'Mother', 'SF9903KO', 'Collin B', 'banner3.jpg', 'Stacy', 'stacy@worker.com', '89 Jolly Tol, London', '0998987800', '2022-03-18 00:00:00'),
+(11, 'UBATVYCDX2', 'JK', 'JK@jkjkjk', 'Young', 1, '2021-05-05 04:00:00', 'Female', 'Black British', 'Bowes Road\r\n', '0202020202', 'S20', '6', '2022-01-04', '2022-03-15', 'Asylum seeker', '', 'Collin A', '', '', 'HE@hehehe', '02020202', '02020202', '2022-03-21 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -548,7 +549,9 @@ INSERT INTO `daily_log` (`id`, `code`, `house`, `title`, `summary`, `staff_initi
 (12, 'csdf897fks', 'Collin A', '12/03/2022', '<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 'SMD', '9am', '2022-03-19 04:00:00'),
 (14, 'csdf897fks', 'Collin A', '16/03/2022', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.&nbsp;</p>', 'SMD', '9am', '2022-03-19 04:00:00'),
 (16, 'abcdefghzxcqwe881', 'Collin C', '18/03/2022', 'Comments and further actions which is needed', 'SMD', '9am', '2022-03-18 04:00:00'),
-(17, 'csdf897fks', 'Collin A', '19/03/2022', '<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like PageMaker including versions of Lorem Ipsum.</p>', 'SMD', '10am', '2022-03-19 04:00:00');
+(17, 'csdf897fks', 'Collin A', '19/03/2022', '<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like PageMaker including versions of Lorem Ipsum.</p>', 'SMD', '10am', '2022-03-19 04:00:00'),
+(18, 'av98dna9d9', 'Collin B', 'DB', '<p>DB Onsite</p>', 'JK', '11.16', '2022-03-21 04:00:00'),
+(19, 'abcdefghzxcqwe881', 'Collin C', '', '<p>JK Onsite&nbsp;</p>', 'JK', '11.16', '2022-03-21 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -655,24 +658,10 @@ INSERT INTO `guest_ban` (`id`, `code`, `child_name`, `house_code`, `house`, `roo
 
 CREATE TABLE `handover` (
   `id` int(11) NOT NULL,
+  `handover_id` varchar(50) NOT NULL,
   `title` varchar(255) NOT NULL,
   `house_code` varchar(100) NOT NULL,
   `housename` varchar(255) NOT NULL,
-  `actions` varchar(10) NOT NULL,
-  `gaming` varchar(10) NOT NULL,
-  `keys_pettycash` varchar(10) NOT NULL,
-  `keys_pettycash_comment` text NOT NULL,
-  `cleanliness` longtext NOT NULL,
-  `occupancy` longtext NOT NULL,
-  `edt_police_comment` longtext NOT NULL,
-  `safeguarding` longtext NOT NULL,
-  `appointments_diary` varchar(10) NOT NULL,
-  `appointments_diary_support` varchar(10) NOT NULL,
-  `appointments_diary_remind` varchar(10) NOT NULL,
-  `service_user` longtext NOT NULL,
-  `maintenance` longtext NOT NULL,
-  `additional_info` longtext NOT NULL,
-  `health_wellbeing` varchar(10) NOT NULL,
   `ingoing_staff` varchar(255) NOT NULL,
   `outgoing_staff` varchar(255) NOT NULL,
   `time` varchar(10) NOT NULL,
@@ -683,11 +672,8 @@ CREATE TABLE `handover` (
 -- Dumping data for table `handover`
 --
 
-INSERT INTO `handover` (`id`, `title`, `house_code`, `housename`, `actions`, `gaming`, `keys_pettycash`, `keys_pettycash_comment`, `cleanliness`, `occupancy`, `edt_police_comment`, `safeguarding`, `appointments_diary`, `appointments_diary_support`, `appointments_diary_remind`, `service_user`, `maintenance`, `additional_info`, `health_wellbeing`, `ingoing_staff`, `outgoing_staff`, `time`, `date`) VALUES
-(8, '18/03/2022', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Are there any Service Users who are near their missing people’s time, or are away from the unit? *', 'Does Edt or the Police need to be updated? *', 'Any Safeguarding Concerns? If yes, has this been logged and reported to the safeguarding officer. *', 'Yes', 'Yes', 'Yes', 'Handover of each Service User:', 'Are there any maintenance issues you need to deal with during your shift? If so, do you know who to contact?', '', 'Yes', 'staff@email.com', 'steve@harold.com', '9am', '2022-03-18'),
-(7, '18/03/2022', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', ' with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Are there any Service Users who are near their missing people’s time, or are away from the unit? *', 'Does Edt or the Police need to be updated? *', 'Any Safeguarding Concerns? If yes, has this been logged and reported to the safeguarding officer. *', 'Yes', 'Yes', 'Yes', 'Handover of each Service User:', '', '', 'Yes', 'staff@email.com', 'mike275@gmail.com', '9am', '2022-03-18'),
-(9, '18/03/2022', 'abcdefghzxcqwe881', 'Collin C', 'Yes', 'Yes', 'Yes', '10000', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Are there any Service Users who are near their missing people’s time, or are away from the unit? *', 'Does Edt or the Police need to be updated? *', 'Any Safeguarding Concerns? If yes, has this been logged and reported to the safeguarding officer. *', 'Yes', 'Yes', 'Yes', 'Handover of each Service User:', 'Are there any maintenance issues you need to deal with during your shift? If so, do you know who to contact?', 'Any other information?(Passwords, PC)', 'Yes', 'oscar@harold.com', 'admin@harold.com', '10am', '2022-03-18'),
-(10, '19/03/2022', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'Yes', 'Yes', 'Yes', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', '', 'Yes', 'staff@email.com', 'oscar@harold.com', '10am', '2022-03-19');
+INSERT INTO `handover` (`id`, `handover_id`, `title`, `house_code`, `housename`, `ingoing_staff`, `outgoing_staff`, `time`, `date`) VALUES
+(3, 'YCUBXVDA19', '22/03/2022', 'csdf897fks', 'Collin A', 'staff@harold.com', 'staff@harold.com', '10am', '2022-03-22');
 
 -- --------------------------------------------------------
 
@@ -699,6 +685,8 @@ CREATE TABLE `health_safety` (
   `id` int(11) NOT NULL,
   `code` varchar(50) NOT NULL,
   `child_name` varchar(100) NOT NULL,
+  `house_code` varchar(50) NOT NULL,
+  `house_name` varchar(255) NOT NULL,
   `title` varchar(100) NOT NULL,
   `additional_info` longtext NOT NULL,
   `room_number` varchar(10) NOT NULL,
@@ -718,9 +706,10 @@ CREATE TABLE `health_safety` (
 -- Dumping data for table `health_safety`
 --
 
-INSERT INTO `health_safety` (`id`, `code`, `child_name`, `title`, `additional_info`, `room_number`, `safety_check`, `recorded_by`, `due_date`, `image1`, `image2`, `image3`, `image4`, `image5`, `document`, `created_date`) VALUES
-(7, 'DUYBVCXAT1', 'Tom Brady', 'Heath for Brady', 'Comments and further actions', '102', 'none', 'Matthew', '2022-03-19 04:00:00', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-24.jpg', 'featured-image-21.jpg', '5_6233106464102154839.pdf', '2022-03-19 04:00:00'),
-(5, 'ABXSO123', 'Tommy Oxbridge', 'New health record', 'This is a new comment', '101', 'none', 'Matthew', '2022-03-19 04:00:00', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-21.jpg', 'featured-image-24.jpg', 'installation.pdf', '2022-03-19 04:00:00');
+INSERT INTO `health_safety` (`id`, `code`, `child_name`, `house_code`, `house_name`, `title`, `additional_info`, `room_number`, `safety_check`, `recorded_by`, `due_date`, `image1`, `image2`, `image3`, `image4`, `image5`, `document`, `created_date`) VALUES
+(7, 'DUYBVCXAT1', 'Tom Brady', '', '', 'Heath for Brady', 'Comments and further actions', '102', 'none', 'Matthew', '2022-03-19 04:00:00', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-24.jpg', 'featured-image-21.jpg', '5_6233106464102154839.pdf', '2022-03-19 04:00:00'),
+(5, 'ABXSO123', 'Tommy Oxbridge', '', '', 'New health record', 'This is a new comment', '101', 'none', 'Matthew', '2022-03-19 04:00:00', 'featured-image-21.jpg', 'featured-image-22.jpg', 'featured-image-23.jpg', 'featured-image-21.jpg', 'featured-image-24.jpg', 'installation.pdf', '2022-03-19 04:00:00'),
+(10, 'DUYBVCXAT1', 'Tom Brady', 'csdf897fks', 'Collin A', 'Collin Health', 'Comments and further actions', '103', 'none', 'Matthew', '2022-03-20 04:00:00', 'featured-image-21.jpg', 'featured-image-23.jpg', 'featured-image-24.jpg', 'featured-image-22.jpg', 'featured-image-24.jpg', 'S-34_E_079.pdf', '2022-03-21 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -744,6 +733,43 @@ INSERT INTO `independent_living` (`id`, `title`) VALUES
 (7, 'Filling a form'),
 (5, 'Bathing'),
 (6, 'Eating a meal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ingoing`
+--
+
+CREATE TABLE `ingoing` (
+  `id` int(11) NOT NULL,
+  `handover_id` varchar(50) NOT NULL,
+  `house_code` varchar(100) NOT NULL,
+  `housename` varchar(255) NOT NULL,
+  `actions` varchar(10) NOT NULL,
+  `gaming` varchar(10) NOT NULL,
+  `keys_pettycash` varchar(10) NOT NULL,
+  `keys_pettycash_comment` text NOT NULL,
+  `cleanliness` longtext NOT NULL,
+  `occupancy` longtext NOT NULL,
+  `edt_police_comment` longtext NOT NULL,
+  `safeguarding` longtext NOT NULL,
+  `appointments_diary` varchar(10) NOT NULL,
+  `appointments_diary_support` varchar(10) NOT NULL,
+  `appointments_diary_remind` varchar(10) NOT NULL,
+  `service_user` longtext NOT NULL,
+  `maintenance` longtext NOT NULL,
+  `outstanding_task` longtext NOT NULL,
+  `health_wellbeing` varchar(10) NOT NULL,
+  `time` varchar(10) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ingoing`
+--
+
+INSERT INTO `ingoing` (`id`, `handover_id`, `house_code`, `housename`, `actions`, `gaming`, `keys_pettycash`, `keys_pettycash_comment`, `cleanliness`, `occupancy`, `edt_police_comment`, `safeguarding`, `appointments_diary`, `appointments_diary_support`, `appointments_diary_remind`, `service_user`, `maintenance`, `outstanding_task`, `health_wellbeing`, `time`, `date`) VALUES
+(13, 'YCUBXVDA19', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Yes', 'Yes', 'Yes', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Yes', '10am', '2022-03-22');
 
 -- --------------------------------------------------------
 
@@ -791,6 +817,44 @@ CREATE TABLE `legal_document` (
 
 INSERT INTO `legal_document` (`id`, `title`, `body`, `document`, `created_time`, `created_date`) VALUES
 (1, 'Tedt', 'This is a test', 'Scott_Nnaghor_CV-converted.pdf', 1635433910, '2021-10-23 04:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `outgoing`
+--
+
+CREATE TABLE `outgoing` (
+  `id` int(11) NOT NULL,
+  `handover_id` varchar(50) NOT NULL,
+  `house_code` varchar(100) NOT NULL,
+  `housename` varchar(255) NOT NULL,
+  `actions` varchar(10) NOT NULL,
+  `gaming` varchar(10) NOT NULL,
+  `keys_pettycash` varchar(10) NOT NULL,
+  `keys_pettycash_comment` text NOT NULL,
+  `cleanliness` longtext NOT NULL,
+  `occupancy` longtext NOT NULL,
+  `edt_police_comment` longtext NOT NULL,
+  `safeguarding` longtext NOT NULL,
+  `appointments_diary` varchar(10) NOT NULL,
+  `appointments_diary_support` varchar(10) NOT NULL,
+  `appointments_diary_remind` varchar(10) NOT NULL,
+  `service_user` longtext NOT NULL,
+  `maintenance` longtext NOT NULL,
+  `additional_info` longtext NOT NULL,
+  `outstanding_task` longtext NOT NULL,
+  `health_wellbeing` varchar(10) NOT NULL,
+  `time` varchar(10) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `outgoing`
+--
+
+INSERT INTO `outgoing` (`id`, `handover_id`, `house_code`, `housename`, `actions`, `gaming`, `keys_pettycash`, `keys_pettycash_comment`, `cleanliness`, `occupancy`, `edt_police_comment`, `safeguarding`, `appointments_diary`, `appointments_diary_support`, `appointments_diary_remind`, `service_user`, `maintenance`, `additional_info`, `outstanding_task`, `health_wellbeing`, `time`, `date`) VALUES
+(17, 'YCUBXVDA19', 'csdf897fks', 'Collin A', 'Yes', 'Yes', 'Yes', '1000', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Yes', 'Yes', 'Yes', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', '', 'Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms? *', 'Yes', '10am', '2022-03-22');
 
 -- --------------------------------------------------------
 
@@ -1193,6 +1257,7 @@ CREATE TABLE `support_work` (
   `child_name` varchar(200) NOT NULL,
   `title` varchar(70) NOT NULL,
   `body` longtext NOT NULL,
+  `house_code` varchar(50) NOT NULL,
   `house_name` varchar(200) NOT NULL,
   `image` text NOT NULL,
   `review_period` text NOT NULL,
@@ -1207,11 +1272,11 @@ CREATE TABLE `support_work` (
 -- Dumping data for table `support_work`
 --
 
-INSERT INTO `support_work` (`id`, `code`, `child_name`, `title`, `body`, `house_name`, `image`, `review_period`, `task`, `start_date`, `target_date`, `completed_date`, `created_date`) VALUES
-(34, 'ABXSO123', 'ABXSO123', 'Ghost', 'Comments', 'Collin A', 'featured-image-21.jpg', '', '1', '2022-03-14', '2022-03-17', '2022-03-18', '2022-03-19 00:00:00'),
-(35, 'UYCVXDABT7', 'Mike Mikaela', 'New work', 'This is a new work that has been added', 'Collin A', 'banner1.jpg', '1 month', '1,3', '2022-03-07', '2022-03-12', '2022-03-14', '2022-03-15 00:00:00'),
-(40, 'DUYBVCXAT1', 'Tom Brady', 'Brady own target', 'Comments and further actions', 'Collin B', 'banner1.jpg', '1 month', '3,4', '2022-03-14', '2022-03-17', '2022-03-19', '2022-03-19 00:00:00'),
-(42, 'DUYBVCXAT1', 'DUYBVCXAT1', 'Disney gold', 'Comments', 'Collin B', 'banner1.jpg', '', '4', '2022-03-14', '2022-03-17', '2022-03-18', '2022-03-19 00:00:00');
+INSERT INTO `support_work` (`id`, `code`, `child_name`, `title`, `body`, `house_code`, `house_name`, `image`, `review_period`, `task`, `start_date`, `target_date`, `completed_date`, `created_date`) VALUES
+(35, 'UYCVXDABT7', 'Mike Mikaela', 'New work', 'This is a new work that has been added', 'csdf897fks', 'Collin A', 'banner1.jpg', '1 month', '1,3', '2022-03-07', '2022-03-12', '2022-03-14', '2022-03-15 00:00:00'),
+(40, 'DUYBVCXAT1', 'Tom Brady', 'Brady own target', 'Comments and further actions', 'AV98DNA9D9', 'Collin B', 'banner1.jpg', '1 month', '3,4', '2022-03-14', '2022-03-17', '2022-03-19', '2022-03-19 00:00:00'),
+(42, 'DUYBVCXAT1', 'DUYBVCXAT1', 'Disney gold', 'Comments', 'AV98DNA9D9', 'Collin B', 'banner1.jpg', '', '4', '2022-03-14', '2022-03-17', '2022-03-18', '2022-03-19 00:00:00'),
+(43, 'DUYBVCXAT1', 'Tom Brady', 'Support act', 'Comments and further actions', 'csdf897fks', 'Collin A', 'featured-image-21.jpg', '1 month', '1', '2022-03-14', '2022-03-21', '2022-03-21', '2022-03-21 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1319,10 +1384,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `code`, `firstname`, `lastname`, `email`, `password`, `role`, `telephone`, `address1`, `address2`, `postcode`, `city`, `state`, `photo`, `logged_in_time`, `logged_in_date`, `created_time`, `created_date`) VALUES
 (1, 'AXVKBEOMLSO789', 'Scott', 'Nnaghor', 'scottphenix24@gmail.com', '$2a$08$hOKXiDR3/phlWyFNo2ioY.bmXiMZfVW.QtQ8JaZIRcWOkGPeDJob.', 'Admin', '07368660611', '93 Wilmington Gardens', 'none', 'IG11 9TR', 'Barking', 'London', '116-1168169_pictures-of-dragon-ying-yang-wallpapers-data-src.jpg', 1644269291, '2022-02-07 21:28:11', 1630515388, '2021-09-01 16:56:28'),
 (6, 'AJJOKBEMLSO749', 'Tommy', 'Harden', 'hr@email.com', '$2a$08$VClqZ.XQ.IvdeiokzGVwQ.gasbjJWIrUfVNyn3SqfReh.pjKq7wki', 'HR', '07448457194', '54 Test Avenue, London', 'none', 'TR12 9ML', 'Coventry', 'London', 'banner1.jpg', 1647609226, '2022-03-18 13:13:46', 1635363009, '2021-10-27 19:30:09'),
-(8, 'AXVKBEOMCXZ234', 'James', 'Arnold', 'staff@email.com', '$2a$08$qDmZ.EFdkkLzvz6j/tE7IOaCf9kMjR39MHzQH41lur2aF4X4RRHf.', 'Staff', '', '', '', '', '', '', 'banner1.jpg', 1647703653, '2022-03-19 15:27:33', 1636391984, '2021-11-08 17:19:44'),
-(9, 'AXZCDWEKNIA343', 'Steve', 'Terry', 'admin@harold.com', '$2a$08$g69CZNb.dusxrtc0pBTcXeq7qfyp/nfGHEBDeDdc.8DbO97uz7XKK', 'Admin', '', '', '', '', '', '', 'banner3.jpg', 1647703625, '2022-03-19 15:27:05', 1637228399, '2021-11-18 09:39:59'),
+(8, 'AXVKBEOMCXZ234', 'James', 'Arnold', 'staff@email.com', '$2a$08$qDmZ.EFdkkLzvz6j/tE7IOaCf9kMjR39MHzQH41lur2aF4X4RRHf.', 'Staff', '', '', '', '', '', '', 'banner1.jpg', 1647856172, '2022-03-21 09:49:32', 1636391984, '2021-11-08 17:19:44'),
+(9, 'AXZCDWEKNIA343', 'Steve', 'Terry', 'admin@harold.com', '$2a$08$g69CZNb.dusxrtc0pBTcXeq7qfyp/nfGHEBDeDdc.8DbO97uz7XKK', 'Admin', '', '', '', '', '', '', 'banner3.jpg', 1647856192, '2022-03-21 09:49:52', 1637228399, '2021-11-18 09:39:59'),
 (12, 'AZZ2EOMALOD223', 'Mike', 'Mikaela', 'mike275@gmail.com', '$2a$08$c4R8fLMWnTugGxxs/ORRA.u63P.U9jI65wpEi/jLyDkvBrRGz2mWC', 'Staff', '07448457194', '42 Manser Road', 'none', 'RM13 8N', 'London', 'London', 'banner1.jpg', 0, '2021-11-26 10:45:41', 1637923541, '2021-11-26 10:45:41'),
-(13, 'ABCDEFGHZXCQWE237', 'Richard', 'Ricky', 'staff@harold.com', '$2a$08$z4XknsfuJrK5Zh.SMYNNHeNM2bk9eYjZQ1hwCkTE.oMuxR8nloB.i', 'Staff', '02023429481', '32 Great baker street, London', '', 'EC1 2RY', 'London', 'London', 'banner3.jpg', 1646005271, '2022-02-27 23:41:11', 1644281398, '2022-02-08 00:49:58'),
+(13, 'ABCDEFGHZXCQWE237', 'Richard', 'Ricky', 'staff@harold.com', '$2a$08$z4XknsfuJrK5Zh.SMYNNHeNM2bk9eYjZQ1hwCkTE.oMuxR8nloB.i', 'Staff', '02023429481', '32 Great baker street, London', '', 'EC1 2RY', 'London', 'London', 'banner3.jpg', 1647875059, '2022-03-21 15:04:19', 1644281398, '2022-02-08 00:49:58'),
 (14, 'ABCDEFGHZXCQWE964', 'Steven', 'Hockendon', 'steve@harold.com', '$2a$08$jxbVYdX0xpGZJcXRTUtCOeQ75KowElnWGYAwxLCUv2iLzgW5HybUe', 'Staff', '02023429481', '32 Baker Street, London', '', 'EC1 2RY', 'London', 'London', '1.png', 0, '2022-02-08 12:59:37', 1644325177, '2022-02-08 12:59:37'),
 (15, 'ABCDEFGHZXCQWE501', 'Oscar', 'Piastri', 'oscar@harold.com', '$2a$08$SyCcSu/HjfQjD7O121jCMuhPMdCasQYV8Zg3zH7M9EqVbKyqUjFZm', 'Staff', '074458457194', 'Ghost town, Illford', 'none', 'IG1 8TT', 'London', 'London', 'banner1.jpg', 0, '2022-03-15 20:07:47', 1647374867, '2022-03-15 20:07:47');
 
@@ -1510,6 +1575,12 @@ ALTER TABLE `independent_living`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ingoing`
+--
+ALTER TABLE `ingoing`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `leave_application`
 --
 ALTER TABLE `leave_application`
@@ -1519,6 +1590,12 @@ ALTER TABLE `leave_application`
 -- Indexes for table `legal_document`
 --
 ALTER TABLE `legal_document`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `outgoing`
+--
+ALTER TABLE `outgoing`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1679,7 +1756,7 @@ ALTER TABLE `calendar_events`
 -- AUTO_INCREMENT for table `children`
 --
 ALTER TABLE `children`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `children_abilities_evaluation`
@@ -1757,7 +1834,7 @@ ALTER TABLE `children_supervision_action`
 -- AUTO_INCREMENT for table `daily_log`
 --
 ALTER TABLE `daily_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `dbs_certificate`
@@ -1787,19 +1864,25 @@ ALTER TABLE `guest_ban`
 -- AUTO_INCREMENT for table `handover`
 --
 ALTER TABLE `handover`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `health_safety`
 --
 ALTER TABLE `health_safety`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `independent_living`
 --
 ALTER TABLE `independent_living`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `ingoing`
+--
+ALTER TABLE `ingoing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `leave_application`
@@ -1812,6 +1895,12 @@ ALTER TABLE `leave_application`
 --
 ALTER TABLE `legal_document`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `outgoing`
+--
+ALTER TABLE `outgoing`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `procedure_pol`
@@ -1895,7 +1984,7 @@ ALTER TABLE `support_plan`
 -- AUTO_INCREMENT for table `support_work`
 --
 ALTER TABLE `support_work`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `support_work_subtask`

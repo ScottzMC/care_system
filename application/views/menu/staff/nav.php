@@ -33,8 +33,6 @@
                     <li><a href="<?php echo site_url('staff/dashboard'); ?>"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
                     <li><a href="<?php echo site_url('staff/user'); ?>"><i class="fa fa-users"></i><span>Users</span></a></li>
                     <li><a href="<?php echo site_url('staff/children/all'); ?>"><i class="fa fa-users"></i><span>Young People</span></a></li>
-                    <li><a href="<?php echo site_url('staff/health_safety'); ?>"><i class="fa fa-book"></i><span>Health & Safety</span></a></li>
-                    <li><a href="<?php echo site_url('staff/support_work'); ?>"><i class="fa fa-book"></i><span>Support Work</span></a></li>
                     <?php if(!empty($this->session->userdata('uemail'))){ ?>
                     <li><a href="<?php echo site_url('staff/account/logout'); ?>"><i class="fe fe-power"></i><span>Logout</span></a></li>
                   <?php } ?>

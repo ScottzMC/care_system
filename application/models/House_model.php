@@ -32,6 +32,17 @@
             return $query;
         }
         
+        public function display_all_support_work($code){
+            $this->db->where('house_code', $code);
+            $query = $this->db->get('support_work')->result();
+            return $query;
+        }
+        
+        public function display_all_health_safety(){
+            $query = $this->db->get('health_safety')->result();
+            return $query;
+        }
+        
         public function display_all_handover($code){
             $this->db->where('house_code', $code);
             $this->db->order_by('title', 'ASC');

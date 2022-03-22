@@ -111,20 +111,28 @@
                                                 <div class="pull-right"><?php echo $child->nin; ?></div>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Guardian Full Name </b>
+                                                <b>Social Worker </b>
                                                 <div class="pull-right"><?php echo $child->guardian_fullname; ?></div>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Guardian Email </b>
+                                                <b>Social Worker Email </b>
                                                 <div class="pull-right"><?php echo $child->guardian_email; ?></div>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Guardian Telephone </b>
+                                                <b>Social Worker Telephone </b>
                                                 <div class="pull-right"><?php echo $child->guardian_telephone; ?></div>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Guardian Address</b>
+                                                <b>Social Worker Address</b>
                                                 <div class="pull-right"><?php echo $child->guardian_address; ?></div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Admission date</b>
+                                                <div class="pull-right"><?php echo date('l, dS M Y',strtotime($child->admission_date)); ?></div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <b>Exit date</b>
+                                                <div class="pull-right"><?php echo date('l, dS M Y',strtotime($child->exit_date)); ?></div>
                                             </li>
                                             <li class="list-group-item">
                                                 <b>Action</b>

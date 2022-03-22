@@ -59,7 +59,9 @@
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Keywork-all">Keywork Session</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Risk-all">Risk Assessment</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Reporting-all">Reporting</a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-all">Support plan</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Health-all">Health & Safety</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-all">Support Plan</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-work-all">Support Work</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Staff-Communication-all">Staff Communication</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Handover-all">Handover</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Guest-all">Guest ban</a></li>
@@ -264,6 +266,68 @@
                         </div>
                     </div>
                     
+                    <div class="tab-pane show" id="Health-all">
+                        <script>
+                        function delete_health_safety(id){
+                          var del_id = id;
+                          if(confirm("Are you sure you want to delete this health & safety")){
+                          $.post('<?php echo base_url('staff/house/health_safety/delete'); ?>', {"del_id": del_id}, function(data){
+                            alert('Deleted Successfully');
+                            location.reload();
+                            $('#cti').html(data)
+                            });
+                          }
+                        }
+                        
+                        $(function(){
+                          $('#downloadable').click(function(){
+                             
+                             window.location.href = "<?php echo site_url('staff/house/health_safety/download') ?>?file_name="+ $(this).attr('href');
+                          });
+                        });
+                        
+                        </script>
+
+                        <p id='ctr'></p>
+
+                        <div class="table-responsive">
+                          <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
+                                <thead>
+                                    <tr>
+                                        <th>Child Name</th>
+                                        <th>Title</th>
+                                        <th>Room Number</th>
+                                        <th>Recorded By</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                        <th><a href="<?php echo site_url('staff/house/health_safety/add/'.$code); ?>">Add</a></th>
+                                        <th>Action</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <?php if($health_safety){ foreach($health_safety as $health){ ?>
+                                    <tr>
+                                        <td><a href="<?php echo site_url("staff/children/profile/detail/$health->code"); ?>"><span class="font-16"><?php echo $health->child_name; ?></span></a></td>
+                                        <td><a href="<?php echo site_url("staff/house/health_safety/detail/$health->id/$code"); ?>"><span class="font-16"><?php echo $health->title; ?></span></a></td>
+                                        <td><?php echo $health->room_number; ?></td>
+                                        <td><?php echo $health->recorded_by; ?></td>
+                                        <td><?php echo date('l, dS M Y',strtotime($health->created_date)); ?></td>
+                                        <td>
+                                        <?php if(!empty($health_safety)){ ?>
+                                        <a href="<?php echo base_url('staff/house/health_safety/download/'.$health->id); ?>" target="_blank">Download</a>
+                                        <?php }else{ echo ''; } ?>
+                                        </td>
+                                        <td><a href="<?php echo site_url("staff/house/health_safety/add/$code"); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url("staff/house/health_safety/edit/$health->id/$code"); ?>">Edit</a></td>
+                                        <td><button type="button" onclick="delete_health_safety(<?php echo $health->id; ?>)">Delete</button></td>
+                                    </tr>
+                                  <?php } }else{ echo ''; } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
                     <div class="tab-pane show" id="Support-all">
                         <script>
                         function delete_support_plan(id){
@@ -313,6 +377,53 @@
                                         <td><a href="<?php echo site_url('staff/house/support_plan/add/'.$code); ?>">Add</a></td>
                                         <td><a href="<?php echo site_url('staff/house/support_plan/edit/'.$support->id.'/'.$support->code.'/'.$code); ?>">Edit</a></td>
                                         <td><button type="button" onclick="delete_support_plan(<?php echo $support->id; ?>)">Delete</button></td>
+                                    </tr>
+                                  <?php } }else{ echo ''; } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane show" id="Support-work-all">
+                        <script>
+                        function delete_support_work(id){
+                          var del_id = id;
+                          if(confirm("Are you sure you want to delete this support plan")){
+                          $.post('<?php echo base_url('staff/house/support_work/delete'); ?>', {"del_id": del_id}, function(data){
+                            alert('Deleted Successfully');
+                            location.reload();
+                            $('#cti').html(data)
+                            });
+                          }
+                        }
+                        
+                        </script>
+
+                        <p id='cti'></p>
+
+                        <div class="table-responsive">
+                          <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
+                                <thead>
+                                    <tr>
+                                        <th>Child name</th>
+                                        <th>Topic</th>
+                                        <th>House Name</th>
+                                        <th>Date</th>
+                                        <th><a href="<?php echo site_url('staff/house/support_work/add/'.$code); ?>">Add</a></th>
+                                        <th>Action</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <?php if($support_work){ foreach($support_work as $work){ ?>
+                                    <tr>
+                                        <td><a href="<?php echo site_url('staff/children/detail/'.$work->code); ?>"><span class="font-16"><?php echo $support->child_name; ?></span></a></td>
+                                        <td><a href="<?php echo site_url('staff/house/support_work/detail/'.$work->id.'/'.$code); ?>"><span class="font-16"><?php echo $work->title; ?></span></a></td>
+                                        <td><?php echo $work->house_name; ?></td>
+                                        <td><?php echo date('l, dS M Y',strtotime($work->created_date)); ?></td>
+                                        <td><a href="<?php echo site_url('staff/house/support_work/add/'.$code); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url('staff/house/support_work/edit/'.$work->id.'/'.$code); ?>">Edit</a></td>
+                                        <td><button type="button" onclick="delete_support_work(<?php echo $work->id; ?>)">Delete</button></td>
                                     </tr>
                                   <?php } }else{ echo ''; } ?>
                                 </tbody>
@@ -404,7 +515,7 @@
                                     }
                                   ?>
                                     <tr>
-                                        <td><a href="<?php echo site_url("staff/house/handover/detail/$hand->id/$code"); ?>"><span class="font-16"><?php echo $hand->title; ?></span></a></td>
+                                        <td><a href="<?php echo site_url("staff/house/handover/detail/$hand->handover_id/$code"); ?>"><span class="font-16"><?php echo $hand->title; ?></span></a></td>
                                         <td><?php echo $hand->time; ?></td>
                                         <?php if(!empty($query)){ ?>
                                         <td><?php echo $ingoing_firstname; ?> <?php echo $ingoing_lastname; ?></td>

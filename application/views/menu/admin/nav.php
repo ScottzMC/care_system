@@ -34,8 +34,6 @@
                     <li><a href="<?php echo site_url('admin/user'); ?>"><i class="fa fa-users"></i><span>Users</span></a></li>
                     <li><a href="<?php echo site_url('admin/appointment'); ?>"><i class="fa fa-calendar"></i><span>Appointments</span></a></li>
                     <li><a href="<?php echo site_url('admin/children/all'); ?>"><i class="fa fa-users"></i><span>Young People</span></a></li>
-                    <li><a href="<?php echo site_url('admin/support_work'); ?>"><i class="fa fa-book"></i><span>Support Work</span></a></li>
-                    <li><a href="<?php echo site_url('admin/health_safety'); ?>"><i class="fa fa-book"></i><span>Health & Safety</span></a></li>
                     <li><a href="<?php echo site_url('admin/procedure'); ?>"><i class="fa fa-book"></i><span>Policy & Procedure</span></a></li>
                     <?php if(!empty($this->session->userdata('login'))){ ?>
                     <li><a href="<?php echo site_url('admin/account/logout'); ?>"><i class="fe fe-power"></i><span>Logout</span></a></li>

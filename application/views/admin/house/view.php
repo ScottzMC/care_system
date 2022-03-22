@@ -60,6 +60,7 @@
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Risk-all">Risk Assessment</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Reporting-all">Reporting</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-all">Support plan</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-work-all">Support Work</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Staff-Communication-all">Staff Communication</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Handover-all">Handover</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Guest-all">Guest ban</a></li>
@@ -313,6 +314,52 @@
                                         <td><a href="<?php echo site_url('admin/house/support_plan/add/'.$code); ?>">Add</a></td>
                                         <td><a href="<?php echo site_url('admin/house/support_plan/edit/'.$support->id.'/'.$support->code.'/'.$code); ?>">Edit</a></td>
                                         <td><button type="button" onclick="delete_support_plan(<?php echo $support->id; ?>)">Delete</button></td>
+                                    </tr>
+                                  <?php } }else{ echo ''; } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane show" id="Support-work-all">
+                        <script>
+                        function delete_support_work(id){
+                          var del_id = id;
+                          if(confirm("Are you sure you want to delete this support plan")){
+                          $.post('<?php echo base_url('staff/house/support_work/delete'); ?>', {"del_id": del_id}, function(data){
+                            alert('Deleted Successfully');
+                            location.reload();
+                            $('#cti').html(data)
+                            });
+                          }
+                        }
+                        
+                        </script>
+
+                        <p id='cti'></p>
+
+                        <div class="table-responsive">
+                          <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
+                                <thead>
+                                    <tr>
+                                        <th>FullName</th>
+                                        <th>Topic</th>
+                                        <th>Date</th>
+                                        <th><a href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>">Add</a></th>
+                                        <th>Action</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <?php if($support_work){ foreach($support_work as $work){ ?>
+                                    <tr>
+                                        <td><a href="<?php echo site_url('admin/children/detail/'.$work->code); ?>"><span class="font-16"><?php echo $work->child_name; ?></span></a></td>
+                                        <td><a href="<?php echo site_url('admin/support_work/detail/'.$work->id.'/'.$code); ?>"><span class="font-16"><?php echo $work->title; ?></span></a></td>
+                                        <td><?php echo $work->house_name; ?></td>
+                                        <td><?php echo date('l, dS M Y',strtotime($work->created_date)); ?></td>
+                                        <td><a href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url('admin/house/support_work/edit/'.$work->id.'/'.$code); ?>">Edit</a></td>
+                                        <td><button type="button" onclick="delete_support_work(<?php echo $work->id; ?>)">Delete</button></td>
                                     </tr>
                                   <?php } }else{ echo ''; } ?>
                                 </tbody>

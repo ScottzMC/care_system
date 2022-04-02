@@ -64,17 +64,6 @@
                                                 <b>Date</b>
                                                 <div class="pull-right"><?php echo date('j M Y', strtotime($det->start_date)); ?></div>
                                             </li>
-                                            <li class="list-group-item">
-                                                <b>Send Mail</b>
-                                                <form action="<?php echo base_url('admin/training/send_mail'); ?>" method="POST">
-                                                <input class="form-control" type="email" name="email" placeholder="Email Address">
-                                                <input type="hidden" name="title" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="body" value="<?php echo $det->body; ?>">
-                                                <input type="hidden" name="created_date" value="<?php echo date('l, dS M Y',strtotime($det->start_date)); ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>
-                                            </li>
                                         </ul>
                                     </div>
                                     <?php } ?>

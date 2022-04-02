@@ -7,7 +7,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($children as $child){} ?>
 <?php foreach($incident as $inc){} ?>
-<title>Edit <?php echo $inc->child_name; ?> Young People || Staff || Harold</title>
+<title>Edit <?php echo $inc->child_name; ?> Young People || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 

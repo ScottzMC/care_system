@@ -29,9 +29,9 @@
                         <h1 class="page-title">Support Plan</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/support_plan/view/'.strtolower($code)); ?>">Support Plan</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
@@ -98,27 +98,73 @@
                                                 <b>Action</b>
                                                 <div class="pull-right"><a href="<?php echo site_url("admin/house/support_plan/edit/$det->id/$det->code/$code"); ?>">Edit</a></div>
                                             </li>
-                                            <li class="list-group-item">
-                                                <b>Send Mail</b>
-                                                <form action="<?php echo base_url('admin/house/support_plan/send_mail/'.$code); ?>" method="POST">
-                                                <input class="form-control" type="email" name="email" placeholder="Recepient email">
-                                                <input type="hidden" name="code" value="<?php echo $det->code; ?>">
-                                                <input type="hidden" name="child_name" value="<?php echo $det->child_name; ?>">
-                                                <input type="hidden" name="title" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="area_of_support" value="<?php echo $det->area_of_support; ?>">
-                                                <input type="hidden" name="plan_of_action" value="<?php echo $det->plan_of_action; ?>">
-                                                <input type="hidden" name="support_me" value="<?php echo $det->support_me; ?>">
-                                                <input type="hidden" name="often_will_support" value="<?php echo $det->often_will_support; ?>">
-                                                <input type="hidden" name="hours_spent_task" value="<?php echo $det->hours_spent_task; ?>">
-                                                <input type="hidden" name="additional_info" value="<?php echo $det->additional_info; ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form> 
-                                            </li>
                                         </ul>
                                     </div>
                                     <?php } ?>
                                 </div>
+                                
+                                <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Send Mail</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('admin/house/support_plan/send_mail/'.$det->id.'/'.$code); ?>" method="POST">
+                                                <input class="form-control" type="email" name="email" placeholder="Recipent email">
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Generate PDF</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <form action="<?php echo base_url('admin/generate_pdf/support_plan/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <div class="pull-right"><button type="submit">Generate PDF</button></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Upload PDF</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('admin/house/support_plan/edit_document/'.$det->id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Document<span class="text-danger">*</span></label>
+                                                        <input type="file" name="userFiles1[]" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Upload</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            
+                            </div>
                                 
                                 <?php if(!empty($support_comment)){ foreach($support_comment as $comment){ ?>
                                 <div class="card">

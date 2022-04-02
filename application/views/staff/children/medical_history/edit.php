@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($children as $child){} ?>
-<title>Edit <?php echo $child->fullname; ?> Young People || Admin || Harold</title>
+<title>Edit <?php echo $child->fullname; ?> Young People || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<?php foreach($children as $child){} ?>
-<title>Edit <?php echo $child->fullname; ?> Young People || staff || Harold</title>
+<?php foreach($absences as $abs){} ?>
+<title>Edit <?php echo $abs->child_name; ?> Young People || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 
@@ -50,7 +50,7 @@
                         
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Edit <?php echo $child->fullname; ?> EDT</h3>
+                                <h3 class="card-title">Edit <?php echo $abs->child_name; ?> EDT</h3>
                             </div>
                             <div class="card-body">
                                 <form action="<?php echo base_url('staff/children/edt/edit/'.$abs->id.'/'.$abs->code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">

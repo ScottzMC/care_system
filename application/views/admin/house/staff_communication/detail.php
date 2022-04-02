@@ -30,9 +30,9 @@
                         <h1 class="page-title">Staff communication</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/staff_communication/view/'.strtolower($code)); ?>">Staff Communication</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
@@ -78,23 +78,75 @@
                                             <div class="pull-right"><a href="<?php echo site_url("admin/house/staff_communication/edit/$det->id/$code"); ?>">Edit</a></div>
                                         </div>
                                         
-                                        <div class="timeline_item ">
-                                            <form action="<?php echo base_url('admin/house/staff_communication/send_mail/'.$code); ?>" method="POST">
-                                                <input class="form-control" type="email" name="email" placeholder="Recepient email address">
-                                                <input type="hidden" name="title" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="request" value="<?php echo $det->request; ?>">
-                                                <input type="hidden" name="time" value="<?php echo $det->time; ?>">
-                                                <input type="hidden" name="created_date" value="<?php echo date('j M Y', strtotime($det->created_date)); ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>   
-                                        </div>
                                     </div>
                                     
                                     <?php } ?>
                                 </div>
                                 
                             </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Send Mail</h3>
+                                        </div>
+                                        <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                        <div class="card-body">
+                                            
+                                            <div class="timeline_item ">
+                                                <form action="<?php echo base_url('admin/house/staff_communication/send_mail/'.$det->id.'/'.$code); ?>" method="POST">
+                                                    <input class="form-control" type="email" name="email" placeholder="Recipent email">
+                                                    <br>
+                                                    <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
+                                                </form>   
+                                            </div>
+                                        </div>
+                                        
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Generate PDF</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="timeline_item">
+                                                <form action="<?php echo base_url('admin/generate_pdf/staff_communication/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                <div class="pull-right"><button type="submit">Generate PDF</button></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Upload PDF</h3>
+                                        </div>
+                                        <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                        <div class="card-body">
+                                            
+                                            <div class="timeline_item ">
+                                                <form action="<?php echo base_url('admin/house/staff_communication/edit_document/'.$det->id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                    <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Document<span class="text-danger">*</span></label>
+                                                            <input type="file" name="userFiles1[]" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="pull-right"><button type="submit" name="send">Upload</button></div>
+                                                </form>   
+                                            </div>
+                                        </div>
+                                        
+                                        <?php } ?>
+                                    </div>
+                                
+                                </div>
                             
                         </div>
                     </div>

@@ -51,7 +51,7 @@
                           <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Daily Log</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('staff/house/daily_log/view/'.strtolower($code)); ?>">Daily Log</a></li>
                         </ol>
                     </div>
 

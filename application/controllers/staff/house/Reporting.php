@@ -2,6 +2,23 @@
     
     class Reporting extends CI_Controller{
         
+        public function view($code){
+            $session_role = $this->session->userdata('urole');
+            
+            $this->load->model('House_model');
+            
+            if(!empty($session_role) && $session_role == "Staff"){
+                $data['house'] = $this->House_model->display_home($code);
+                $data['reporting'] = $this->House_model->display_all_reporting($code);
+                $data['children'] = $this->House_model->display_all_children();
+                $data['code'] = $code;
+
+                $this->load->view('staff/house/reporting/view', $data);
+            }else{
+                redirect('staff/account/login');    
+            }
+        }
+        
         public function detail($id, $code){
             $session_role = $this->session->userdata('urole');
             
@@ -679,42 +696,11 @@
            $this->Reporting_model->delete_reporting($id); 
         }
         
-        public function send_mail(){
-          $email = $this->input->post('email');    
-            
-          $title = $this->input->post('title');
-          $summary = $this->input->post('summary');
-          $area_of_risk = $this->input->post('area_of_risk');
-          $keywork_session = $this->input->post('keywork_session');
-          $self_care = $this->input->post('self_care');
-          $education = $this->input->post('education');
-          $independent_skills = $this->input->post('independent_skills');
-          $family = $this->input->post('family');
-          $missing = $this->input->post('missing');
-          $area_of_progress = $this->input->post('area_of_progress');
-          $staff = $this->input->post('staff');
-          $social_worker = $this->input->post('social_worker');
-          $duration = $this->input->post('duration');    
-          $date = $this->input->post('created_date');    
+        public function send_mail($id, $code){
+          $email = $this->input->post('email');       
 
           $subject = "Reporting";
-          $body = "
-            Please find below the information of the Reporting - 
-            Title - $title 
-            Summary - $summary
-            Areas of Risk/Concern - $area_of_risk 
-            Key Work Sessions - $keywork_session 
-            Health/Self-Care - $self_care 
-            Education/Employment/Training - $education
-            Independent Living Skills - $independent_skills
-            Family/Friends Contact - $family
-            Unauthorised Absences/Missing/Legal - $missing
-            Areas of Progress - $area_of_progress 
-            Staff - $staff 
-            Social worker - $social_worker
-            Date range - $duration 
-            Date - $date
-            ";
+          $body = "Please find below attached the Reporting document";
 
           $config = Array(
          'protocol' => 'smtp',
@@ -726,6 +712,16 @@
          'charset' => 'iso-8859-1',
          'wordwrap' => TRUE
          );
+         
+         $this->load->model('Reporting_model');
+         $data['detail'] = $this->Reporting_model->display_reporting_by_id($id);
+         $detail = $data['detail'];
+         
+         foreach($detail as $det){
+             $pdf = $det->pdf;
+         }
+         
+         $atch = base_url('uploads/reporting/'.$pdf);
 
          $this->load->library('email', $config);
          //$this->load->library('encrypt');
@@ -734,13 +730,64 @@
          //$this->email->cc("testcc@domainname.com");
          $this->email->subject("$subject");
          $this->email->message("$body");
+         $this->email->attach($atch); 
          $this->email->send();
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('staff/reporting'); ?>";
+            window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
         </script> 
  <?php }
+ 
+        public function edit_document($id, $code){
+            
+            $this->load->model('Reporting_model');
+            
+            $files = $_FILES;
+            $cpt1 = count($_FILES['userFiles1']['name']);
+    
+            for($i=0; $i<$cpt1; $i++){
+                $_FILES['userFiles1']['name']= $files['userFiles1']['name'][$i];
+                $_FILES['userFiles1']['type']= $files['userFiles1']['type'][$i];
+                $_FILES['userFiles1']['tmp_name']= $files['userFiles1']['tmp_name'][$i];
+                $_FILES['userFiles1']['error']= $files['userFiles1']['error'][$i];
+                $_FILES['userFiles1']['size']= $files['userFiles1']['size'][$i];
+    
+                $config1 = array(
+                    'upload_path'   => "./uploads/reporting/",
+                    //'upload_path'   => "./uploads/../../uploads/community/",
+                    'allowed_types' => "pdf|docx|doc",
+                    'overwrite'     => TRUE,
+                    'max_size'      => "30000",  // Can be set to particular file size
+                    //'max_height'    => "768",
+                    //'max_width'     => "1024"
+                );
+    
+                $this->load->library('upload', $config1);
+                $this->upload->initialize($config1);
+    
+                $this->upload->do_upload('userFiles1');
+                $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
+            }
+              
+            $array = array(
+                'pdf' => $fileName
+            );  
+            
+            $update = $this->Reporting_model->update_reporting($id, $array);
+            
+            if($update){ ?>
+                <script>
+                    alert('Added Document Successfully');
+                    window.location.href="<?php echo site_url('staff/house/reporting/detail/'.$id.'/'.$code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/house/reporting/detail/'.$id.'/'.$code); ?>";
+                </script> 
+      <?php }
+        }
     
     }
 

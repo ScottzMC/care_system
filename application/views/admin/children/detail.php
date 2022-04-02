@@ -91,7 +91,7 @@
                                                 <div class="pull-right"><?php echo $child->ethnic; ?></div>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Guardian </b>
+                                                <b>Legal status </b>
                                                 <div class="pull-right"><?php echo $child->guardian; ?></div>
                                             </li>
                                             <li class="list-group-item">
@@ -208,27 +208,6 @@
                                 
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Health & Safety Check</h3>
-                                    </div>
-                                    <div class="card-header">
-                                       <div class="pull-right"><a href="<?php echo site_url("admin/health_safety"); ?>">View All</a></div>
-                                    </div>
-                                    <?php if(!empty($health_safety)){ foreach($health_safety as $health){ ?>
-                                    <div class="card-body">
-                                        <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($health->created_date)); ?></small></span>
-                                            <h6 class="font600"><?php echo $health->title; ?></h6>
-                                            <!--<div class="msg">
-                                                <p><?php echo character_limiter($health->additional_info, 100); ?></p>
-                                            </div>-->   
-                                            <div class="pull-right"><a href="<?php echo site_url("admin/health_safety/edit/$health->id/$health->code"); ?>">Edit</a></div>
-                                        </div>
-                                    </div>
-                                    <?php } } ?>
-                                </div> 
-                                
-                                <div class="card">
-                                    <div class="card-header">
                                         <h3 class="card-title">Foster Carer</h3>
                                     </div>
                                     <div class="card-header">
@@ -309,6 +288,24 @@
                                                 <p><?php echo $abil->body; ?></p>
                                             </div> 
                                             <div class="pull-right"><a href="<?php echo site_url("admin/children/abilities_evaluation/edit/$abil->id/$abil->code"); ?>">Edit</a></div>
+                                        </div>
+                                    </div>
+                                    <?php } } ?>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Contact Details</h3>
+                                    </div>
+                                    <div class="card-header">
+                                       <div class="pull-right"><a href="<?php echo site_url("admin/children/contact_detail/view/".$child->code); ?>">View All</a></div>
+                                    </div>
+                                    <?php if(!empty($contact_detail)){ foreach($contact_detail as $contact){ ?>
+                                    <div class="card-body">
+                                        <div class="timeline_item ">
+                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($contact->created_date)); ?></small></span>
+                                            <h6 class="font600"><?php echo $contact->fullname; ?></h6>     
+                                            <div class="pull-right"><a href="<?php echo site_url("admin/children/contact_detail/edit/$contact->id/$contact->code"); ?>">Edit</a></div>
                                         </div>
                                     </div>
                                     <?php } } ?>

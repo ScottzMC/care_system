@@ -167,34 +167,11 @@
            $this->Procedure_model->delete_procedure($id); 
         }
         
-        public function search(){
-          $search_query = $this->input->post('search_query');
-          
-          $this->load->model('Procedure_model');
-          
-          $email = $this->session->userdata('uemail');
-    
-          $data["search"] = $this->Procedure_model->fetch_search_data($search_query);
+        public function send_mail($id){
+          $email = $this->input->post('email');       
 
-          $this->load->view('admin/procedure/search', $data);
-        }
-        
-        public function send_mail(){
-          $email = $this->input->post('email');
-            
-          $title = $this->input->post('title');
-          $body = $this->input->post('body');
-          $date = $this->input->post('created_date');
-
-          $subject = "Policy & Procedure";
-          $body = "
-            Please find below the information of the Policy & Procedure - 
-            Title - $title
-            
-            Body - $body
-            
-            Date - $date 
-            ";
+          $subject = "Procedure";
+          $body = "Please find below attached the Procedure document";
 
           $config = Array(
          'protocol' => 'smtp',
@@ -206,6 +183,16 @@
          'charset' => 'iso-8859-1',
          'wordwrap' => TRUE
          );
+         
+         $this->load->model('Procedure_model');
+         $data['detail'] = $this->Procedure_model->display_procedure_by_id($id);
+         $detail = $data['detail'];
+         
+         foreach($detail as $det){
+             $pdf = $det->pdf;
+         }
+         
+         $atch = base_url('uploads/procedure/'.$pdf);
 
          $this->load->library('email', $config);
          //$this->load->library('encrypt');
@@ -214,6 +201,7 @@
          //$this->email->cc("testcc@domainname.com");
          $this->email->subject("$subject");
          $this->email->message("$body");
+         $this->email->attach($atch); 
          $this->email->send();
          ?>
         <script>
@@ -221,6 +209,56 @@
             window.location.href="<?php echo site_url('admin/procedure'); ?>";
         </script> 
  <?php }
+ 
+        public function edit_document($id){
+            
+            $this->load->model('Procedure_model');
+            
+            $files = $_FILES;
+            $cpt1 = count($_FILES['userFiles1']['name']);
+    
+            for($i=0; $i<$cpt1; $i++){
+                $_FILES['userFiles1']['name']= $files['userFiles1']['name'][$i];
+                $_FILES['userFiles1']['type']= $files['userFiles1']['type'][$i];
+                $_FILES['userFiles1']['tmp_name']= $files['userFiles1']['tmp_name'][$i];
+                $_FILES['userFiles1']['error']= $files['userFiles1']['error'][$i];
+                $_FILES['userFiles1']['size']= $files['userFiles1']['size'][$i];
+    
+                $config1 = array(
+                    'upload_path'   => "./uploads/procedure/",
+                    //'upload_path'   => "./uploads/../../uploads/community/",
+                    'allowed_types' => "pdf|docx|doc",
+                    'overwrite'     => TRUE,
+                    'max_size'      => "30000",  // Can be set to particular file size
+                    //'max_height'    => "768",
+                    //'max_width'     => "1024"
+                );
+    
+                $this->load->library('upload', $config1);
+                $this->upload->initialize($config1);
+    
+                $this->upload->do_upload('userFiles1');
+                $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
+            }
+              
+            $array = array(
+                'pdf' => $fileName
+            );  
+            
+            $update = $this->Procedure_model->update_procedure_details($id, $array);
+            
+            if($update){ ?>
+                <script>
+                    alert('Added Document Successfully');
+                    window.location.href="<?php echo site_url('admin/procedure/detail/'.$id); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('admin/procedure/detail/'.$id); ?>";
+                </script> 
+      <?php }
+        }
         
         public function download($id){
           //$file_name= $this->input->get('file_name');

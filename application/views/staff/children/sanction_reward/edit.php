@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<?php foreach($children as $child){} ?>
-<title>Edit <?php echo $child->fullname; ?> Young People || Staff || Harold</title>
+<?php foreach($sanction_reward as $sanction){} ?>
+<title>Edit <?php echo $sanction->child_name; ?> Young People || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 
@@ -19,7 +19,6 @@
     <?php $this->load->view('menu/staff/nav'); ?>
     <div class="page">
         <!-- Start Page header -->
-        <?php foreach($sanction_reward as $sanction){} ?>
         
         <div class="section-body">
             <div class="container-fluid">
@@ -29,7 +28,7 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/all'); ?>">Young People </a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/profile/detail/'.$child->code); ?>"><?php echo $child->fullname; ?> Profile </a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/profile/detail/'.$sanction->code); ?>"><?php echo $sanction->child_name; ?> Profile </a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/sanction_reward/view/'.$sanction->code); ?>">Sanction or Reward </a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $sanction->child_name; ?> Sanction or Rewards</li>
                         </ol>
@@ -50,7 +49,7 @@
                         
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Edit <?php echo $child->fullname; ?> Sanction or Rewards</h3>
+                                <h3 class="card-title">Edit <?php echo $sanction->child_name; ?> Sanction or Rewards</h3>
                             </div>
                             <div class="card-body">
                                 <form action="<?php echo base_url('staff/children/sanction_reward/edit/'.$sanction->id.'/'.$sanction->code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">

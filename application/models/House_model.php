@@ -38,7 +38,8 @@
             return $query;
         }
         
-        public function display_all_health_safety(){
+        public function display_all_health_safety($code){
+            $this->db->where('house_code', $code);
             $query = $this->db->get('health_safety')->result();
             return $query;
         }

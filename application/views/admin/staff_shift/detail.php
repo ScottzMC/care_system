@@ -16,7 +16,7 @@
 
 <div id="main_content">
     <!-- Start project content area -->
-    <?php include('menu/admin/nav.php'); ?>
+    <?php $this->load->view('menu/admin/nav'); ?>
     <div class="page">
         <!-- Start Page header -->
         <div class="section-body">
@@ -80,20 +80,6 @@
                                             <li class="list-group-item">
                                                 <b>Action</b>
                                                 <div class="pull-right"><a href="<?php echo site_url("admin/staff_shift/edit/$det->id"); ?>">Edit</a></div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <b>Send Mail</b>
-                                                <form action="<?php echo base_url('admin/staff_shift/send_mail'); ?>" method="POST">
-                                                <input class="form-control" type="email" name="rep_email" placeholder="Email Address">
-                                                <input type="hidden" name="fullname" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="email" value="<?php echo $det->email; ?>">
-                                                <input type="hidden" name="house_name" value="<?php echo $det->house_name; ?>">
-                                                <input type="hidden" name="start_time" value="<?php echo $det->start_time; ?>">
-                                                <input type="hidden" name="end_time" value="<?php echo $det->end_time; ?>">
-                                                <input type="hidden" name="date" value="<?php echo date('l, dS M Y',strtotime($det->start_date)); ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>
                                             </li>
                                         </ul>
                                     </div>

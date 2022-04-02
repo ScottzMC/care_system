@@ -46,7 +46,7 @@
                         <ol class="breadcrumb page-breadcrumb">
                           <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Support Plan</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('admin/house/support_plan/view/'.strtolower($code)); ?>">Support Plan</a></li>
                         </ol>
                     </div>
 

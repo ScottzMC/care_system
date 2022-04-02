@@ -30,8 +30,8 @@
                         <h1 class="page-title">Daily Log</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/all/unit/'.$code); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/daily_log/view/'.strtolower($code)); ?>">Daily Log</a></li>
                             <li class="breadcrumb-item"><?php echo $daily->title; ?></li>
                         </ol>
                     </div>

@@ -9,11 +9,7 @@
 
 <title>Staff || Login || Harold</title>
 
-<!-- Bootstrap Core and vandor -->
-<link rel="stylesheet" href="https://scottnnaghor.com/harold/assets/plugins/bootstrap/css/bootstrap.min.css" />
-
-<!-- Core css -->
-<link rel="stylesheet" href="https://scottnnaghor.com/harold/assets/css/style.min.css"/>
+<?php $this->load->view('menu/staff/style'); ?>
 
 </head>
 <body class="font-muli theme-cyan gradient">

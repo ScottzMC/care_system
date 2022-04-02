@@ -69,22 +69,74 @@
                                                 <b>Action</b>
                                                 <div class="pull-right"><a href="<?php echo site_url("admin/procedure/edit/$det->id"); ?>">Edit</a></div>
                                             </li>
-                                            <li class="list-group-item">
-                                                <b>Send Mail</b>
-                                                <form action="<?php echo base_url('admin/procedure/send_mail'); ?>" method="POST">
-                                                <input type="email" class="form-control" name="email" placeholder="Recepient email">
-                                                <input type="hidden" name="title" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="body" value="<?php echo $det->body; ?>">
-                                                <input type="hidden" name="created_date" value="<?php echo date('l, dS M Y',strtotime($det->created_date)); ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>
-                                            </li>
                                         </ul>
                                     </div>
                                     <?php } } ?>
                                 </div>
                                 
+                            </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Send Mail</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('admin/procedure/send_mail/'.$det->id); ?>" method="POST">
+                                                <input class="form-control" type="email" name="email" placeholder="Recipent email">
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Generate PDF</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <form action="<?php echo base_url('admin/generate_pdf/procedure/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <div class="pull-right"><button type="submit">Generate PDF</button></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Upload PDF</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('admin/procedure/edit_document/'.$det->id); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Document<span class="text-danger">*</span></label>
+                                                        <input type="file" name="userFiles1[]" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Upload</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            
                             </div>
                             
                         </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($detail as $det){} ?>
-<title><?php echo $det->title; ?> || Support Work || Staff || Harold</title>
+<title><?php echo $det->title; ?> || Support Work || staff || Harold</title>
 <?php $this->load->view('menu/staff/style'); ?>
 </head>
 
@@ -16,7 +16,6 @@
     <!-- Start project content area -->
     <?php $this->load->view('menu/staff/nav'); ?>
     <div class="page">
-        
         <?php 
         $property = $this->db->query("SELECT housename FROM properties WHERE code = '$code' ")->result();
         foreach($property as $prop){} ?>
@@ -29,14 +28,14 @@
                         <h1 class="page-title">Support Work</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/support_work/view/'.strtolower($code)); ?>">Support Work</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Support"><?php echo $det->title; ?></a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Support">Edit <?php echo $det->title; ?></a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>
@@ -97,24 +96,74 @@
                                                 <b>Action</b>
                                                 <div class="pull-right"><a href="<?php echo site_url("staff/house/support_work/edit/$det->id/$code"); ?>">Edit</a></div>
                                             </li>
-                                            <li class="list-group-item">
-                                                <b>Send Mail</b>
-                                                <form action="<?php echo base_url('staff/house/support_work/send_mail/'.$code); ?>" method="POST">
-                                                <input class="form-control" type="email" name="email" placeholder="Recipient email">
-                                                <input type="hidden" name="child_name" value="<?php echo $det->child_name; ?>">
-                                                <input type="hidden" name="body" value="<?php echo $det->body; ?>">
-                                                <input type="hidden" name="house_name" value="<?php echo $det->house_name; ?>">
-                                                <input type="hidden" name="target_completed" value="<?php echo $det->target_date; ?>">
-                                                <input type="hidden" name="created_date" value="<?php echo date('l, dS M Y',strtotime($det->created_date)); ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>
-                                            </li>
                                         </ul>
                                     </div>
                                     <?php } } ?>
                                 </div>
                                 
+                            </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Send Mail</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('staff/house/support_work/send_mail/'.$det->id.'/'.$code); ?>" method="POST">
+                                                <input class="form-control" type="email" name="email" placeholder="Recipent email">
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Generate PDF</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <form action="<?php echo base_url('staff/generate_pdf/support_work/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <div class="pull-right"><button type="submit">Generate PDF</button></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Upload PDF</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('staff/house/support_work/edit_document/'.$det->id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Document<span class="text-danger">*</span></label>
+                                                        <input type="file" name="userFiles1[]" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Upload</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            
                             </div>
                             
                             <?php if(!empty($detail)){

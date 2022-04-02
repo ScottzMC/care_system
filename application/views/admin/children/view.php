@@ -76,7 +76,7 @@
                                     <tr>
                                         <td><?php echo $child->code; ?></td>
                                         <td class="w60">
-                                            <img class="avatar" src="<?php echo base_url('uploads/children/'.$child->image); ?>; ?>" alt="<?php echo $child->fullname; ?>">
+                                            <img class="avatar" src="<?php echo base_url('uploads/children/'.$child->image); ?>" alt="<?php echo $child->fullname; ?>">
                                         </td>
                                         <td><a href="<?php echo site_url('admin/children/profile/detail/'.strtolower($child->code)); ?>"><span class="font-16"><?php echo $child->fullname; ?></span></a></td>
                                         <td><?php echo $child->age; ?></td>

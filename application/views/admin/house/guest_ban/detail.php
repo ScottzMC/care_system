@@ -30,8 +30,8 @@
                         <h1 class="page-title">Guest ban</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/all/unit/'.$code); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/guest_ban/view/'.strtolower($code)); ?>">Guest Ban</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $det->room_number; ?></li>
                         </ol>
                     </div>
@@ -87,31 +87,67 @@
                                     <?php } ?>
                                 </div>
                                 
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Send Mail</h3>
-                                    </div>
-                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
-                                    <div class="card-body">
-                                        <div class="timeline_item">
-                                            <form action="<?php echo base_url('admin/house/guest_ban/send_mail/'.$code); ?>" method="POST">
-                                                <div class="msg">
-                                                <input type="email" class="form-control" name="email" placeholder="Recipient email address">
-                                            </div>  
-                                                <input type="hidden" name="house" value="<?php echo $det->house; ?>">
-                                                <input type="hidden" name="guest_name" value="<?php echo $det->guest_name; ?>">
-                                                <input type="hidden" name="child_name" value="<?php echo $det->child_name; ?>">
-                                                <input type="hidden" name="reason_for_ban" value="<?php echo $det->reason_for_ban; ?>">
-                                                <input type="hidden" name="additional_info" value="<?php echo $det->additional_info; ?>">
-                                                <input type="hidden" name="start_date" value="<?php echo date('j M Y', strtotime($det->start_date)); ?>">
-                                                <input type="hidden" name="end_date" value="<?php echo date('j M Y', strtotime($det->end_date)); ?>">
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>   
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Send Mail</h3>
+                                        </div>
+                                        <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                        <div class="card-body">
+                                            
+                                            <div class="timeline_item ">
+                                                <form action="<?php echo base_url('admin/house/guest_ban/send_mail/'.$det->id.'/'.$code); ?>" method="POST">
+                                                    <input class="form-control" type="email" name="email" placeholder="Recipent email">
+                                                    <br>
+                                                    <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
+                                                </form>   
+                                            </div>
                                         </div>
                                         
+                                        <?php } ?>
                                     </div>
-                                    
-                                    <?php } ?>
+                                </div>
+                            
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Generate PDF</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="timeline_item">
+                                                <form action="<?php echo base_url('admin/generate_pdf/guest_ban/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                <div class="pull-right"><button type="submit">Generate PDF</button></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Upload PDF</h3>
+                                        </div>
+                                        <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                        <div class="card-body">
+                                            
+                                            <div class="timeline_item ">
+                                                <form action="<?php echo base_url('admin/house/guest_ban/edit_document/'.$det->id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                    <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Document<span class="text-danger">*</span></label>
+                                                            <input type="file" name="userFiles1[]" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="pull-right"><button type="submit" name="send">Upload</button></div>
+                                                </form>   
+                                            </div>
+                                        </div>
+                                        
+                                        <?php } ?>
+                                    </div>
+                                
                                 </div>
                                 
                             </div>

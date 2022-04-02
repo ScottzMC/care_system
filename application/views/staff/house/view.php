@@ -59,8 +59,7 @@
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Keywork-all">Keywork Session</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Risk-all">Risk Assessment</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Reporting-all">Reporting</a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Health-all">Health & Safety</a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-all">Support Plan</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-all">Support plan</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Support-work-all">Support Work</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Staff-Communication-all">Staff Communication</a></li>
                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Handover-all">Handover</a></li>
@@ -266,68 +265,6 @@
                         </div>
                     </div>
                     
-                    <div class="tab-pane show" id="Health-all">
-                        <script>
-                        function delete_health_safety(id){
-                          var del_id = id;
-                          if(confirm("Are you sure you want to delete this health & safety")){
-                          $.post('<?php echo base_url('staff/house/health_safety/delete'); ?>', {"del_id": del_id}, function(data){
-                            alert('Deleted Successfully');
-                            location.reload();
-                            $('#cti').html(data)
-                            });
-                          }
-                        }
-                        
-                        $(function(){
-                          $('#downloadable').click(function(){
-                             
-                             window.location.href = "<?php echo site_url('staff/house/health_safety/download') ?>?file_name="+ $(this).attr('href');
-                          });
-                        });
-                        
-                        </script>
-
-                        <p id='ctr'></p>
-
-                        <div class="table-responsive">
-                          <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
-                                <thead>
-                                    <tr>
-                                        <th>Child Name</th>
-                                        <th>Title</th>
-                                        <th>Room Number</th>
-                                        <th>Recorded By</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
-                                        <th><a href="<?php echo site_url('staff/house/health_safety/add/'.$code); ?>">Add</a></th>
-                                        <th>Action</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  <?php if($health_safety){ foreach($health_safety as $health){ ?>
-                                    <tr>
-                                        <td><a href="<?php echo site_url("staff/children/profile/detail/$health->code"); ?>"><span class="font-16"><?php echo $health->child_name; ?></span></a></td>
-                                        <td><a href="<?php echo site_url("staff/house/health_safety/detail/$health->id/$code"); ?>"><span class="font-16"><?php echo $health->title; ?></span></a></td>
-                                        <td><?php echo $health->room_number; ?></td>
-                                        <td><?php echo $health->recorded_by; ?></td>
-                                        <td><?php echo date('l, dS M Y',strtotime($health->created_date)); ?></td>
-                                        <td>
-                                        <?php if(!empty($health_safety)){ ?>
-                                        <a href="<?php echo base_url('staff/house/health_safety/download/'.$health->id); ?>" target="_blank">Download</a>
-                                        <?php }else{ echo ''; } ?>
-                                        </td>
-                                        <td><a href="<?php echo site_url("staff/house/health_safety/add/$code"); ?>">Add</a></td>
-                                        <td><a href="<?php echo site_url("staff/house/health_safety/edit/$health->id/$code"); ?>">Edit</a></td>
-                                        <td><button type="button" onclick="delete_health_safety(<?php echo $health->id; ?>)">Delete</button></td>
-                                    </tr>
-                                  <?php } }else{ echo ''; } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
                     <div class="tab-pane show" id="Support-all">
                         <script>
                         function delete_support_plan(id){
@@ -405,9 +342,8 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Child name</th>
+                                        <th>FullName</th>
                                         <th>Topic</th>
-                                        <th>House Name</th>
                                         <th>Date</th>
                                         <th><a href="<?php echo site_url('staff/house/support_work/add/'.$code); ?>">Add</a></th>
                                         <th>Action</th>
@@ -417,7 +353,7 @@
                                 <tbody>
                                   <?php if($support_work){ foreach($support_work as $work){ ?>
                                     <tr>
-                                        <td><a href="<?php echo site_url('staff/children/detail/'.$work->code); ?>"><span class="font-16"><?php echo $support->child_name; ?></span></a></td>
+                                        <td><a href="<?php echo site_url('staff/children/detail/'.$work->code); ?>"><span class="font-16"><?php echo $work->child_name; ?></span></a></td>
                                         <td><a href="<?php echo site_url('staff/house/support_work/detail/'.$work->id.'/'.$code); ?>"><span class="font-16"><?php echo $work->title; ?></span></a></td>
                                         <td><?php echo $work->house_name; ?></td>
                                         <td><?php echo date('l, dS M Y',strtotime($work->created_date)); ?></td>
@@ -495,20 +431,20 @@
                                     <tr>
                                         <th>Title</th>
                                         <th>Time</th>
-                                        <th>Ingoing Staff</th>
                                         <th>Outgoing Staff</th>
+                                        <th>Ingoing Staff</th>
                                         <th><a href="<?php echo site_url('staff/house/handover/add/'.strtolower($code)); ?>">Add</a></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php if($handover){ foreach($handover as $hand){ 
-                                    $query = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$hand->ingoing_staff' AND role = 'Staff' ")->result();
+                                  $query = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$hand->ingoing_staff' AND role = 'Staff' ")->result();
                                     foreach($query as $qry){
                                         $ingoing_firstname = $qry->firstname;
                                         $ingoing_lastname = $qry->lastname;
                                     }
                                     
-                                    $sequel = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$hand->outgoing_staff' AND role = 'Staff' ")->result();
+                                    $sequel = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$hand->outgoing_staff' ")->result();
                                     foreach($sequel as $sql){
                                         $outgoing_firstname = $sql->firstname;
                                         $outgoing_lastname = $sql->lastname;
@@ -517,13 +453,13 @@
                                     <tr>
                                         <td><a href="<?php echo site_url("staff/house/handover/detail/$hand->handover_id/$code"); ?>"><span class="font-16"><?php echo $hand->title; ?></span></a></td>
                                         <td><?php echo $hand->time; ?></td>
-                                        <?php if(!empty($query)){ ?>
-                                        <td><?php echo $ingoing_firstname; ?> <?php echo $ingoing_lastname; ?></td>
+                                        <?php if(!empty($sequel)){ ?>
+                                        <td><?php echo $outgoing_firstname; ?> <?php echo $outgoing_lastname; ?></td>
                                         <?php }else{ ?>
                                         <td></td>
                                         <?php } ?>
-                                        <?php if(!empty($sequel)){ ?>
-                                        <td><?php echo $outgoing_firstname; ?> <?php echo $outgoing_lastname; ?></td>
+                                        <?php if(!empty($query)){ ?>
+                                        <td><?php echo $ingoing_firstname; ?> <?php echo $ingoing_lastname; ?></td>
                                         <?php }else{ ?>
                                         <td></td>
                                         <?php } ?>

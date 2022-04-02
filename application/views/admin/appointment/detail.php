@@ -85,22 +85,6 @@
                                                 <b>Date of Appointment </b>
                                                 <div class="pull-right"><?php echo $det->date; ?></div>
                                             </li>
-                                            <form action="<?php echo base_url('admin/appointment/send_mail'); ?>" method="POST">
-                                            <li class="list-group-item">
-                                                <b>Mail</b>
-                                                <input class="form-control" type="email" name="email" placeholder="Recepient email">
-                                                <input type="hidden" name="title" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="young_person" value="<?php echo $det->young_person; ?>">
-                                                <input type="hidden" name="house_name" value="<?php echo $det->house_name; ?>">
-                                                <input type="hidden" name="address" value="<?php echo $det->address; ?>">
-                                                <input type="hidden" name="support" value="<?php echo $det->support; ?>">
-                                                <input type="hidden" name="type" value="<?php echo $det->type; ?>">
-                                                <input type="hidden" name="time" value="<?php echo $det->time; ?>">
-                                                <input type="hidden" name="date" value="<?php echo $det->date; ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </li>
-                                            </form>
                                         </ul>
                                     </div>
                                     <?php } ?>

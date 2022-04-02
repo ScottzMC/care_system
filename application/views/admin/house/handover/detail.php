@@ -30,8 +30,8 @@
                         <h1 class="page-title">Handover</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/all/unit/'.$code); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/handover/view/'.strtolower($code)); ?>">Handover</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
@@ -78,9 +78,9 @@
                                             }
                                                 ?>
                                                 <?php if(!empty($query)){ ?>
-                                                <p><b>Ingoing Staff</b> - <?php echo $ingoing_firstname; ?> <?php echo $ingoing_lastname; ?></p>
+                                                <p><b>Incoming Staff</b> - <?php echo $ingoing_firstname; ?> <?php echo $ingoing_lastname; ?></p>
                                                 <?php }else{ ?>
-                                                <p><b>Ingoing Staff</b></p>
+                                                <p><b>Incoming Staff</b></p>
                                                 <?php } ?>
                                                 <br>
                                                 <?php if(!empty($sequel)){ ?>
@@ -105,7 +105,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->actions; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->actions; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -123,7 +123,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->gaming; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->gaming; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -141,7 +141,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->keys_pettycash; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->keys_pettycash; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -159,7 +159,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b> £<?php echo $in->keys_pettycash_comment; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b> £<?php echo $in->keys_pettycash_comment; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -177,7 +177,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->health_wellbeing; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->health_wellbeing; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -195,7 +195,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->cleanliness; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->cleanliness; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -213,7 +213,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->occupancy; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->occupancy; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -231,7 +231,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->edt_police_comment; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->edt_police_comment; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -249,7 +249,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->safeguarding; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->safeguarding; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -267,7 +267,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->appointments_diary; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->appointments_diary; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -285,7 +285,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->appointments_diary_support; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->appointments_diary_support; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -303,7 +303,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->appointments_diary_remind; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->appointments_diary_remind; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -321,7 +321,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->service_user; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->service_user; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">
@@ -339,7 +339,7 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <h6 class="font600"><b>Ingoing - </b><?php echo $in->maintenance; ?></h6>  
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->maintenance; ?></h6>  
                                         </div>
                                         <br>
                                         <div class="timeline_item">

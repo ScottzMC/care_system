@@ -28,9 +28,8 @@
                         <h1 class="page-title">Staff Communication</h1>
                         <ol class="breadcrumb page-breadcrumb">
                           <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Staff Communication</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('admin/house/staff_communication/view/'.strtolower($code)); ?>">Staff Communication</a></li>
                         </ol>
                     </div>
 

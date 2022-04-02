@@ -30,9 +30,8 @@
                         <h1 class="page-title">Risk Assessments</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item">Risk Assessment</li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/risk_assessment/view/'.strtolower($code)); ?>">Risk Assessment</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
@@ -60,80 +59,6 @@
                     
                     <div class="tab-pane active" id="Risk">
                         <div class="row">
-                            
-                            <div class="col-xl-8 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Send Mail</h3>
-                                    </div>
-                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
-                                    <div class="card-body">
-                                        
-                                        <div class="timeline_item ">
-                                            <form action="<?php echo base_url('staff/house/risk_assessment/send_mail/'.$code); ?>" method="POST">
-                                                <input class="form-control" type="email" name="email" placeholder="Recepient email address">
-                                                <input type="hidden" name="title" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="criminal_risk_level" value="<?php echo $det->criminal_risk_level; ?>">
-                                                <input type="hidden" name="criminal_level" value="<?php echo $det->criminal_level; ?>">
-                                                
-                                                <input type="hidden" name="violent_risk_level" value="<?php echo $det->violent_risk_level; ?>">
-                                                <input type="hidden" name="violent_level" value="<?php echo $det->violent_level; ?>">
-                                                
-                                                <input type="hidden" name="weapon_risk_level" value="<?php echo $det->weapon_risk_level; ?>">
-                                                <input type="hidden" name="weapon_level" value="<?php echo $det->weapon_level; ?>">
-                                                
-                                                <input type="hidden" name="behaviour_community_risk_level" value="<?php echo $det->behaviour_community_risk_level; ?>">
-                                                <input type="hidden" name="behaviour_community_level" value="<?php echo $det->behaviour_community_level; ?>">
-
-                                                <input type="hidden" name="bully_risk_level" value="<?php echo $det->bully_risk_level; ?>">
-                                                <input type="hidden" name="bully_level" value="<?php echo $det->bully_level; ?>">
-
-                                                <input type="hidden" name="discrimination_risk_level" value="<?php echo $det->discrimination_risk_level; ?>">
-                                                <input type="hidden" name="discrimination_level" value="<?php echo $det->discrimination_level; ?>">
-
-                                                <input type="hidden" name="damage_property_risk_level" value="<?php echo $det->damage_property_risk_level; ?>">
-                                                <input type="hidden" name="damage_property_level" value="<?php echo $det->damage_property_level; ?>">
-
-                                                <input type="hidden" name="arson_risk_level" value="<?php echo $det->arson_risk_level; ?>">
-                                                <input type="hidden" name="arson_level" value="<?php echo $det->arson_level; ?>">
-
-                                                <input type="hidden" name="missing_risk_level" value="<?php echo $det->missing_risk_level; ?>">
-                                                <input type="hidden" name="missing_level" value="<?php echo $det->missing_level; ?>">
-
-                                                <input type="hidden" name="missue_illegal_risk_level" value="<?php echo $det->missue_illegal_risk_level; ?>">
-                                                <input type="hidden" name="missue_illegal_level" value="<?php echo $det->missue_illegal_level; ?>">
-
-                                                <input type="hidden" name="self_harm_risk_level" value="<?php echo $det->self_harm_risk_level; ?>">
-                                                <input type="hidden" name="self_harm_level" value="<?php echo $det->self_harm_level; ?>">
-
-                                                <input type="hidden" name="sexual_risk_level" value="<?php echo $det->sexual_risk_level; ?>">
-                                                <input type="hidden" name="sexual_level" value="<?php echo $det->sexual_level; ?>">
-
-                                                <input type="hidden" name="medication_risk_level" value="<?php echo $det->medication_risk_level; ?>">
-                                                <input type="hidden" name="medication_level" value="<?php echo $det->medication_level; ?>">
-
-                                                <input type="hidden" name="family_risk_level" value="<?php echo $det->family_risk_level; ?>">
-                                                <input type="hidden" name="family_level" value="<?php echo $det->family_level; ?>">
-
-                                                <input type="hidden" name="allegation_risk_level" value="<?php echo $det->allegation_risk_level; ?>">
-                                                <input type="hidden" name="allegation_level" value="<?php echo $det->allegation_level; ?>">
-
-                                                <input type="hidden" name="travel_risk_level" value="<?php echo $det->travel_risk_level; ?>">
-                                                <input type="hidden" name="travel_level" value="<?php echo $det->travel_level; ?>">
-
-                                                <input type="hidden" name="additional_info" value="<?php echo $det->additional_info; ?>">
-                                                <input type="hidden" name="created_date" value="<?php echo date('j M Y', strtotime($det->created_date)); ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>   
-                                        </div>
-                                    </div>
-                                    
-                                    <?php } ?>
-                                </div>
-                                
-                            </div>
-                            
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -156,6 +81,69 @@
                                     <?php } ?>
                                 </div>
                                 
+                            </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Send Mail</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('staff/house/risk_assessment/send_mail/'.$det->id.'/'.$code); ?>" method="POST">
+                                                <input class="form-control" type="email" name="email" placeholder="Recipent email">
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Generate PDF</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <form action="<?php echo base_url('staff/generate_pdf/risk_assessment/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <div class="pull-right"><button type="submit">Generate PDF</button></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Upload PDF</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        
+                                        <div class="timeline_item ">
+                                            <form action="<?php echo base_url('staff/house/risk_assessment/edit_document/'.$det->id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                <div class="col-md-4 col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Document<span class="text-danger">*</span></label>
+                                                        <input type="file" name="userFiles1[]" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="pull-right"><button type="submit" name="send">Upload</button></div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                            
                             </div>
                             
                             <div class="col-xl-8 col-md-12">

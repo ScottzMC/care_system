@@ -30,8 +30,8 @@
                         <h1 class="page-title">Risk Assessment</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/risk_assessment/view/'.strtolower($code)); ?>">Risk Assessment</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/risk_assessment/detail/'.$risk->id.'/'.$code); ?>"><?php echo $risk->title; ?></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Travel in vehicle </li>
                         </ol>

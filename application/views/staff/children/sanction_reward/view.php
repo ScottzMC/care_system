@@ -31,7 +31,9 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/all'); ?>">Young People </a></li>
+                            <?php if(!empty($sanction_reward)){ ?>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/profile/detail/'.$sanction->code); ?>"><?php echo $sanction->child_name; ?> Profile </a></li>
+                            <?php } ?>
                             <li class="breadcrumb-item active" aria-current="page">Sanction or Reward</li>
                         </ol>
                     </div>

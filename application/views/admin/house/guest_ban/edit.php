@@ -30,8 +30,8 @@
                         <h1 class="page-title">Guest ban</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/all/unit/'.$code); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('admin/house/guest_ban/view/'.strtolower($code)); ?>">Guest Ban</a></li>
                             <li class="breadcrumb-item"><?php echo $guest->room_number; ?></li>
                         </ol>
                     </div>

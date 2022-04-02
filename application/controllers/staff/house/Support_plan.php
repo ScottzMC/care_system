@@ -2,6 +2,23 @@
     
     class Support_plan extends CI_Controller{
         
+        public function view($code){
+            $session_role = $this->session->userdata('urole');
+            
+            $this->load->model('House_model');
+            
+            if(!empty($session_role) && $session_role == "Staff"){
+                $data['house'] = $this->House_model->display_home($code);
+                $data['support_plan'] = $this->House_model->display_all_support_plan($code);
+                $data['children'] = $this->House_model->display_all_children();
+                $data['code'] = $code;
+
+                $this->load->view('staff/house/support_plan/view', $data);
+            }else{
+                redirect('staff/account/login');    
+            }
+        }
+        
         public function detail($id, $code){
             $session_role = $this->session->userdata('urole');
             

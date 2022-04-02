@@ -30,10 +30,9 @@
                         <h1 class="page-title">Support Plan</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/support_plan'); ?>">Support Plan</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $area->title; ?></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/support_plan/view/'.strtolower($code)); ?>">Support Plan</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> <?php echo $area->title; ?></li>
                         </ol>
                     </div>
 

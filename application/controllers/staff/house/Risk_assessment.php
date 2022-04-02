@@ -2,6 +2,23 @@
     
     class Risk_assessment extends CI_Controller{
         
+        public function view($code){
+            $session_role = $this->session->userdata('urole');
+            
+            $this->load->model('House_model');
+            
+            if(!empty($session_role) && $session_role == "Staff"){
+                $data['house'] = $this->House_model->display_home($code);
+                $data['risk_assessment'] = $this->House_model->display_all_risk_assessment($code);
+                $data['children'] = $this->House_model->display_all_children();
+                $data['code'] = $code;
+
+                $this->load->view('staff/house/risk_assessment/view', $data);
+            }else{
+                redirect('staff/account/login');    
+            }
+        }
+        
         public function detail($id, $code){
             $session_role = $this->session->userdata('urole');
             

@@ -81,44 +81,6 @@
            $this->Training_model->delete_event($id); 
         }
         
-        public function send_mail(){
-          $email = $this->input->post('email');    
-        
-          $title = $this->input->post('title');      
-          $summary = $this->input->post('body');    
-
-          $subject = "Training Calendar";
-          $body = "
-            Please find below the information of the Training Calendar - 
-            Title - $title
-            Comments and further actions - $summary
-            ";
-
-          $config = Array(
-         'protocol' => 'smtp',
-         'smtp_host' => 'smtp.scottnnaghor.com',
-         'smtp_port' => 25,
-         'smtp_user' => 'admin@scottnnaghor.com', // change it to account email
-         'smtp_pass' => 'TigerPhenix100', // change it to account email password
-         'mailtype' => 'html',
-         'charset' => 'iso-8859-1',
-         'wordwrap' => TRUE
-         );
-
-         $this->load->library('email', $config);
-         //$this->load->library('encrypt');
-         $this->email->from('admin@scottnnaghor.com', "Care System");
-         $this->email->to("$email");
-         //$this->email->cc("testcc@domainname.com");
-         $this->email->subject("$subject");
-         $this->email->message("$body");
-         $this->email->send();
-         ?>
-            <script>
-                alert("Sent to Mail");
-                window.location.href="<?php echo site_url('admin/training'); ?>";
-            </script> 
- <?php }
     }
 
 ?>

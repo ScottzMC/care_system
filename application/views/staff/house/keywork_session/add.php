@@ -29,9 +29,8 @@
                         <h1 class="page-title">Keywork Session</h1>
                         <ol class="breadcrumb page-breadcrumb">
                           <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                          <li class="breadcrumb-item">House</li>
-                          <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Keywork Session</li>
+                          <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
+                          <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('staff/house/keywork_session/view/'.strtolower($code)); ?>">Keywork Session</a></li>
                         </ol>
                     </div>
 
@@ -179,7 +178,7 @@
                                 <h3 class="card-title">Add Independent Living Skills</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('staff/house/independent_living'); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('staff/house/keywork_session/independent_living'); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
@@ -197,21 +196,6 @@
                                 </form>
                             </div>
                         </div>
-                        
-                        <script>
-                            function delete_independent_living(id){
-                              var del_id = id;
-                              if(confirm("Are you sure you want to delete this independent living skill")){
-                              $.post('<?php echo base_url('staff/house/delete_independent_living'); ?>', {"del_id": del_id}, function(data){
-                                alert('Deleted Successfully');
-                                location.reload();
-                                $('#cti').html(data)
-                                });
-                              }
-                            }
-                        
-                        </script>
-                        <p id='cti'></p>
                     
                         <div class="card">
                             <div class="card-header">
@@ -224,9 +208,7 @@
                                             <div class="form-group">
                                                 <label><b><?php echo $independent->title; ?></b></label>
                                             </div>
-                                            <a href="<?php echo site_url('staff/house/edit_independent_living/'.$independent->id.'/'.$code); ?>" class="btn btn-primary">Edit</a>
-                                            <br><br>
-                                            <button type="button" onclick="delete_independent_living(<?php echo $independent->id; ?>)" class="btn btn-danger">Delete</button>
+                                            <a href="<?php echo site_url('staff/house/keywork_session/edit_independent_living/'.$independent->id.'/'.$code); ?>" class="btn btn-primary">Edit</a>
                                             <br><br>
                                         </div>
                                         <?php } } ?>

@@ -32,7 +32,9 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/all'); ?>">Young People </a></li>
+                            <?php if(!empty($medical)){?>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/profile/detail/'.$med->code); ?>"><?php echo $med->child_name; ?> Profile </a></li>
+                            <?php } ?>
                             <li class="breadcrumb-item active" aria-current="page">Medical History</li>
                         </ol>
                     </div>

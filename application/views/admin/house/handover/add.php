@@ -49,9 +49,8 @@
                         <h1 class="page-title">Handover</h1>
                         <ol class="breadcrumb page-breadcrumb">
                           <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Handover</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('admin/house/handover/view/'.strtolower($code)); ?>">Handover</a></li>
                         </ol>
                     </div>
 

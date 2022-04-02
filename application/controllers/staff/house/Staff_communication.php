@@ -2,6 +2,23 @@
     
     class Staff_communication extends CI_Controller{
         
+        public function view($code){
+            $session_role = $this->session->userdata('urole');
+            
+            $this->load->model('House_model');
+            
+            if(!empty($session_role) && $session_role == "Staff"){
+                $data['house'] = $this->House_model->display_home($code);
+                $data['staff_communication'] = $this->House_model->display_all_staff_communication();
+                $data['children'] = $this->House_model->display_all_children();
+                $data['code'] = $code;
+
+                $this->load->view('staff/house/staff_communication/view', $data);
+            }else{
+                redirect('staff/account/login');    
+            }
+        }
+        
         public function detail($id, $code){
             $session_role = $this->session->userdata('urole');
             
@@ -19,22 +36,11 @@
             }
         }
         
-        public function send_mail($code){
-          $email = $this->input->post('email');
-          
-          $title = $this->input->post('title');
-          $request = $this->input->post('request');
-          $time = $this->input->post('time');   
-          $date = $this->input->post('created_date');    
+        public function send_mail($id, $code){
+          $email = $this->input->post('email');       
 
           $subject = "Staff Communication";
-          $body = "
-            Please find below the information of the Staff Communication - 
-            Title - $title 
-            Request - $request
-            Time - $time 
-            Date - $date
-            ";
+          $body = "Please find below attached the Staff Communication document";
 
           $config = Array(
          'protocol' => 'smtp',
@@ -46,6 +52,16 @@
          'charset' => 'iso-8859-1',
          'wordwrap' => TRUE
          );
+         
+         $this->load->model('Staff_communication_model');
+         $data['detail'] = $this->Staff_communication_model->display_staff_communication_by_id($id);
+         $detail = $data['detail'];
+         
+         foreach($detail as $det){
+             $pdf = $det->pdf;
+         }
+         
+         $atch = base_url('uploads/staff_communication/'.$pdf);
 
          $this->load->library('email', $config);
          //$this->load->library('encrypt');
@@ -54,6 +70,7 @@
          //$this->email->cc("testcc@domainname.com");
          $this->email->subject("$subject");
          $this->email->message("$body");
+         $this->email->attach($atch); 
          $this->email->send();
          ?>
         <script>
@@ -61,6 +78,56 @@
             window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
         </script> 
  <?php }
+ 
+        public function edit_document($id, $code){
+            
+            $this->load->model('Staff_communication_model');
+            
+            $files = $_FILES;
+            $cpt1 = count($_FILES['userFiles1']['name']);
+    
+            for($i=0; $i<$cpt1; $i++){
+                $_FILES['userFiles1']['name']= $files['userFiles1']['name'][$i];
+                $_FILES['userFiles1']['type']= $files['userFiles1']['type'][$i];
+                $_FILES['userFiles1']['tmp_name']= $files['userFiles1']['tmp_name'][$i];
+                $_FILES['userFiles1']['error']= $files['userFiles1']['error'][$i];
+                $_FILES['userFiles1']['size']= $files['userFiles1']['size'][$i];
+    
+                $config1 = array(
+                    'upload_path'   => "./uploads/staff_communication/",
+                    //'upload_path'   => "./uploads/../../uploads/community/",
+                    'allowed_types' => "pdf|docx|doc",
+                    'overwrite'     => TRUE,
+                    'max_size'      => "30000",  // Can be set to particular file size
+                    //'max_height'    => "768",
+                    //'max_width'     => "1024"
+                );
+    
+                $this->load->library('upload', $config1);
+                $this->upload->initialize($config1);
+    
+                $this->upload->do_upload('userFiles1');
+                $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
+            }
+              
+            $array = array(
+                'pdf' => $fileName
+            );  
+            
+            $update = $this->Staff_communication_model->update_staff_communication_details($id, $array);
+            
+            if($update){ ?>
+                <script>
+                    alert('Added Document Successfully');
+                    window.location.href="<?php echo site_url('staff/house/staff_communication/detail/'.$id.'/'.$code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/house/staff_communication/detail/'.$id.'/'.$code); ?>";
+                </script> 
+      <?php }
+        }
         
     }
 

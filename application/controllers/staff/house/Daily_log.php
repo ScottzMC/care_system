@@ -2,6 +2,23 @@
 
     class Daily_log extends CI_Controller{
         
+        public function view($code){
+            $session_role = $this->session->userdata('urole');
+            
+            $this->load->model('House_model');
+            
+            if(!empty($session_role) && $session_role == "Staff"){
+                $data['house'] = $this->House_model->display_home($code);
+                $data['daily_log'] = $this->House_model->display_all_daily_log($code);
+                $data['children'] = $this->House_model->display_all_children();
+                $data['code'] = $code;
+
+                $this->load->view('staff/house/daily_log/view', $data);
+            }else{
+                redirect('staff/account/login');    
+            }
+        }
+        
         public function detail($id, $code){
             $session_role = $this->session->userdata('urole');
             
@@ -133,21 +150,11 @@
            $this->Daily_log_model->delete_daily_log($id); 
         }
         
-        public function send_mail($code){
-          $email = $this->input->post('email');
-          $title = $this->input->post('title');    
-          $staff_initial = $this->input->post('staff_initial');    
-          $summary = $this->input->post('summary');    
-          $date = $this->input->post('created_date');    
+        public function send_mail($id, $code){
+          $email = $this->input->post('email');       
 
           $subject = "Daily Log";
-          $body = "
-            Please find below the information of the Daily Log - 
-            Title - $title
-            Staff Initial - $staff_initial
-            Summary - $summary
-            Date - $date
-            ";
+          $body = "Please find below attached the Daily Log document";
 
           $config = Array(
          'protocol' => 'smtp',
@@ -160,9 +167,15 @@
          'wordwrap' => TRUE
          );
          
-         //$this->Daily_log_model->delete_daily_log($id); 
-         //$data['daily_log'] = $this->Daily_log_model->display_all_daily_log();
-         //$view = $this->load->view('admin/daily_log/view',$data,true);
+         $this->load->model('Daily_log_model');
+         $data['detail'] = $this->Daily_log_model->display_daily_log_by_id($id);
+         $detail = $data['detail'];
+         
+         foreach($detail as $det){
+             $pdf = $det->pdf;
+         }
+         
+         $atch = base_url('uploads/daily_log/'.$pdf);
 
          $this->load->library('email', $config);
          //$this->load->library('encrypt');
@@ -171,6 +184,7 @@
          //$this->email->cc("testcc@domainname.com");
          $this->email->subject("$subject");
          $this->email->message("$body");
+         $this->email->attach($atch); 
          $this->email->send();
          ?>
         <script>
@@ -178,6 +192,56 @@
             window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
         </script> 
  <?php }
+ 
+        public function edit_document($id, $code){
+            
+            $this->load->model('Daily_log_model');
+            
+            $files = $_FILES;
+            $cpt1 = count($_FILES['userFiles1']['name']);
+    
+            for($i=0; $i<$cpt1; $i++){
+                $_FILES['userFiles1']['name']= $files['userFiles1']['name'][$i];
+                $_FILES['userFiles1']['type']= $files['userFiles1']['type'][$i];
+                $_FILES['userFiles1']['tmp_name']= $files['userFiles1']['tmp_name'][$i];
+                $_FILES['userFiles1']['error']= $files['userFiles1']['error'][$i];
+                $_FILES['userFiles1']['size']= $files['userFiles1']['size'][$i];
+    
+                $config1 = array(
+                    'upload_path'   => "./uploads/daily_log/",
+                    //'upload_path'   => "./uploads/../../uploads/community/",
+                    'allowed_types' => "pdf|docx|doc",
+                    'overwrite'     => TRUE,
+                    'max_size'      => "30000",  // Can be set to particular file size
+                    //'max_height'    => "768",
+                    //'max_width'     => "1024"
+                );
+    
+                $this->load->library('upload', $config1);
+                $this->upload->initialize($config1);
+    
+                $this->upload->do_upload('userFiles1');
+                $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
+            }
+              
+            $array = array(
+                'pdf' => $fileName
+            );  
+            
+            $update = $this->Daily_log_model->update_daily_log_details($id, $array);
+            
+            if($update){ ?>
+                <script>
+                    alert('Added Document Successfully');
+                    window.location.href="<?php echo site_url('staff/house/daily_log/detail/'.$id.'/'.$code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/house/daily_log/detail/'.$id.'/'.$code); ?>";
+                </script> 
+      <?php }
+        }
 
     }
 

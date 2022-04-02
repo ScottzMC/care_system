@@ -30,9 +30,9 @@
                         <h1 class="page-title">Keywork Session</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
-                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $keywork->title; ?></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/keywork_session/view/'.strtolower($code)); ?>">Keywork Session</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $keywork->title; ?></li>
                         </ol>
                     </div>
 
@@ -73,7 +73,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Comments and further actions</label>
-                                                <textarea name="summary" rows="5" cols="5" class="form-control" aria-label="With textarea"><?php echo $keywork->summary; ?></textarea>
+                                                <textarea name="summary" class="form-control" aria-label="With textarea"><?php echo $keywork->summary; ?></textarea>
                                             </div>
                                         </div>
                                         

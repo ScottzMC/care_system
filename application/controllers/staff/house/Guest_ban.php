@@ -2,6 +2,23 @@
     
     class Guest_ban extends CI_Controller{
         
+        public function view($code){
+            $session_role = $this->session->userdata('urole');
+            
+            $this->load->model('House_model');
+            
+            if(!empty($session_role) && $session_role == "Staff"){
+                $data['house'] = $this->House_model->display_home($code);
+                $data['guest_ban'] = $this->House_model->display_all_guest_ban($code);
+                $data['children'] = $this->House_model->display_all_children();
+                $data['code'] = $code;
+
+                $this->load->view('staff/house/guest_ban/view', $data);
+            }else{
+                redirect('staff/account/login');    
+            }
+        }
+        
         public function detail($id, $code){
             $session_role = $this->session->userdata('urole');
             
@@ -145,27 +162,11 @@
            $this->Guest_ban_model->delete_guest_ban($id); 
         }
         
-        public function send_mail($code){
-          $email = $this->input->post('email');
-          $house = $this->input->post('house');    
-          $child_name = $this->input->post('child_name');    
-          $guest_name = $this->input->post('guest_name');    
-          $reason_for_ban = $this->input->post('reason_for_ban');    
-          $additional_info = $this->input->post('additional_info');    
-          $start_date = $this->input->post('start_date');    
-          $end_date = $this->input->post('end_date');    
+        public function send_mail($id, $code){
+          $email = $this->input->post('email');       
 
-          $subject = "Guest ban";
-          $body = "
-            Please find below the information of the Guest Ban - 
-            House - $house
-            Young Person - $child_name
-            Guest Name - $guest_name
-            Reason for ban - $reason_for_ban
-            Additional Information - $additional_info
-            Start Date - $start_date
-            End Date - $end_date
-            ";
+          $subject = "Guest Ban";
+          $body = "Please find below attached the Guest Ban document";
 
           $config = Array(
          'protocol' => 'smtp',
@@ -178,9 +179,15 @@
          'wordwrap' => TRUE
          );
          
-         //$this->Daily_log_model->delete_daily_log($id); 
-         //$data['daily_log'] = $this->Daily_log_model->display_all_daily_log();
-         //$view = $this->load->view('admin/daily_log/view',$data,true);
+         $this->load->model('Guest_ban_model');
+         $data['detail'] = $this->Guest_ban_model->display_guest_ban_by_id($id);
+         $detail = $data['detail'];
+         
+         foreach($detail as $det){
+             $pdf = $det->pdf;
+         }
+         
+         $atch = base_url('uploads/guest_ban/'.$pdf);
 
          $this->load->library('email', $config);
          //$this->load->library('encrypt');
@@ -189,6 +196,7 @@
          //$this->email->cc("testcc@domainname.com");
          $this->email->subject("$subject");
          $this->email->message("$body");
+         $this->email->attach($atch); 
          $this->email->send();
          ?>
         <script>
@@ -196,6 +204,56 @@
             window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
         </script> 
  <?php }
+ 
+        public function edit_document($id, $code){
+            
+            $this->load->model('Guest_ban_model');
+            
+            $files = $_FILES;
+            $cpt1 = count($_FILES['userFiles1']['name']);
+    
+            for($i=0; $i<$cpt1; $i++){
+                $_FILES['userFiles1']['name']= $files['userFiles1']['name'][$i];
+                $_FILES['userFiles1']['type']= $files['userFiles1']['type'][$i];
+                $_FILES['userFiles1']['tmp_name']= $files['userFiles1']['tmp_name'][$i];
+                $_FILES['userFiles1']['error']= $files['userFiles1']['error'][$i];
+                $_FILES['userFiles1']['size']= $files['userFiles1']['size'][$i];
+    
+                $config1 = array(
+                    'upload_path'   => "./uploads/guest_ban/",
+                    //'upload_path'   => "./uploads/../../uploads/community/",
+                    'allowed_types' => "pdf|docx|doc",
+                    'overwrite'     => TRUE,
+                    'max_size'      => "30000",  // Can be set to particular file size
+                    //'max_height'    => "768",
+                    //'max_width'     => "1024"
+                );
+    
+                $this->load->library('upload', $config1);
+                $this->upload->initialize($config1);
+    
+                $this->upload->do_upload('userFiles1');
+                $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
+            }
+              
+            $array = array(
+                'pdf' => $fileName
+            );  
+            
+            $update = $this->Guest_ban_model->update_guest_ban_details($id, $array);
+            
+            if($update){ ?>
+                <script>
+                    alert('Added Document Successfully');
+                    window.location.href="<?php echo site_url('staff/house/guest_ban/detail/'.$id.'/'.$code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/house/guest_ban/detail/'.$id.'/'.$code); ?>";
+                </script> 
+      <?php }
+        }
 
     }
 

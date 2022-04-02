@@ -93,24 +93,7 @@
                                                 <b>Action</b>
                                                 <div class="pull-right"><a href="<?php echo site_url("admin/property/edit/$det->id"); ?>">Edit</a></div>
                                             </li>
-                                            <li class="list-group-item">
-                                                <b>Send Mail</b>
-                                                <form action="<?php echo base_url('admin/property/send_mail'); ?>" method="POST">
-                                                <input type="email" name="email" class="form-control" placeholder="Recepient email">
-                                                <input type="hidden" name="housename" value="<?php echo $det->housename; ?>">
-                                                <input type="hidden" name="body" value="<?php echo $det->body; ?>">
-                                                <input type="hidden" name="body" value="<?php echo $det->body; ?>">
-                                                <input type="hidden" name="telephone" value="<?php echo $det->telephone; ?>">
-                                                <input type="hidden" name="mobile" value="<?php echo $det->mobile; ?>">
-                                                <input type="hidden" name="address" value="<?php echo $det->address; ?>">
-                                                <input type="hidden" name="postcode" value="<?php echo $det->postcode; ?>">
-                                                <input type="hidden" name="city" value="<?php echo $det->city; ?>">
-                                                <input type="hidden" name="state" value="<?php echo $det->state; ?>">
-                                                <input type="hidden" name="created_date" value="<?php echo date('l, dS M Y',strtotime($det->created_date)); ?>">
-                                                <br>
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>
-                                            </li>
+                                        
                                         </ul>
                                     </div>
                                     <?php } } ?>

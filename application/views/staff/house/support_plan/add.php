@@ -22,7 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<title>Support Plan || staff || Harold</title>
+<title>Support Plan || Admin || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 
@@ -46,7 +46,7 @@
                         <ol class="breadcrumb page-breadcrumb">
                           <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Support Plan</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('staff/house/support_plan/view/'.strtolower($code)); ?>">Support Plan</a></li>
                         </ol>
                     </div>
 
@@ -199,7 +199,7 @@
                                             <div class="form-group">
                                                 <label><b><?php echo $area->title; ?></b></label>
                                             </div>
-                                            <a href="<?php echo site_url('admin/house/support_plan/edit_area_of_support/'.$code); ?>" class="btn btn-primary">Edit</a>
+                                            <a href="<?php echo site_url('staff/house/support_plan/edit_area_of_support/'.$code); ?>" class="btn btn-primary">Edit</a>
                                             <br><br>
                                             <button type="button" onclick="delete_support_area(<?php echo $area->id; ?>)" class="btn btn-danger">Delete</button>
                                             <br><br>

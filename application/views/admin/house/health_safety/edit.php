@@ -28,8 +28,8 @@
                         <h1 class="page-title">Health & Safety check</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/health_safety/view/'.strtolower($code)); ?>">Health & Safety</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $health->title; ?></li>
                         </ol>
                     </div>

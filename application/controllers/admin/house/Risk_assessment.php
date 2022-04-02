@@ -2,6 +2,23 @@
     
     class Risk_assessment extends CI_Controller{
         
+        public function view($code){
+            $session_role = $this->session->userdata('urole');
+            
+            $this->load->model('House_model');
+            
+            if(!empty($session_role) && $session_role == "Admin"){
+                $data['house'] = $this->House_model->display_home($code);
+                $data['risk_assessment'] = $this->House_model->display_all_risk_assessment($code);
+                $data['children'] = $this->House_model->display_all_children();
+                $data['code'] = $code;
+
+                $this->load->view('admin/house/risk_assessment/view', $data);
+            }else{
+                redirect('admin/account/login');    
+            }
+        }
+        
         public function detail($id, $code){
             $session_role = $this->session->userdata('urole');
             
@@ -903,116 +920,11 @@
            $this->Risk_assessment_model->delete_risk_assessment($id); 
         }
         
-        public function send_mail($code){
-          $email = $this->input->post('email');  
-              
-          $title = $this->input->post('title');
-          $criminal_risk_level = $this->input->post('criminal_risk_level');
-          $criminal_level = $this->input->post('criminal_level');
-          
-          $violent_risk_level = $this->input->post('violent_risk_level');
-          $violent_level = $this->input->post('violent_level');
-
-          $weapon_risk_level = $this->input->post('weapon_risk_level');   
-          $weapon_level = $this->input->post('weapon_level');   
-
-          $behaviour_community_risk_level = $this->input->post('behaviour_community_risk_level');   
-          $behaviour_community_level = $this->input->post('behaviour_community_level');   
-
-          $bully_risk_level = $this->input->post('bully_risk_level');   
-          $bully_level = $this->input->post('bully_level');   
-
-          $discrimination_risk_level = $this->input->post('discrimination_risk_level');   
-          $discrimination_level = $this->input->post('discrimination_level');   
-
-          $damage_property_risk_level = $this->input->post('damage_property_risk_level');   
-          $damage_property_level = $this->input->post('damage_property_level');   
-
-          $arson_risk_level = $this->input->post('arson_risk_level');   
-          $arson_level = $this->input->post('arson_level');   
-
-          $missing_risk_level = $this->input->post('missing_risk_level');   
-          $missing_level = $this->input->post('missing_level');   
-
-          $missue_illegal_risk_level = $this->input->post('missue_illegal_risk_level');   
-          $missue_illegal_level = $this->input->post('missue_illegal_level');   
-
-          $self_harm_risk_level = $this->input->post('self_harm_risk_level');   
-          $self_harm_level = $this->input->post('self_harm_level');   
-
-          $sexual_risk_level = $this->input->post('sexual_risk_level');   
-          $sexual_level = $this->input->post('sexual_level');   
-
-          $medication_risk_level = $this->input->post('medication_risk_level');   
-          $medication_level = $this->input->post('medication_level');   
-
-          $family_risk_level = $this->input->post('family_risk_level');   
-          $family_level = $this->input->post('family_level');   
-
-          $allegation_risk_level = $this->input->post('allegation_risk_level');   
-          $allegation_level = $this->input->post('allegation_level');   
-
-          $travel_risk_level = $this->input->post('travel_risk_level');   
-          $travel_level = $this->input->post('travel_level');   
-
-          $additional_info = $this->input->post('additional_info');   
-          $date = $this->input->post('created_date');    
+        public function send_mail($id, $code){
+          $email = $this->input->post('email');       
 
           $subject = "Risk Assessment";
-          $body = "
-            Please find below the information of the Risk Assessment - 
-            Title - $title 
-            Criminal/Offending Behaviour - $criminal_risk_level
-            Criminal/Offending Behaviour Risk Level - $criminal_level
-            
-            Violent toward others  - $violent_risk_level 
-            Violent toward others Risk Level - $violent_level 
-            
-            Use of weapons - $weapon_risk_level 
-            Use of weapons Risk Level - $weapon_level 
-
-            Behaviour in the community - $behaviour_community_risk_level 
-            Behaviour in the community Risk Level - $behaviour_community_level 
-
-            Bully - $bully_risk_level 
-            Bully Risk Level - $bully_level 
-
-            Discrimination - $discrimination_risk_level 
-            Discrimination Risk Level - $discrimination_level 
-
-            Damage to property - $damage_property_risk_level 
-            Damage to property Risk Level - $damage_property_level 
-
-            Arson - $arson_risk_level 
-            Arson Risk Level - $arson_level 
-
-            Going missing - $missing_risk_level 
-            Going missing Risk Level - $missing_level 
-
-            Misuse of illegal substances/alcohol/smoking - $missue_illegal_risk_level 
-            Misuse of illegal substances/alcohol/smoking Risk Level - $missue_illegal_level 
-
-            Emotional wellbeing & self-harm - $self_harm_risk_level 
-            Emotional wellbeing & self-harm Risk Level - $self_harm_level 
-
-            Sexual health - $sexual_risk_level 
-            Sexual health Risk Level - $sexual_level 
-
-            Health & Medication - $medication_risk_level 
-            Health & Medication Risk Level - $medication_level 
-
-            Family & Friend Contacts  - $family_risk_level 
-            Family & Friend Contacts Risk Level - $family_level 
-            
-            Allegations - $allegation_risk_level 
-            Allegations Risk Level - $allegation_level 
-
-            Travel in vehicle - $travel_risk_level 
-            Travel in vehicle Risk Level - $travel_level 
-
-            Additional Information - $additional_info 
-            Date - $date
-            ";
+          $body = "Please find below attached the Risk Assessment document";
 
           $config = Array(
          'protocol' => 'smtp',
@@ -1024,6 +936,16 @@
          'charset' => 'iso-8859-1',
          'wordwrap' => TRUE
          );
+         
+         $this->load->model('Risk_assessment_model');
+         $data['detail'] = $this->Risk_assessment_model->display_risk_assessment_by_id($id);
+         $detail = $data['detail'];
+         
+         foreach($detail as $det){
+             $pdf = $det->pdf;
+         }
+         
+         $atch = base_url('uploads/risk_assessment/'.$pdf);
 
          $this->load->library('email', $config);
          //$this->load->library('encrypt');
@@ -1032,6 +954,7 @@
          //$this->email->cc("testcc@domainname.com");
          $this->email->subject("$subject");
          $this->email->message("$body");
+         $this->email->attach($atch); 
          $this->email->send();
          ?>
         <script>
@@ -1039,6 +962,56 @@
             window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
         </script> 
  <?php }
+ 
+        public function edit_document($id, $code){
+            
+            $this->load->model('Risk_assessment_model');
+            
+            $files = $_FILES;
+            $cpt1 = count($_FILES['userFiles1']['name']);
+    
+            for($i=0; $i<$cpt1; $i++){
+                $_FILES['userFiles1']['name']= $files['userFiles1']['name'][$i];
+                $_FILES['userFiles1']['type']= $files['userFiles1']['type'][$i];
+                $_FILES['userFiles1']['tmp_name']= $files['userFiles1']['tmp_name'][$i];
+                $_FILES['userFiles1']['error']= $files['userFiles1']['error'][$i];
+                $_FILES['userFiles1']['size']= $files['userFiles1']['size'][$i];
+    
+                $config1 = array(
+                    'upload_path'   => "./uploads/risk_assessment/",
+                    //'upload_path'   => "./uploads/../../uploads/community/",
+                    'allowed_types' => "pdf|docx|doc",
+                    'overwrite'     => TRUE,
+                    'max_size'      => "30000",  // Can be set to particular file size
+                    //'max_height'    => "768",
+                    //'max_width'     => "1024"
+                );
+    
+                $this->load->library('upload', $config1);
+                $this->upload->initialize($config1);
+    
+                $this->upload->do_upload('userFiles1');
+                $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
+            }
+              
+            $array = array(
+                'pdf' => $fileName
+            );  
+            
+            $update = $this->Risk_assessment_model->update_risk_assessment_details($id, $array);
+            
+            if($update){ ?>
+                <script>
+                    alert('Added Document Successfully');
+                    window.location.href="<?php echo site_url('admin/house/risk_assessment/detail/'.$id.'/'.$code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('admin/house/risk_assessment/detail/'.$id.'/'.$code); ?>";
+                </script> 
+      <?php }
+        }
     
     }
 

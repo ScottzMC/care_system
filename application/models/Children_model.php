@@ -198,6 +198,45 @@
         
         // End of Medical History
         
+        // Contact Details
+        
+        public function display_contact_detail_by_code_limit($code){
+            $this->db->limit('5');
+            $this->db->order_by('created_date', 'DESC');
+            $this->db->where('code', $code);
+            $query = $this->db->get('children_contact_details')->result();
+            return $query;
+        }
+        
+        public function display_contact_detail_by_id($id){
+            $this->db->where('id', $id);
+            $query = $this->db->get('children_contact_details')->result();
+            return $query;
+        }
+        
+        public function display_contact_detail_by_code($code){
+            $this->db->where('code', $code);
+            $query = $this->db->get('children_contact_details')->result();
+            return $query;
+        }
+        
+        public function insert_contact_detail($data){
+            $query = $this->db->insert('children_contact_details', $data);
+            return $query;
+        }
+        
+        public function update_contact_details($id, $data){
+          $this->db->where('id', $id);
+          $query = $this->db->update('children_contact_details', $data);
+          return $query;
+        }
+        
+        public function delete_contact_detail($id){
+            $query = $this->db->query("DELETE FROM children_contact_details WHERE id = '$id' ");
+        }
+        
+        // End of Contact Details
+        
         // Personal Education 
         
         public function display_personal_education_by_code_limit($code){

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($support_work as $support){} ?>
-<title>Edit <?php echo $support->title; ?> Support Work || Staff || Harold</title>
+<title>Edit <?php echo $support->title; ?> Support Work || staff || Harold</title>
 <?php $this->load->view('menu/staff/style'); ?>
 
 </head>
@@ -20,7 +20,6 @@
         <?php 
         $property = $this->db->query("SELECT housename FROM properties WHERE code = '$code' ")->result();
         foreach($property as $prop){} ?>
-        
         <!-- Start Page header -->
         <div class="section-body">
             <div class="container-fluid">
@@ -29,8 +28,8 @@
                         <h1 class="page-title">Support Work</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/support_work/view/'.strtolower($code)); ?>">Support Work</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/house/support_work/detail/'.$support->id.'/'.$code); ?>"><?php echo $support->title; ?></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $support->title; ?> </li>
                         </ol>

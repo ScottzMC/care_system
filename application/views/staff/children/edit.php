@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($children as $child){} ?>
-<title>Edit <?php echo $child->fullname; ?> Young People || Staff || Harold</title>
+<title>Edit <?php echo $child->fullname; ?> Young People || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 
@@ -234,7 +234,7 @@
                             </div>
                             
                             <div class="card-body">
-                                <form action="<?php echo base_url('staff/children/edit_image/'.$child->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('staff/children/profile/edit_image/'.$child->code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<?php foreach($children as $child){} ?>
-<title>Edit <?php echo $child->fullname; ?> Young People || staff || Harold</title>
+<?php foreach($abilities_evaluation as $abilities){} ?>
+<title>Edit <?php echo $abilities->child_name; ?> Young People || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 
@@ -19,8 +19,6 @@
     <?php $this->load->view('menu/staff/nav'); ?>
     <div class="page">
         <!-- Start Page header -->
-        <?php foreach($abilities_evaluation as $abilities){} ?>
-        
         <div class="section-body">
             <div class="container-fluid">
                 <div class="d-flex justify-content-between align-items-center">
@@ -29,7 +27,7 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/all'); ?>">Young People </a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/profile/detail/'.$child->code); ?>"><?php echo $abilities->child_name; ?> Profile </a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/profile/detail/'.$abilities->code); ?>"><?php echo $abilities->child_name; ?> Profile </a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/abilities_evaluation/view/'.$abilities->code); ?>">Abilities Evaluation </a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $abilities->child_name; ?> Abilities Evaluation</li>
                         </ol>

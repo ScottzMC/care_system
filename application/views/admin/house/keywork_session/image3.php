@@ -30,8 +30,8 @@
                         <h1 class="page-title">Keywork Session</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/keywork_session/view/'.strtolower($code)); ?>">Keywork Session</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/keywork_session/detail/'.$keywork->id.'/'.$code); ?>"><?php echo $keywork->title; ?></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Photo 3</li>
                         </ol>

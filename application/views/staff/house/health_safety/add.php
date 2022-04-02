@@ -29,9 +29,8 @@
                         <h1 class="page-title">Health & Safety</h1>
                         <ol class="breadcrumb page-breadcrumb">
                           <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                          <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Health & Safety</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('staff/house/health_safety/view/'.strtolower($code)); ?>">Health & Safety</a></li>
                         </ol>
                     </div>
 

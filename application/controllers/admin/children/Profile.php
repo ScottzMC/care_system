@@ -27,6 +27,7 @@
                 $data['health_safety'] = $this->Children_model->display_health_safety_by_code_limit($code);
 
                 $data['case_recording'] = $this->Children_model->display_case_recording_by_code_limit($code);
+                $data['contact_detail'] = $this->Children_model->display_contact_detail_by_code_limit($code);
 
                 $data['count_incidents'] = $this->Children_model->count_incidents($code);
                 $data['count_absences'] = $this->Children_model->count_absences($code);

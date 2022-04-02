@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($children as $child){} ?>
-<title><?php echo $child->fullname; ?> Young People || Admin || Harold</title>
+<title><?php echo $child->fullname; ?> Young People || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 
@@ -27,12 +27,12 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/children/all'); ?>">Young People </a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> <?php echo $child->fullname; ?> Children</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $child->fullname; ?> Children</li>
                         </ol>
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Children-profile"> <?php echo $child->fullname; ?></a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Children-profile">Edit <?php echo $child->fullname; ?></a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>
@@ -91,7 +91,7 @@
                                                 <div class="pull-right"><?php echo $child->ethnic; ?></div>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Guardian </b>
+                                                <b>Legal status </b>
                                                 <div class="pull-right"><?php echo $child->guardian; ?></div>
                                             </li>
                                             <li class="list-group-item">
@@ -208,27 +208,6 @@
                                 
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Health & Safety Check</h3>
-                                    </div>
-                                    <div class="card-header">
-                                       <div class="pull-right"><a href="<?php echo site_url("staff/health_safety"); ?>">View All</a></div>
-                                    </div>
-                                    <?php if(!empty($health_safety)){ foreach($health_safety as $health){ ?>
-                                    <div class="card-body">
-                                        <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($health->created_date)); ?></small></span>
-                                            <h6 class="font600"><?php echo $health->title; ?></h6>
-                                            <!--<div class="msg">
-                                                <p><?php echo character_limiter($health->additional_info, 100); ?></p>
-                                            </div>-->   
-                                            <div class="pull-right"><a href="<?php echo site_url("staff/health_safety/edit/$health->id/$health->code"); ?>">Edit</a></div>
-                                        </div>
-                                    </div>
-                                    <?php } } ?>
-                                </div> 
-                                
-                                <div class="card">
-                                    <div class="card-header">
                                         <h3 class="card-title">Foster Carer</h3>
                                     </div>
                                     <div class="card-header">
@@ -263,7 +242,7 @@
                                             <input type="hidden" name="title" value="<?php echo $inc->title; ?>">
                                             <h6 class="font600"><?php echo $inc->title; ?></h6>
                                             <div class="msg">
-                                                <input type="hidden" name="body" value="<?php echo $inc->body; ?>">
+                                                <!--<input type="hidden" name="body" value="< ?php echo $inc->body; ?>">-->
                                                 <p><?php echo $inc->body; ?></p>
                                             </div>       
                                             <small class="float-right text-right"><a href="<?php echo site_url('staff/children/incident/edit/'.$inc->id.'/'.strtolower($inc->code)); ?>"> Edit</a></small>
@@ -309,6 +288,24 @@
                                                 <p><?php echo $abil->body; ?></p>
                                             </div> 
                                             <div class="pull-right"><a href="<?php echo site_url("staff/children/abilities_evaluation/edit/$abil->id/$abil->code"); ?>">Edit</a></div>
+                                        </div>
+                                    </div>
+                                    <?php } } ?>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Contact Details</h3>
+                                    </div>
+                                    <div class="card-header">
+                                       <div class="pull-right"><a href="<?php echo site_url("staff/children/contact_detail/view/".$child->code); ?>">View All</a></div>
+                                    </div>
+                                    <?php if(!empty($contact_detail)){ foreach($contact_detail as $contact){ ?>
+                                    <div class="card-body">
+                                        <div class="timeline_item ">
+                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($contact->created_date)); ?></small></span>
+                                            <h6 class="font600"><?php echo $contact->fullname; ?></h6>     
+                                            <div class="pull-right"><a href="<?php echo site_url("staff/children/contact_detail/edit/$contact->id/$contact->code"); ?>">Edit</a></div>
                                         </div>
                                     </div>
                                     <?php } } ?>

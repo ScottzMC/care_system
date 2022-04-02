@@ -30,8 +30,8 @@
                         <h1 class="page-title">Reporting</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/reporting/view/'.strtolower($code)); ?>">Reporting</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/reporting/detail/'.$report->id.'/'.strtolower($code)); ?>"><?php echo $report->title; ?></a></li>
                             <li class="breadcrumb-item active" aria-current="page"> Health/Self-Care</li>
                         </ol>

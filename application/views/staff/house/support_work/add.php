@@ -22,7 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-<title>Support Work || Staff || Harold</title>
+<title>Support Work || staff || Harold</title>
 
 <?php $this->load->view('menu/staff/style'); ?>
 
@@ -46,9 +46,8 @@
                         <h1 class="page-title">Support Work</h1>
                         <ol class="breadcrumb page-breadcrumb">
                           <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">House</li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Support Work</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="<?php echo site_url('staff/house/support_work/view/'.strtolower($code)); ?>">Support Work</a></li>
                         </ol>
                     </div>
 
@@ -63,45 +62,6 @@
         <div class="section-body mt-4">
             <div class="container-fluid">
                 <div class="tab-content">
-                    
-                    <script>
-                        function delete_support_work(id){
-                          var del_id = id;
-                          if(confirm("Are you sure you want to delete this support work")){
-                          $.post('<?php echo base_url('staff/house/support_work/delete'); ?>', {"del_id": del_id}, function(data){
-                            alert('Deleted Successfully');
-                            location.reload();
-                            $('#cti').html(data)
-                            });
-                          }
-                        }
-                        
-                        function delete_task(id){
-                          var del_id = id;
-                          if(confirm("Are you sure you want to delete this task")){
-                          $.post('<?php echo base_url('staff/house/support_work/delete_task'); ?>', {"del_id": del_id}, function(data){
-                            alert('Deleted Successfully');
-                            location.reload();
-                            $('#cti').html(data)
-                            });
-                          }
-                        }
-                        
-                        function delete_subtask(id){
-                          var del_id = id;
-                          if(confirm("Are you sure you want to delete this task")){
-                          $.post('<?php echo base_url('staff/house/support_work/delete_subtask'); ?>', {"del_id": del_id}, function(data){
-                            alert('Deleted Successfully');
-                            location.reload();
-                            $('#cti').html(data)
-                            });
-                          }
-                        }
-                        
-                        </script>
-
-                        <p id='cti'></p>
-                    
                     <div class="tab-pane active" id="Support-add">
                         <div class="card">
                             <div class="card-header">
@@ -156,7 +116,8 @@
                                                 <br>
                                                 <?php if(!empty($task)){ 
                                                 foreach($task as $tsk){ ?>
-                                                 <input type="checkbox" name="task[]" value="<?php echo $tsk->id; ?>"> <?php echo $tsk->title; ?>
+                                                <input type="hidden" name="task_id[]" value="<?php echo $tsk->id; ?>">
+                                                 <input type="checkbox" name="task[]" value="<?php echo $tsk->title; ?>"> <?php echo $tsk->title; ?>
                                                 <br>
                                                 <?php } } ?>
                                             </div>
@@ -222,7 +183,7 @@
                                 <h3 class="card-title">Add Task</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('staff/house/support_work/add_task/'.$code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('staff/house/support_work/add_task'); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">

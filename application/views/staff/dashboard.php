@@ -109,14 +109,14 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a href="<?php echo site_url('staff/user/profile/'.$stf->id); ?>">
+                                                        <a href="<?php echo site_url('staff/user/profile/'.$stf->id.'/'.$stf->code); ?>">
                                                             <div><?php echo $stf->firstname; ?> <?php echo $stf->lastname; ?></div>
                                                         </a>
                                                     </td>
                                                     <td><?php echo $stf->telephone; ?></td>
                                                     <td><?php echo $stf->city; ?></td>
                                                     <td><?php echo $stf->state; ?></td>
-                                                    <td><a href="<?php echo site_url('staff/user/profile/'.$stf->id); ?>">View</a></td>
+                                                    <td><a href="<?php echo site_url('staff/user/profile/'.$stf->id.'/'.$stf->code); ?>">View</a></td>
                                                 </tr>
                                                 <?php } } ?>
                                             </tbody>

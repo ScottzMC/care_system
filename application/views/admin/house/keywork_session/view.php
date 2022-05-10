@@ -86,11 +86,11 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Date Title</th>
-                                        <th>Title</th>
+                                        <th>Date</th>
                                         <th>Summary</th>
                                         <th>Staff Initial</th>
                                         <th><a href="<?php echo site_url("admin/house/keywork_session/add/$code"); ?>">Add</a></th>
+                                        <th>View</th>
                                         <th>Action</th>
                                         <th>Action</th>
                                     </tr>
@@ -99,10 +99,10 @@
                                   <?php if($keywork_session){ foreach($keywork_session as $keywork){ ?>
                                     <tr>
                                         <td><a href="<?php echo site_url("admin/house/keywork_session/detail/$keywork->id/$code"); ?>"><span class="font-16"><?php echo $keywork->date_title; ?></span></a></td>
-                                        <td><a href="<?php echo site_url("admin/house/keywork_session/detail/$keywork->id/$code"); ?>"><span class="font-16"><?php echo $keywork->title; ?></span></a></td>
                                         <td><?php echo wordwrap($keywork->summary, 70,"<br>"); ?></td>
                                         <td><?php echo $keywork->staff_initial; ?></td>
                                         <td><a href="<?php echo site_url("admin/house/keywork_session/add/$code"); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url("admin/house/keywork_session/detail/$keywork->id/$code"); ?>">View</a></td>
                                         <td><a href="<?php echo site_url("admin/house/keywork_session/edit/$keywork->id/$code"); ?>">Edit</a></td>
                                         <td><button type="button" onclick="delete_keywork_session(<?php echo $keywork->id; ?>)">Delete</button></td>
                                     </tr>

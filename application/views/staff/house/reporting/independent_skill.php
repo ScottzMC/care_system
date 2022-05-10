@@ -60,7 +60,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Independent Living Skills</label>
-                                                <textarea name="independent_skills" class="form-control" aria-label="With textarea"><?php echo $report->independent_skills; ?></textarea>
+                                                <textarea cols="10" rows="10" name="independent_skills" class="form-control" aria-label="With textarea"><?php echo $report->independent_skills; ?></textarea>
                                             </div>
                                         </div>
                                         

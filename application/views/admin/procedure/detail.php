@@ -27,12 +27,12 @@
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/procedure'); ?>">Policy & Procedure</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Procedure">Edit <?php echo $det->title; ?></a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Procedure"><?php echo $det->title; ?></a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>

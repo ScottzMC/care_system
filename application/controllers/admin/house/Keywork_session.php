@@ -43,6 +43,7 @@
             $session_role = $this->session->userdata('urole');
             
             $submit_btn = $this->input->post('add');
+            $submit_ind = $this->input->post('independent');
             
             $house = $this->House_model->display_home($code);
             foreach($house as $hse){
@@ -61,14 +62,17 @@
             
             $child_code = $this->input->post('child_code');
             $date_title = $this->input->post('date_title');
-            $title = $this->input->post('title');
+            //$title = $this->input->post('title');
             $summary = $this->input->post('summary');
             $independent_living = $this->input->post('independent_living');
             $imp_independent_living = implode(',', $independent_living);
             $staff_initial = $this->input->post('staff_initial');
             $hours_spent = $this->input->post('hours_spent');
             $length_time = $this->input->post('length_time');
+            $time = $this->input->post('time');
             $date = $this->input->post('created_date');
+            
+            $independent_live = $this->input->post('independent_live');
             
             $files = $_FILES;
             
@@ -204,7 +208,7 @@
                 'code' => $child_code,
                 'child_name' => $child_name,
                 'date_title' => $date_title,
-                'title' => $title,
+                //'title' => $title,
                 'summary' => $summary,
                 'independent_living' => $imp_independent_living,
                 'staff_initial' => $staff_initial,
@@ -215,6 +219,7 @@
                 'image3' => $fileName3, 
                 'image4' => $fileName4, 
                 'image5' => $fileName5, 
+                'time' => $time,
                 'created_date' => $date
             );
             
@@ -223,15 +228,16 @@
             if($insert){ ?>
                 <script>
                     alert('Added Successfully');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/keywork_session/view/'.$code); ?>";
                 </script>
       <?php }else{ ?>
                <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/keywork_session/view/'.$code); ?>";
                 </script> 
       <?php }
            }
+           
           }else{
             redirect('admin/account/login');    
           }
@@ -239,25 +245,26 @@
         
         public function independent_living($code){
             $this->load->model('Keywork_session_model');
+            $this->load->model('House_model');
             
             $data['house'] = $this->House_model->display_home($code);
             $data['code'] = $code;
             
-            $title = $this->input->post('title');
+            $independent_live = $this->input->post('independent_live');
             
-            $array = array('title' => $title);
+            $ind_array = array('title' => $independent_live);
             
-            $insert_independent_living = $this->Keywork_session_model->insert_independent_living($array);
+            $insert = $this->Keywork_session_model->insert_independent_living($ind_array);
             
-            if($insert_independent_living){ ?>
+            if($insert){ ?>
                 <script>
                     alert('Added Successfully');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/keywork_session/add/'.$code); ?>";
                 </script>
       <?php }else{ ?>
                <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/keywork_session/add/'.$code); ?>";
                 </script> 
       <?php }
         }
@@ -282,21 +289,23 @@
                 
                 if(isset($btn_submit)){
                     $date_title = $this->input->post('date_title');
-                    $title = $this->input->post('title');
+                    //$title = $this->input->post('title');
                     $summary = $this->input->post('summary');
                     $independent_living = $this->input->post('independent_living');
                     $imp_independent_living = implode(',', $independent_living);
                     $staff_initial = $this->input->post('staff_initial');
                     $hours_spent = $this->input->post('hours_spent');
+                    $time = $this->input->post('time');
                     $date = $this->input->post('created_date');
                     
                     $array = array(
                         'date_title' => $date_title,
-                        'title' => $title,
+                        //'title' => $title,
                         'summary' => $summary,
                         'independent_living' => $imp_independent_living,
                         'staff_initial' => $staff_initial,
                         'hours_spent' => $hours_spent,
+                        'time' => $time,
                         'created_date' => $date
                     );
                     
@@ -346,12 +355,12 @@
                     if($update_independent_living){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/house/keywork_session/detail/'.$id.'/'.$code); ?>";
+                            window.location.href="<?php echo site_url('admin/house/keywork_session/add/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('admin/house/keywork_session/detail/'.$id.'/'.$code); ?>";
+                                window.location.href="<?php echo site_url('admin/house/keywork_session/add/'.$code); ?>";
                             </script> 
                   <?php }  
                     }
@@ -727,7 +736,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('admin/house/keywork_session/view/'.$code); ?>";
         </script> 
  <?php }
  

@@ -66,10 +66,10 @@
                                                 <b>FullName </b>
                                                 <div class="pull-right"><?php echo $det->child_name; ?></div>
                                             </li>
-                                            <li class="list-group-item">
+                                            <!--<li class="list-group-item">
                                                 <b>Unit details </b>
                                                 <div class="pull-right"><?php echo $det->title; ?></div>
-                                            </li>
+                                            </li>-->
                                             <li class="list-group-item">
                                                 <b>Plan of action </b>
                                                 <div class="pull-right"><?php echo $det->plan_of_action; ?></div>
@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <form action="<?php echo base_url('staff/generate_pdf/support_plan/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <form action="<?php echo base_url('staff/generate_pdf/support_plan/'.$det->id.'/'.$det->code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                             <div class="pull-right"><button type="submit">Generate PDF</button></div>
                                             </form>
                                         </div>
@@ -148,7 +148,7 @@
                                     <div class="card-body">
                                         
                                         <div class="timeline_item ">
-                                            <form action="<?php echo base_url('staff/house/support_plan/edit_document/'.$det->id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <form action="<?php echo base_url('staff/house/support_plan/edit_document/'.$det->id.'/'.$det->code.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                                                 <div class="col-md-4 col-sm-12">
                                                     <div class="form-group">
                                                         <label>Document<span class="text-danger">*</span></label>
@@ -178,7 +178,7 @@
                                             </li>
                                             <li class="list-group-item">
                                                 <b>Action</b>
-                                                <div class="pull-right"><a href="<?php echo site_url("staff/house/support_plan/edit/$det->id/$det->code/$code"); ?>">Edit</a></div>
+                                                <div class="pull-right"><a href="<?php echo site_url("staff/house/support_plan/edit_comment/$comment->area_support_id/$det->code/$code"); ?>">Edit</a></div>
                                             </li>
                                         </ul>
                                     </div>

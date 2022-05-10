@@ -44,6 +44,14 @@
                                 
                             </div>
                             
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Staff Communication</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -57,7 +65,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
                             
                             
@@ -75,7 +82,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+                            </div>
+                            
+                            <div class="col-xl-8 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Staff Initial</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <div class="msg">
+                                                <h3 class="font600"><?php echo $det->staff_initial; ?></h3>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="col-xl-8 col-md-12">

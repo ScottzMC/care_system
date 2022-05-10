@@ -44,6 +44,14 @@
                                 
                             </div>
                             
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Support Plan</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -54,24 +62,6 @@
                                             <div class="msg">
                                                 <p><?php echo $det->child_name; ?></p>
                                             </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                            
-                            <div class="col-xl-8 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Unit details</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="timeline_item ">
-                                            <h5 class="font600"><?php echo $det->title; ?></h5>
-                                            <div class="msg">
-                                                <p><?php echo $det->plan_of_action; ?></p>
-                                            </div>  
                                         </div>
                                     </div>
                                 </div>
@@ -157,6 +147,23 @@
                                     
                                 </div>
                                 
+                            </div>
+                            
+                            <div class="col-xl-8 col-md-12">
+                            <?php if(!empty($support_comment)){ foreach($support_comment as $comment){ ?>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><?php echo $comment->title; ?></h3>
+                                    </div>
+                                    <div class="card-body">
+										<ul class="list-group">
+                                            <li class="list-group-item">
+                                                <?php echo $comment->comment; ?>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <?php } } ?>
                             </div>
                             
                         </div>

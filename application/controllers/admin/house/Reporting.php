@@ -54,6 +54,7 @@
             $data['code'] = $house_code;
             $data['children'] = $this->Reporting_model->display_all_children();
             $data['staff'] = $this->Reporting_model->display_all_staff();
+            $data['keywork_session'] = $this->Reporting_model->display_all_keywork_session();
 
             $this->load->view('admin/house/reporting/add', $data);
             
@@ -80,15 +81,21 @@
                 $child_name = $qry->fullname;
             }
             
+            $sequel = $this->db->query("SELECT summary FROM children_keywork_session WHERE id = '$keywork_session' ")->result();
+            foreach($sequel as $sql){
+                $keywork_summary = $sql->summary;
+            }
+            
             $array = array(
                 'code' => $code,
                 'child_name' => $child_name,
                 'house_code' => $house_code,
+                'keywork_session_id' => $keywork_session,
                 'house' => $house,
-                'title' => $title,
+                //'title' => $title,
                 'summary' => $summary,
                 'area_of_risk' => $area_of_risk,
-                'keywork_session' => $keywork_session,
+                'keywork_session' => $keywork_summary,
                 'self_care' => $self_care,
                 'education' => $education,
                 'independent_skills' => $independent_skills,
@@ -106,12 +113,12 @@
             if($insert){ ?>
                 <script>
                     alert('Added Successfully');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$house_code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/reporting/view/'.$house_code); ?>";
                 </script>
       <?php }else{ ?>
                <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$house_code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/reporting/view/'.$house_code); ?>";
                 </script> 
       <?php }
            }
@@ -140,7 +147,6 @@
                     $title = $this->input->post('title');
                     $summary = $this->input->post('summary');
                     $area_of_risk = $this->input->post('area_of_risk');
-                    $keywork_session = $this->input->post('keywork_session');
                     $self_care = $this->input->post('self_care');
                     $education = $this->input->post('education');
                     $independent_skills = $this->input->post('independent_skills');
@@ -153,10 +159,9 @@
                     $date = $this->input->post('created_date');
                     
                     $array = array(
-                        'title' => $title,
+                        //'title' => $title,
                         'summary' => $summary,
                         'area_of_risk' => $area_of_risk,
-                        'keywork_session' => $keywork_session,
                         'self_care' => $self_care,
                         'education' => $education,
                         'independent_skills' => $independent_skills,
@@ -735,7 +740,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('admin/house/reporting/view/'.$code); ?>";
         </script> 
  <?php }
  

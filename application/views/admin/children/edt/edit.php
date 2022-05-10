@@ -31,7 +31,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/all'); ?>">Young People </a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/profile/detail/'.$abs->code); ?>"><?php echo $abs->child_name; ?> Profile </a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/edt/view/'.$abs->code); ?>">EDT </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $abs->child_name; ?> Absences</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $abs->child_name; ?> EDT</li>
                         </ol>
                     </div>
 

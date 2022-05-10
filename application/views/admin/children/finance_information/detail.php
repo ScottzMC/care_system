@@ -76,8 +76,8 @@
                                                 <p><?php echo $fin->body; ?></p>
                                             </div>  
                                             <br><br>
-                                            <div class="pull-right"><a href="<?php echo base_url('admin/children/finance_information/download/'.$fin->id); ?>" target="_blank">Download</a></div>
-                                            <br><br>
+                                            <!--<div class="pull-right"><a href="< ?php echo base_url('admin/children/finance_information/download/'.$fin->id); ?>" target="_blank">Download</a></div>
+                                            <br><br>-->
                                             <div class="pull-right"><a href="<?php echo site_url("admin/children/finance_information/edit/$fin->id/$fin->code"); ?>">Edit</a></div>
                                         </div>
                                     </div>

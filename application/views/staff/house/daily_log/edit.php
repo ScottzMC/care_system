@@ -57,7 +57,7 @@
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Title <span class="text-danger">*</span></label>
+                                                <label>Date <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" value="<?php echo $daily->title; ?>">
                                             </div>
                                         </div>

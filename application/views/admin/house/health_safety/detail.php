@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($detail as $det){} ?>
-<title><?php echo $det->title; ?> || Health & Safety checks || admin || Harold</title>
+<title><?php echo $det->child_name; ?> || Health & Safety checks || admin || Harold</title>
 
 <?php $this->load->view('menu/admin/style'); ?>
 
@@ -31,7 +31,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/health_safety/view/'.strtolower($code)); ?>">Health & Safety</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->child_name; ?> Health & Safety</li>
                         </ol>
                     </div>
 
@@ -58,16 +58,16 @@
                     <div class="tab-pane active" id="Health">
                         <div class="row">
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Info</h3>
+                                        <h3 class="card-title">Summary</h3>
                                     </div>
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h6 class="font600"><?php echo $det->title; ?></h6>
+                                            <h6 class="font600"><?php echo $det->child_name; ?></h6>
                                             <div class="msg">
                                                 <p><?php echo $det->additional_info; ?></p>
                                             </div>  
@@ -75,16 +75,11 @@
                                             <h6 class="font600">Room Number</h6>
                                             <div class="msg">
                                                 <p><?php echo $det->room_number; ?></p>
-                                            </div>  
+                                            </div>   
                                             <br>
-                                            <h6 class="font600">Health & Safety checks </h6>
+                                            <h6 class="font600">Staff Initial </h6>
                                             <div class="msg">
-                                                <p><?php echo $det->safety_check; ?></p>
-                                            </div>  
-                                            <br>
-                                            <h6 class="font600">Recorded by </h6>
-                                            <div class="msg">
-                                                <p><?php echo $det->recorded_by; ?></p>
+                                                <p><?php echo $det->staff_initial; ?></p>
                                             </div>  
                                             <br>
                                             <h6 class="font600">Due date</h6>
@@ -97,7 +92,7 @@
                                                 <p><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></p>
                                             </div>  
                                             <br><br>
-                                            <div class="pull-right"><a href="<?php echo base_url('admin/house/health_safety/download/'.$det->id); ?>" target="_blank">Download</a></div>
+                                            <!--<div class="pull-right"><a href="<?php echo base_url('admin/house/health_safety/download/'.$det->id); ?>" target="_blank">Download</a></div>-->
                                             <br><br>
                                             
                                             <div class="pull-right"><a href="<?php echo site_url("admin/house/health_safety/edit/$det->id/$code"); ?>">Edit</a></div>
@@ -172,7 +167,7 @@
                             
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 1</h3>
@@ -194,7 +189,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 2</h3>
@@ -216,7 +211,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 3</h3>
@@ -238,7 +233,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 4</h3>
@@ -260,7 +255,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 5</h3>

@@ -66,36 +66,43 @@
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Date title <span class="text-danger">*</span></label>
+                                                <label>Date <span class="text-danger">*</span></label>
                                                 <input type="text" name="date_title" class="form-control" value="">
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-4 col-sm-12">
+                                        <!--<div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Title <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" value="">
                                             </div>
-                                        </div>
+                                        </div>-->
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Hours to be spent weekly <span class="text-danger">*</span></label>
+                                                <label>Hours weekly <span class="text-danger">*</span></label>
                                                 <input type="text" name="hours_spent" class="form-control" value="">
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Length of time spent <span class="text-danger">*</span></label>
+                                                <label>Duration <span class="text-danger">*</span></label>
                                                 <input type="text" name="length_time" class="form-control" value="">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Time <span class="text-danger">*</span></label>
+                                                <input type="text" name="time" class="form-control" value="">
                                             </div>
                                         </div>
                                         
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Comments and further actions</label>
-                                                <textarea name="summary" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="summary" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -178,12 +185,12 @@
                                 <h3 class="card-title">Add Independent Living Skills</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('staff/house/keywork_session/independent_living'); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('staff/house/keywork_session/independent_living/'.$code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Title <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control" value="">
+                                                <input type="text" name="independent_live" class="form-control" value="">
                                             </div>
                                         </div>
                                     </div>    

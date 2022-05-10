@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($detail as $det){} ?>
-<title><?php echo $det->title; ?> || Keywork Session || Admin || Harold</title>
+<title><?php echo $det->date_title; ?> || Keywork Session || Admin || Harold</title>
 
 <?php $this->load->view('menu/admin/style'); ?>
 
@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/keywork_session/view/'.strtolower($code)); ?>">Keywork Session</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->date_title; ?></li>
                         </ol>
                     </div>
 
@@ -70,7 +70,7 @@
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <h5 class="font600"><?php echo $det->date_title; ?></h5>
-                                            <h6 class="font600"><?php echo $det->title; ?></h6>
+                                            <!--<h6 class="font600"><?php echo $det->title; ?></h6>-->
                                             <div class="msg">
                                                 <p><?php echo $det->summary; ?></p>
                                             </div>  
@@ -80,14 +80,19 @@
                                                 <p><?php echo $det->staff_initial; ?></p>
                                             </div>  
                                             <br>
-                                            <h6 class="font600">Hours to be spent weekly</h6>
+                                            <h6 class="font600">Hours weekly</h6>
                                             <div class="msg">
                                                 <p><?php echo $det->hours_spent; ?></p>
                                             </div>  
                                             <br>
-                                            <h6 class="font600">Length of time spent</h6>
+                                            <h6 class="font600">Duration</h6>
                                             <div class="msg">
                                                 <p><?php echo $det->length_time; ?></p>
+                                            </div>  
+                                            <br>
+                                            <h6 class="font600">Time</h6>
+                                            <div class="msg">
+                                                <p><?php echo $det->time; ?></p>
                                             </div>  
                                             <br>
                                             <h6 class="font600">Independent Living Skills</h6>
@@ -180,7 +185,7 @@
                             
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 1</h3>
@@ -202,7 +207,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 2</h3>
@@ -224,7 +229,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 3</h3>
@@ -246,7 +251,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 4</h3>
@@ -268,7 +273,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Photo 5</h3>

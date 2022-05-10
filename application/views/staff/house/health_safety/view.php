@@ -71,11 +71,11 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Young Person</th>
-                                        <th>Title</th>
+                                        <!--<th>Young Person</th>-->
                                         <th>Additional info</th>
                                         <th>Room Number</th>
                                         <th><a href="<?php echo site_url("staff/house/health_safety/add/$code"); ?>">Add</a></th>
+                                        <th>View</th>
                                         <th>Action</th>
                                         <th>Action</th>
                                     </tr>
@@ -83,11 +83,11 @@
                                 <tbody>
                                   <?php if($health_safety){ foreach($health_safety as $health){ ?>
                                     <tr>
-                                        <td><a href="<?php echo site_url("staff/house/health_safety/detail/$health->id/$code"); ?>"><span class="font-16"><?php echo $health->child_name; ?></span></a></td>
-                                        <td><a href="<?php echo site_url("staff/house/health_safety/detail/$health->id/$code"); ?>"><span class="font-16"><?php echo $health->title; ?></span></a></td>
+                                        <!--<td><a href="<?php echo site_url("staff/house/health_safety/detail/$health->id/$code"); ?>"><span class="font-16"><?php echo $health->child_name; ?></span></a></td>-->
                                         <td><?php echo wordwrap($health->additional_info, 70,"<br>"); ?></td>
                                         <td><?php echo $health->room_number; ?></td>
                                         <td><a href="<?php echo site_url("staff/house/health_safety/add/$code"); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url("staff/house/health_safety/detail/$health->id/$code"); ?>">View</a></td>
                                         <td><a href="<?php echo site_url("staff/house/health_safety/edit/$health->id/$code"); ?>">Edit</a></td>
                                         <td><button type="button" onclick="delete_health_safety(<?php echo $health->id; ?>)">Delete</button></td>
                                     </tr>

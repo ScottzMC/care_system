@@ -87,24 +87,26 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Code</th>
+                                        <!--<th>Code</th>-->
                                         <th>Full Name</th>
                                         <th>Title</th>
                                         <th>Date</th>
                                         <th><a href="<?php echo base_url('staff/house/risk_assessment/add/'.$code); ?>">Add</a></th>
+                                        <th>View</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php if($risk_assessment){ foreach($risk_assessment as $risk){ ?>
                                     <tr>
-                                        <td><?php echo $risk->code; ?></td>
+                                        <!--<td><?php echo $risk->code; ?></td>-->
                                         <td><a href="<?php echo site_url("staff/children/profile/detail/$risk->code"); ?>"><span class="font-16"><?php echo $risk->child_name; ?></span></a></td>
                                         <td><a href="<?php echo site_url("staff/house/risk_assessment/detail/$risk->id/$code"); ?>"><span class="font-16"><?php echo $risk->title; ?></span></a></td>
                                         <td><?php echo date('l, dS M Y',strtotime($risk->created_date)); ?></td>
                                         <td>
                                         <a href="<?php echo base_url('staff/house/risk_assessment/add/'.$code); ?>">Add</a>
                                         </td>
+                                        <td><a href="<?php echo site_url("staff/house/risk_assessment/detail/$risk->id/$code"); ?>">View</a></td>
                                         <td><button type="button" onclick="delete_risk_assessment(<?php echo $risk->id; ?>)">Delete</button></td>
                                     </tr>
                                   <?php } }else{ echo ''; } ?>

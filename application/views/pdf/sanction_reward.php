@@ -51,6 +51,14 @@
                             </div>
                             
                             <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Sanction or Rewards</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
                                 
                                 <div class="card">
                                     <div class="card-header">
@@ -74,8 +82,8 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600"><?php echo $det->title; ?></h4>
+                                            <small class="float-right text-right">Date - <?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
+                                            <h4 class="font600">Title - <?php echo $det->title; ?></h4>
                                             <div class="msg">
                                                 <p><?php echo $det->body; ?></p>
                                             </div>

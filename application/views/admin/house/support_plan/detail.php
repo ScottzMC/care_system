@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <?php foreach($detail as $det){} ?>
-<title><?php echo $det->title; ?> || Support Plan || Admin || Harold</title>
+<title>Support Plan || Admin || Harold</title>
 
 <?php $this->load->view('menu/admin/style'); ?>
 </head>
@@ -31,7 +31,6 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/support_plan/view/'.strtolower($code)); ?>">Support Plan</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>
 
@@ -66,10 +65,10 @@
                                                 <b>FullName </b>
                                                 <div class="pull-right"><?php echo $det->child_name; ?></div>
                                             </li>
-                                            <li class="list-group-item">
+                                            <!--<li class="list-group-item">
                                                 <b>Unit details </b>
                                                 <div class="pull-right"><?php echo $det->title; ?></div>
-                                            </li>
+                                            </li>-->
                                             <li class="list-group-item">
                                                 <b>Plan of action </b>
                                                 <div class="pull-right"><?php echo $det->plan_of_action; ?></div>
@@ -131,7 +130,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <form action="<?php echo base_url('admin/generate_pdf/support_plan/'.$det->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <form action="<?php echo base_url('admin/generate_pdf/support_plan/'.$det->id.'/'.$det->code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                             <div class="pull-right"><button type="submit">Generate PDF</button></div>
                                             </form>
                                         </div>
@@ -148,7 +147,7 @@
                                     <div class="card-body">
                                         
                                         <div class="timeline_item ">
-                                            <form action="<?php echo base_url('admin/house/support_plan/edit_document/'.$det->id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                            <form action="<?php echo base_url('admin/house/support_plan/edit_document/'.$det->id.'/'.$det->code.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                                                 <div class="col-md-4 col-sm-12">
                                                     <div class="form-group">
                                                         <label>Document<span class="text-danger">*</span></label>
@@ -178,7 +177,7 @@
                                             </li>
                                             <li class="list-group-item">
                                                 <b>Action</b>
-                                                <div class="pull-right"><a href="<?php echo site_url("admin/house/support_plan/edit/$det->id/$det->code/$code"); ?>">Edit</a></div>
+                                                <div class="pull-right"><a href="<?php echo site_url("admin/house/support_plan/edit_comment/$comment->area_support_id/$det->code/$code"); ?>">Edit</a></div>
                                             </li>
                                         </ul>
                                     </div>

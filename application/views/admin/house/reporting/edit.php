@@ -55,80 +55,11 @@
                             <div class="card-body">
                                 <form action="<?php echo base_url("admin/house/reporting/edit/$report->id/$code"); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Title <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control" value="<?php echo $report->title; ?>">
-                                            </div>
-                                        </div>
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Social worker <span class="text-danger">*</span></label>
                                                 <input type="text" name="social_worker" class="form-control" value="<?php echo $report->social_worker; ?>">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Comments and further actions</label>
-                                                <textarea name="summary" class="form-control" aria-label="With textarea"><?php echo $report->summary; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Areas of Risk/Concern</label>
-                                                <textarea name="area_of_risk" class="form-control" aria-label="With textarea"><?php echo $report->area_of_risk; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Key Work Sessions</label>
-                                                <textarea name="keywork_session" class="form-control" aria-label="With textarea"><?php echo $report->keywork_session; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Health/Self-Care</label>
-                                                <textarea name="self_care" class="form-control" aria-label="With textarea"><?php echo $report->self_care; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Education/Employment/Training</label>
-                                                <textarea name="education" class="form-control" aria-label="With textarea"><?php echo $report->education; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Independent Living Skills</label>
-                                                <textarea name="independent_skills" class="form-control" aria-label="With textarea"><?php echo $report->independent_skills; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Family/Friends Contact</label>
-                                                <textarea name="family" class="form-control" aria-label="With textarea"><?php echo $report->family; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Unauthorised Absences/Missing/Legal</label>
-                                                <textarea name="missing" class="form-control" aria-label="With textarea"><?php echo $report->missing; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Areas of Progress</label>
-                                                <textarea name="area_of_progress" class="form-control" aria-label="With textarea"><?php echo $report->area_of_progress; ?></textarea>
                                             </div>
                                         </div>
                                         
@@ -155,6 +86,62 @@
                                             <div class="form-group">
                                                 <label>Date <span class="text-danger">*</span></label>
                                                 <input type="date" name="created_date" class="form-control" placeholder="yyyy-mm-dd" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Summary</label>
+                                                <textarea cols="10" rows="10" name="summary" class="form-control" aria-label="With textarea"><?php echo $report->summary; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Areas of Risk/Concern</label>
+                                                <textarea cols="10" rows="10" name="area_of_risk" class="form-control" aria-label="With textarea"><?php echo $report->area_of_risk; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Health/Self-Care</label>
+                                                <textarea cols="10" rows="10" name="self_care" class="form-control" aria-label="With textarea"><?php echo $report->self_care; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Education/Employment/Training</label>
+                                                <textarea cols="10" rows="10" name="education" class="form-control" aria-label="With textarea"><?php echo $report->education; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Independent Living Skills</label>
+                                                <textarea cols="10" rows="10" name="independent_skills" class="form-control" aria-label="With textarea"><?php echo $report->independent_skills; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Family/Friends Contact</label>
+                                                <textarea cols="10" rows="10" name="family" class="form-control" aria-label="With textarea"><?php echo $report->family; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Unauthorised Absences/Missing/Legal</label>
+                                                <textarea cols="10" rows="10" name="missing" class="form-control" aria-label="With textarea"><?php echo $report->missing; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Areas of Progress</label>
+                                                <textarea cols="10" rows="10" name="area_of_progress" class="form-control" aria-label="With textarea"><?php echo $report->area_of_progress; ?></textarea>
                                             </div>
                                         </div>
                                         

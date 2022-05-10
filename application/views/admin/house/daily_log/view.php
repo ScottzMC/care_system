@@ -86,7 +86,7 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
+                                        <th>Date</th>
                                         <th>Time</th>
                                         <th>Body</th>
                                         <th>Staff Initial</th>

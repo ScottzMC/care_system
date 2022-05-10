@@ -38,7 +38,7 @@
             
             $this->load->model('Procedure_model');
             
-            $files = $_FILES;
+            /*$files = $_FILES;
             $cpt1 = count($_FILES['userFiles1']['name']);
     
             for($i=0; $i<$cpt1; $i++){
@@ -63,12 +63,12 @@
     
                 $this->upload->do_upload('userFiles1');
                 $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
-            }
+            }*/
               
             $array = array(
                 'title' => $title,
                 'body' => $body,
-                'doc' => $fileName,
+                //'doc' => $fileName,
                 'created_time' => $time,
                 'created_date' => $date
             );  

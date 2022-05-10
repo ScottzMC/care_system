@@ -59,7 +59,7 @@
                     
                     <div class="tab-pane active" id="Risk">
                         <div class="row">
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Info</h3>
@@ -69,7 +69,9 @@
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <h6 class="font600"><?php echo $det->title; ?></h6>
-                                            <h6 class="font600"><?php echo $det->child_name; ?></h6>
+                                            <h6 class="font600">Young Person - <?php echo $det->child_name; ?></h6>
+                                            <h6 class="font600">Social worker - <?php echo $det->social_worker; ?></h6>
+                                            <h6 class="font600">Staff - <?php echo $det->staff; ?></h6>
                                             <div class="msg">
                                                 <p><?php echo $det->additional_info; ?></p>
                                             </div> 
@@ -146,7 +148,7 @@
                             
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Criminal/Offending Behaviour</h3>
@@ -175,7 +177,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Violent toward others</h3>
@@ -204,7 +206,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Use of weapons</h3>
@@ -235,7 +237,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Behaviour in the community</h3>
@@ -264,7 +266,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Bully</h3>
@@ -293,7 +295,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Discrimination</h3>
@@ -322,7 +324,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Damage to property</h3>
@@ -351,7 +353,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Arson</h3>
@@ -379,7 +381,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Going missing</h3>
@@ -408,7 +410,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Misuse of illegal substances/alcohol/smoking</h3>
@@ -437,7 +439,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Emotional wellbeing & self-harm</h3>
@@ -466,7 +468,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Sexual health</h3>
@@ -495,7 +497,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Health & Medication </h3>
@@ -524,7 +526,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Family & Friend Contacts </h3>
@@ -553,7 +555,7 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Allegations</h3>
@@ -582,20 +584,20 @@
                                 
                             </div>
                             
-                            <div class="col-xl-8 col-md-12">
+                            <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <h3 class="card-title">Travel in vehicle</h3>
                                     </div>
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
-                                        <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
+                                        <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->travel_level == "Low"){ ?>
                                             <h6 class="font600 text-success">Risk Level - <?php echo $det->travel_level; ?></h6>
                                             <?php }else if($det->travel_level == "Medium"){ ?>
                                             <h6 class="font600 text-warning">Risk Level - <?php echo $det->travel_level; ?></h6>
                                             <?php }else if($det->travel_level == "High"){ ?>
+                                            <h6 class="font600 text-danger">Risk Level - <?php echo $det->travel_level; ?></h6>
                                             <?php } ?>
                                             <div class="msg">
                                                 <p><?php echo $det->travel_risk_level; ?></p>

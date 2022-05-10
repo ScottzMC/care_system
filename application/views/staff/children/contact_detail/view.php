@@ -112,9 +112,7 @@
                                                 <label>Young Person <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="child_code">
                                                     <option>Select</option>
-                                                    <?php foreach($children as $child){ ?>
-                                                    <option value="<?php echo $child->code; ?>"><?php echo $child->fullname; ?></option>
-                                                    <?php } ?>
+                                                    <option value="<?php echo $contact->code; ?>"><?php echo $contact->child_name; ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -147,17 +145,17 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <textarea id="summernote" name="address" class="form-control" aria-label="With textarea"></textarea>
-                                            </div>
-                                        </div>
-                                        
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Date (set the date upon update) <span class="text-danger">*</span></label>
                                                 <input type="date" name="created_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <textarea id="summernote" name="address" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         

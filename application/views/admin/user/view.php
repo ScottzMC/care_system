@@ -143,7 +143,6 @@
                                                 <select class="form-control" name="role">
                                                     <option>Select</option>
                                                     <option value="Admin">Admin</option>
-                                                    <option value="HR">HR</option>
                                                     <option value="Staff">Staff</option>
                                                 </select>
                                             </div>

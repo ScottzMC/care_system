@@ -60,7 +60,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Family/Friends Contact</label>
-                                                <textarea name="family" class="form-control" aria-label="With textarea"><?php echo $report->family; ?></textarea>
+                                                <textarea cols="10" rows="10" name="family" class="form-control" aria-label="With textarea"><?php echo $report->family; ?></textarea>
                                             </div>
                                         </div>
                                         

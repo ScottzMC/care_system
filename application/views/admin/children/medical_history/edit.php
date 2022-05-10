@@ -13,6 +13,8 @@
 </head>
 
 <body class="font-muli theme-cyan gradient">
+    
+<?php foreach($medical as $med){} ?>
 
 <div id="main_content">
     <!-- Start project content area -->
@@ -28,6 +30,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/all'); ?>">Young People </a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/profile/detail/'.$child->code); ?>"><?php echo $child->fullname; ?> Profile </a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/medical_history/view/'.$med->code); ?>">Medical History </a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $child->fullname; ?> Medical history</li>
                         </ol>
                     </div>
@@ -45,7 +48,7 @@
                     
                     <div class="tab-pane active" id="Printout-edit">
                         
-                        <?php foreach($medical as $med){} ?>
+                        
                         
                         <div class="card">
                             <div class="card-header">
@@ -62,17 +65,17 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Comments and further actions</label>
-                                                <textarea id="summernote" name="body" class="form-control" aria-label="With textarea"><?php echo $med->body; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Date (set the date upon update) <span class="text-danger">*</span></label>
                                                 <input type="date" name="created_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Comments and further actions</label>
+                                                <textarea id="summernote" name="body" class="form-control" aria-label="With textarea"><?php echo $med->body; ?></textarea>
                                             </div>
                                         </div>
                                         

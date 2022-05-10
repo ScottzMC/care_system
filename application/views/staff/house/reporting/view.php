@@ -85,13 +85,12 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>FullName</th>
-                                        <th>Title</th>
                                         <th>Staff</th>
                                         <th>Duration</th>
                                         <th>Date</th>
                                         <th><a href="<?php echo site_url('staff/house/reporting/add/'.$code); ?>">Add</a></th>
+                                        <th>View</th>
                                         <th>Action</th>
                                         <th>Action</th>
                                     </tr>
@@ -99,13 +98,12 @@
                                 <tbody>
                                   <?php if($reporting){ foreach($reporting as $report){ ?>
                                     <tr>
-                                        <td><?php echo $report->id; ?></td>
                                         <td><a href="<?php echo site_url("staff/children/profile/detail/$report->code"); ?>"><span class="font-16"><?php echo $report->child_name; ?></span></a></td>
-                                        <td><a href="<?php echo site_url("staff/house/reporting/detail/$report->id/$code"); ?>"><span class="font-16"><?php echo $report->title; ?></span></a></td>
                                         <td><?php echo $report->staff; ?></td>
                                         <td><?php echo $report->duration; ?></td>
                                         <td><?php echo date('l, dS M Y',strtotime($report->created_date)); ?></td>
                                         <td><a href="<?php echo site_url('staff/house/reporting/add/'.$code); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url("staff/house/reporting/detail/$report->id/$code"); ?>">View</a></td>
                                         <td><a href="<?php echo site_url('staff/house/reporting/edit/'.$report->id.'/'.$code); ?>">Edit</a></td>
                                         <td><button type="button" onclick="delete_reporting(<?php echo $report->id; ?>)">Delete</button></td>
                                     </tr>

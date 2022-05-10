@@ -112,7 +112,7 @@
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Young Person <span class="text-danger">*</span></label>
-                                                <select class="form-control" name="young_person">
+                                                <select class="form-control" name="child_code">
                                                 <option>Select</option>
                                                 <?php foreach($children as $child){ ?>
                                                     <option value="<?php echo $child->code; ?>"><?php echo $child->fullname; ?></option>

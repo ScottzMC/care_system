@@ -73,7 +73,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Emotional wellbeing & self-harm Risk Level</label>
-                                                <textarea name="self_harm_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->self_harm_risk_level; ?></textarea>
+                                                <textarea cols="10" rows="10" name="self_harm_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->self_harm_risk_level; ?></textarea>
                                             </div>
                                         </div>
                                         

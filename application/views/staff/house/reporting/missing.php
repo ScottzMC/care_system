@@ -60,7 +60,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Unauthorised Absences/Missing/Legal</label>
-                                                <textarea name="missing" class="form-control" aria-label="With textarea"><?php echo $report->missing; ?></textarea>
+                                                <textarea cols="10" rows="10" name="missing" class="form-control" aria-label="With textarea"><?php echo $report->missing; ?></textarea>
                                             </div>
                                         </div>
                                         

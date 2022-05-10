@@ -38,7 +38,7 @@
         
         public function add(){
             $title = $this->input->post('title');
-            $young_person = $this->input->post('young_person');
+            $child_code = $this->input->post('child_code');
             $house_name = $this->input->post('house_name');
             $type = $this->input->post('type');
             $address = $this->input->post('address');
@@ -46,10 +46,15 @@
             
             $time = $this->input->post('time');
             $date = $this->input->post('date');
+            
+            $query = $this->db->query("SELECT fullname FROM children WHERE code = '$child_code' ")->result();
+            foreach($query as $qry){
+                $child_name = $qry->fullname;
+            }
 
             $array = array(
                 'title' => $title,
-                'young_person' => $young_person,
+                'young_person' => $child_name,
                 'house_name' => $house_name,
                 'type' => $type,
                 'address' => $address,

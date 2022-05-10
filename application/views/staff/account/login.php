@@ -40,6 +40,8 @@
                 <div class="text-center">
                     <button type="submit" name="login" class="btn btn-primary btn-block" title="">Sign in</button>
                 </div>
+                <br>
+                <a href="<?php echo site_url('staff/account/forgot_password'); ?>">Forgot Password?</a>
               </form>
             <span><?php echo $this->session->flashdata('msgError'); ?></span>
             </div>

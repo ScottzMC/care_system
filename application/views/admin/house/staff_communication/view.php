@@ -85,11 +85,12 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Time</th>
                                         <th>Date</th>
-                                        <th>Request</th>
+                                        <th>Time</th>
+                                        <th>Summary</th>
+                                        <th>Staff Initial</th>
                                         <th><a href="<?php echo site_url('admin/house/staff_communication/add/'.strtolower($code)); ?>">Add</a></th>
+                                        <th>View</th>
                                         <th>Action</th>
                                         <th>Action</th>
                                     </tr>
@@ -97,11 +98,12 @@
                                 <tbody>
                                   <?php if($staff_communication){ foreach($staff_communication as $staff){ ?>
                                     <tr>
-                                        <td><a href="<?php echo site_url("admin/house/staff_communication/detail/$staff->id/$code"); ?>"><span class="font-16"><?php echo $staff->title; ?></span></a></td>
+                                        <td><?php echo date('l, dS M Y',strtotime($staff->created_date)); ?></td>
                                         <td><?php echo $staff->time; ?></td>
                                         <td><?php echo wordwrap($staff->request, 70,"<br>"); ?></td>
-                                        <td><?php echo date('l, dS M Y',strtotime($staff->created_date)); ?></td>
+                                        <td><?php echo $staff->staff_initial; ?></td>
                                         <td><a href="<?php echo site_url('admin/house/staff_communication/add/'.strtolower($code)); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url("admin/house/staff_communication/detail/$staff->id/$code"); ?>">View</a></td>
                                         <td><a href="<?php echo site_url('admin/house/staff_communication/edit/'.$staff->id.'/'.$code); ?>">Edit</a></td>
                                         <td><button type="button" onclick="delete_staff_communication(<?php echo $staff->id; ?>)">Delete</button></td>
                                     </tr>

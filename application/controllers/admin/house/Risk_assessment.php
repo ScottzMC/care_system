@@ -50,6 +50,7 @@
                 $data['house'] = $this->House_model->display_home($house_code);
                 $data['code'] = $house_code;
                 $data['children'] = $this->Risk_assessment_model->display_all_children();
+                $data['staff'] = $this->Risk_assessment_model->display_all_staff();
                 
                 $house = $this->House_model->display_home($house_code);
                 foreach($house as $hse){
@@ -62,6 +63,10 @@
             
                 $code = $this->input->post('child_code');
                 $title = $this->input->post('title');
+                
+                $social_worker = $this->input->post('social_worker');
+                $staff = $this->input->post('staff');
+                
                 $criminal_risk_level = $this->input->post('criminal_risk_level');
                 $criminal_level = $this->input->post('criminal_level');
                 
@@ -125,6 +130,8 @@
                     'house_code' => $house_code,
                     'house' => $house,
                     'title' => $title,
+                    'social_worker' => $social_worker,
+                    'staff' => $staff,
                     'criminal_risk_level' => $criminal_risk_level,
                     'criminal_level' => $criminal_level,
                     'violent_risk_level' => $violent_risk_level,
@@ -167,12 +174,12 @@
                 if($insert_risk_assessment){ ?>
                     <script>
                         alert('Added Successfully');
-                        window.location.href="<?php echo site_url('admin/house/all/unit/'.$house_code); ?>";
+                        window.location.href="<?php echo site_url('admin/house/risk_assessment/view/'.$house_code); ?>";
                     </script>
           <?php }else{ ?>
                    <script>
                         alert('Failed');
-                        window.location.href="<?php echo site_url('admin/house/all/unit/'.$house_code); ?>";
+                        window.location.href="<?php echo site_url('admin/house/risk_assessment/view/'.$house_code); ?>";
                     </script> 
           <?php }
             }
@@ -193,6 +200,7 @@
                 $data['risk_assessment'] = $this->Risk_assessment_model->display_risk_assessment_by_id($id);
                 $data['house'] = $this->House_model->display_home($code);
                 $data['code'] = $code;
+                $data['staff'] = $this->Risk_assessment_model->display_all_staff();
 
                 $this->load->view('admin/house/risk_assessment/additional_info', $data);
                 
@@ -200,8 +208,13 @@
                     $title = $this->input->post('title');
                     $additional_info = $this->input->post('additional_info');
                     
+                    $social_worker = $this->input->post('social_worker');
+                    $staff = $this->input->post('staff');
+                    
                     $array = array(
                         'title' => $title,
+                        'social_worker' => $social_worker,
+                        'staff' => $staff,
                         'additional_info' => $additional_info
                     );
                     
@@ -959,7 +972,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('admin/house/risk_assessment/view/'.$code); ?>";
         </script> 
  <?php }
  

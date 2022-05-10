@@ -47,17 +47,27 @@
                                 
                             </div>
                             
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Risk Assessment</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Info</h3>
+                                        <h3 class="card-title">Summary</h3>
                                     </div>
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h3 class="font600"><?php echo $det->title; ?></h3>
-                                            <h4 class="font600"><?php echo $det->child_name; ?></h4>
+                                            <small class="float-right text-right">Date - <?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
+                                            <h3 class="font600">Title - <?php echo $det->title; ?></h3>
+                                            <h4 class="font600">Young Person - <?php echo $det->child_name; ?></h4>
+                                            <h4 class="font600">Social worker - <?php echo $det->social_worker; ?></h4>
+                                            <h4 class="font600">Staff - <?php echo $det->staff; ?></h4>
                                             <div class="msg">
                                                 <p><?php echo $det->additional_info; ?></p>
                                             </div> 
@@ -77,7 +87,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->criminal_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->criminal_level; ?></h4>
                                             <?php }else if($det->criminal_level == "Medium"){ ?>
@@ -104,7 +113,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->violent_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->violent_level; ?></h4>
                                             <?php }else if($det->violent_level == "Medium"){ ?>
@@ -131,7 +139,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <div class="msg">
                                                 <?php if($det->weapon_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->weapon_level; ?></h4>
@@ -160,7 +167,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->criminal_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->behaviour_community_level; ?></h4>
                                             <?php }else if($det->behaviour_community_level == "Medium"){ ?>
@@ -187,7 +193,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->bully_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->bully_level; ?></h4>
                                             <?php }else if($det->bully_level == "Medium"){ ?>
@@ -214,7 +219,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->discrimination_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->discrimination_level; ?></h4>
                                             <?php }else if($det->discrimination_level == "Medium"){ ?>
@@ -241,7 +245,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->damage_property_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->damage_property_level; ?></h4>
                                             <?php }else if($det->damage_property_level == "Medium"){ ?>
@@ -268,7 +271,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->arson_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->arson_level; ?></h4>
                                             <?php }else if($det->arson_level == "Medium"){ ?>
@@ -294,7 +296,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->missing_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->missing_level; ?></h4>
                                             <?php }else if($det->missing_level == "Medium"){ ?>
@@ -321,7 +322,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->missue_illegal_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->missue_illegal_level; ?></h4>
                                             <?php }else if($det->missue_illegal_level == "Medium"){ ?>
@@ -348,7 +348,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->self_harm_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->self_harm_level; ?></h4>
                                             <?php }else if($det->self_harm_level == "Medium"){ ?>
@@ -375,7 +374,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->sexual_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->sexual_level; ?></h4>
                                             <?php }else if($det->sexual_level == "Medium"){ ?>
@@ -402,7 +400,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->medication_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->medication_level; ?></h4>
                                             <?php }else if($det->medication_level == "Medium"){ ?>
@@ -429,7 +426,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->family_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->family_level; ?></h4>
                                             <?php }else if($det->family_level == "Medium"){ ?>
@@ -456,7 +452,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->allegation_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->allegation_level; ?></h4>
                                             <?php }else if($det->allegation_level == "Medium"){ ?>
@@ -483,7 +478,6 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <?php if($det->travel_level == "Low"){ ?>
                                             <h4 class="font600 text-success">Risk Level - <?php echo $det->travel_level; ?></h4>
                                             <?php }else if($det->travel_level == "Medium"){ ?>

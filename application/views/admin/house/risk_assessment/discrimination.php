@@ -73,7 +73,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Discrimination Risk Level</label>
-                                                <textarea name="discrimination_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->discrimination_risk_level; ?></textarea>
+                                                <textarea cols="10" rows="10" name="discrimination_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->discrimination_risk_level; ?></textarea>
                                             </div>
                                         </div>
                                         

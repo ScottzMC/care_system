@@ -63,10 +63,29 @@
                                             </div>
                                         </div>
                                         
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Social worker <span class="text-danger">*</span></label>
+                                                <input type="text" name="social_worker" class="form-control" value="<?php echo $risk->social_worker; ?>">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Staff <span class="text-danger">*</span></label>
+                                                <select class="form-control" name="staff">
+                                                    <option>Select</option>
+                                                    <?php foreach($staff as $st){ ?>
+                                                    <option value="<?php echo $st->firstname; ?> <?php echo $st->lastname; ?>"><?php echo $st->firstname; ?> <?php echo $st->lastname; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Additional Info</label>
-                                                <textarea name="additional_info" class="form-control" aria-label="With textarea"><?php echo $risk->additional_info; ?></textarea>
+                                                <textarea cols="10" rows="10" name="additional_info" class="form-control" aria-label="With textarea"><?php echo $risk->additional_info; ?></textarea>
                                             </div>
                                         </div>
                                         

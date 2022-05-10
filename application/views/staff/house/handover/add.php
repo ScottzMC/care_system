@@ -76,7 +76,7 @@
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Form Date <span class="text-danger">*</span></label>
+                                                <label>Handover Date <span class="text-danger">*</span></label>
                                                 <select name="handover_id" class="form-control">
                                                     <option>Select</option>
                                                     <?php if($outgoing){ foreach($outgoing as $out){ ?>

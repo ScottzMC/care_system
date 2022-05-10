@@ -60,7 +60,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Health/Self-Care</label>
-                                                <textarea name="self_care" class="form-control" aria-label="With textarea"><?php echo $report->self_care; ?></textarea>
+                                                <textarea cols="10" rows="10" name="self_care" class="form-control" aria-label="With textarea"><?php echo $report->self_care; ?></textarea>
                                             </div>
                                         </div>
                                         

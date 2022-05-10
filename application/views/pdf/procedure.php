@@ -49,6 +49,14 @@
                             <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
+                                        <h1 class="card-title">Policy & Procedure</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
                                         <h3 class="card-title">Info</h3>
                                     </div>
                                     <?php if(!empty($detail)){ foreach($detail as $det){ ?>

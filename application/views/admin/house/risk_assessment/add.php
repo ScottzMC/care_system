@@ -87,10 +87,36 @@
                                             </div>
                                         </div>
                                         
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Social worker <span class="text-danger">*</span></label>
+                                                <input type="text" name="social_worker" class="form-control" value="">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Staff <span class="text-danger">*</span></label>
+                                                <select class="form-control" name="staff">
+                                                    <option>Select</option>
+                                                    <?php foreach($staff as $st){ ?>
+                                                    <option value="<?php echo $st->firstname; ?> <?php echo $st->lastname; ?>"><?php echo $st->firstname; ?> <?php echo $st->lastname; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Date <span class="text-danger">*</span></label>
+                                                <input type="date" placeholder="yyyy-mm-dd" name="created_date" class="form-control" required value="">
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Criminal/Offending Behaviour</label>
-                                                <textarea name="criminal_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="criminal_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -110,7 +136,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Violent toward others</label>
-                                                <textarea name="violent_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="violent_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -130,7 +156,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Use of weapons</label>
-                                                <textarea name="weapon_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="weapon_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -150,7 +176,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Behaviour in the community</label>
-                                                <textarea name="behaviour_community_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="behaviour_community_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -170,7 +196,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Bully</label>
-                                                <textarea name="bully_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="bully_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -190,7 +216,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Discrimination</label>
-                                                <textarea name="discrimination_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="discrimination_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -210,7 +236,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Damage to property</label>
-                                                <textarea name="damage_property_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="damage_property_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -230,7 +256,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Arson</label>
-                                                <textarea name="arson_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="arson_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -250,7 +276,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Going missing</label>
-                                                <textarea name="missing_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="missing_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -270,7 +296,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Misuse of illegal substances/alcohol/smoking</label>
-                                                <textarea name="missue_illegal_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="missue_illegal_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -290,7 +316,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Emotional wellbeing & self-harm</label>
-                                                <textarea name="self_harm_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="self_harm_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -310,7 +336,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Sexual health</label>
-                                                <textarea name="sexual_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="sexual_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -330,7 +356,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Health & Medication</label>
-                                                <textarea name="medication_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="medication_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -350,7 +376,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Family & Friend Contacts</label>
-                                                <textarea name="family_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="family_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -370,7 +396,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Allegations</label>
-                                                <textarea name="allegation_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="allegation_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -390,7 +416,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Travel in vehicle</label>
-                                                <textarea name="travel_risk_level" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="travel_risk_level" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -410,14 +436,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Additional Info</label>
-                                                <textarea name="additional_info" class="form-control" aria-label="With textarea"></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Date <span class="text-danger">*</span></label>
-                                                <input type="date" placeholder="yyyy-mm-dd" name="created_date" class="form-control" required value="">
+                                                <textarea cols="10" rows="10" name="additional_info" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         

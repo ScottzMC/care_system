@@ -52,12 +52,12 @@
                                 <form action="<?php echo base_url("admin/house/staff_communication/add/$code"); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         
-                                        <div class="col-md-4 col-sm-12">
+                                        <!--<div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Title <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" value="">
                                             </div>
-                                        </div>
+                                        </div>-->
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
@@ -76,7 +76,14 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Comments and further actions</label>
-                                                <textarea name="request" class="form-control" aria-label="With textarea"></textarea>
+                                                <textarea cols="10" rows="10" name="request" class="form-control" aria-label="With textarea"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Staff Initial <span class="text-danger">*</span></label>
+                                                <input type="text" name="staff_initial" class="form-control" value="">
                                             </div>
                                         </div>
                                         

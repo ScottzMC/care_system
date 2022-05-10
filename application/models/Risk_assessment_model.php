@@ -32,6 +32,12 @@
             return $query;
         }
         
+        public function display_all_staff(){
+            $this->db->where('role', 'Staff');
+            $query = $this->db->get('users')->result();
+            return $query;
+        }
+        
         public function insert_risk_assessment($data){
             $query = $this->db->insert('risk_assessment', $data);
             return $query;

@@ -38,6 +38,11 @@
             return $query;
         }
         
+        public function display_all_keywork_session(){
+            $query = $this->db->get('children_keywork_session')->result();
+            return $query;
+        }
+        
         public function insert_reporting($data){
             $query = $this->db->insert('reporting', $data);
             return $query;

@@ -54,6 +54,7 @@
             if(!empty($session_role) && $session_role == "Admin"){
                 $data['house'] = $this->House_model->display_home($code);
                 $data['task'] = $this->Support_work_model->display_all_support_work_task();
+                $data['subtask'] = $this->Support_work_model->display_all_support_work_subtask();
                 $data['children'] = $this->Support_work_model->display_all_children();
                 $data['code'] = $code;
                 
@@ -128,12 +129,12 @@
                     if($insert_support_work){ ?>
                         <script>
                             alert('Added Successfully');
-                            window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                            window.location.href="<?php echo site_url('admin/house/support_work/view/'.$code); ?>";
                         </script>
               <?php }else{ ?>
                        <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                            window.location.href="<?php echo site_url('admin/house/support_work/view/'.$code); ?>";
                         </script> 
               <?php }
                 }
@@ -156,12 +157,12 @@
             if($insert){ ?>
                 <script>
                     alert('Added Successfully');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                 </script>
       <?php }else{ ?>
                <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                 </script> 
       <?php }
         }
@@ -172,9 +173,12 @@
             $session_role = $this->session->userdata('urole');
             
             $this->load->model('Support_work_model');
+            $this->load->model('House_model');
             
             if(!empty($session_role) && $session_role == "Admin"){
                 $data['task'] = $this->Support_work_model->display_all_support_task_by_id($id);
+                $data['house'] = $this->House_model->display_home($code);
+                $data['code'] = $code;
                 
                 $this->load->view('admin/house/support_work/edit_task', $data);
                 
@@ -190,12 +194,12 @@
                     if($update){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/house/support_work/'.$id.'/'.$code); ?>";
+                            window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('admin/house/support_work/'.$id.'/'.$code); ?>";
+                                window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                             </script> 
                   <?php }  
                     }
@@ -220,12 +224,12 @@
             if($insert){ ?>
                 <script>
                     alert('Added Successfully');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                 </script>
       <?php }else{ ?>
                <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                 </script> 
       <?php }
         }
@@ -236,9 +240,12 @@
             $session_role = $this->session->userdata('urole');
             
             $this->load->model('Support_work_model');
+            $this->load->model('House_model');
             
             if(!empty($session_role) && $session_role == "Admin"){
                 $data['subtask'] = $this->Support_work_model->display_all_support_subtask_by_id($id);
+                $data['house'] = $this->House_model->display_home($code);
+                $data['code'] = $code;
                 
                 $this->load->view('admin/house/support_work/edit_subtask', $data);
                 
@@ -254,12 +261,12 @@
                     if($update){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/house/support_work/detail/'.$id.'/'.$code); ?>";
+                            window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('admin/house/support_work/detail/'.$id.'/'.$code); ?>";
+                                window.location.href="<?php echo site_url('admin/house/support_work/add/'.$code); ?>";
                             </script> 
                   <?php }  
                     }
@@ -387,7 +394,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('admin/house/support_work/view/'.$code); ?>";
         </script> 
  <?php }
  

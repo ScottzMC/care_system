@@ -73,7 +73,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Going missing Risk Level</label>
-                                                <textarea name="missing_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->missing_risk_level; ?></textarea>
+                                                <textarea cols="10" rows="10" name="missing_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->missing_risk_level; ?></textarea>
                                             </div>
                                         </div>
                                         

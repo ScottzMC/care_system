@@ -50,6 +50,14 @@
                             </div>
                             
                             <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Contact Details</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
                                 
                                 <div class="card">
                                     <div class="card-header">
@@ -71,8 +79,8 @@
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600"><?php echo $det->fullname; ?></h4>
+                                            <small class="float-right text-right">Date - <?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
+                                            <h4 class="font600">Contact Name - <?php echo $det->fullname; ?></h4>
                                             <br>
                                             <h4 class="font600">Telephone Number - <?php echo $det->telephone; ?></h4>
                                             <br>
@@ -80,7 +88,7 @@
                                             <br>
                                             <h4 class="font600">Relationship - <?php echo $det->relationship; ?></h4>
                                             <br>
-                                            <div class="msg"><?php echo $det->address; ?></div>
+                                            <div class="msg">Address - <?php echo $det->address; ?></div>
                                         </div>
                                     </div>
                                     <?php } ?>

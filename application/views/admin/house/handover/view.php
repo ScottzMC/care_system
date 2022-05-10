@@ -87,17 +87,18 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
+                                        <th>Date</th>
                                         <th>Time</th>
                                         <th>Outgoing Staff</th>
                                         <th>Ingoing Staff</th>
                                         <th><a href="<?php echo site_url('admin/house/handover/add/'.strtolower($code)); ?>">Add</a></th>
                                         <th>Action</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php if($handover){ foreach($handover as $hand){ 
-                                  $query = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$hand->ingoing_staff' AND role = 'Staff' ")->result();
+                                  $query = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$hand->ingoing_staff' ")->result();
                                     foreach($query as $qry){
                                         $ingoing_firstname = $qry->firstname;
                                         $ingoing_lastname = $qry->lastname;
@@ -123,6 +124,7 @@
                                         <td></td>
                                         <?php } ?>
                                         <td><a href="<?php echo site_url('admin/house/handover/add/'.strtolower($code)); ?>">Add</a></td>
+                                        <td><a href="<?php echo site_url("admin/house/handover/detail/$hand->handover_id/$code"); ?>">View</a></td>
                                         <td><button type="button" onclick="delete_handover(<?php echo $hand->id; ?>)">Delete</button></td>
                                     </tr>
                                   <?php } }else{ echo ''; } ?>

@@ -44,6 +44,14 @@
                                 
                             </div>
                             
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Guest Ban</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">

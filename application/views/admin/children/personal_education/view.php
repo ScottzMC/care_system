@@ -81,7 +81,7 @@
                                         <th>Title</th>
                                         <th>Comments and further actions</th>
                                         <th>Date</th>
-                                        <th>Action</th>
+                                        <!--<th>Action</th>-->
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -93,11 +93,11 @@
                                         <td><a href="<?php echo site_url('admin/children/personal_education/detail/'.strtolower($edu->id).'/'.strtolower($edu->code)); ?>"><?php echo $edu->title; ?></a></td>
                                         <td><?php echo character_limiter($edu->body, 50); ?></td>
                                         <td><?php echo date('l, dS M Y',strtotime($edu->created_date)); ?></td>
-                                        <td>
-                                        <?php if(!empty($education)){ ?>
-                                        <a href="<?php echo base_url('admin/children/personal_education/download/'.$edu->id); ?>" target="_blank">Download</a>
-                                        <?php }else{ echo ''; } ?>
-                                        </td>
+                                        <!--<td>
+                                        < ?php if(!empty($education)){ ?>
+                                        <a href="< ?php echo base_url('admin/children/personal_education/download/'.$edu->id); ?>" target="_blank">Download</a>
+                                        < ?php }else{ echo ''; } ?>
+                                        </td>-->
                                         <td>
                                             <a href="<?php echo site_url('admin/children/personal_education/detail/'.strtolower($edu->id).'/'.strtolower($edu->code)); ?>" class="btn btn-icon btn-sm" title="View"><i class="fa fa-eye"></i></a>
                                             <a href="<?php echo site_url('admin/children/personal_education/edit/'.strtolower($edu->id).'/'.strtolower($edu->code)); ?>" class="btn btn-icon btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
@@ -124,9 +124,7 @@
                                                 <label>Full Name <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="child_code">
                                                     <option>Select</option>
-                                                    <?php foreach($children as $child){ ?>
-                                                    <option value="<?php echo $child->code; ?>"><?php echo $child->fullname; ?></option>
-                                                    <?php } ?>
+                                                    <option value="<?php echo $edu->code; ?>"><?php echo $edu->child_name; ?></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -138,6 +136,13 @@
                                             </div>
                                         </div>
                                         
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Date (set the date upon update) <span class="text-danger">*</span></label>
+                                                <input type="date" name="created_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Comments and further actions</label>
@@ -145,19 +150,12 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-4 col-sm-12">
+                                        <!--<div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Document <span class="text-danger">*</span></label>
                                                 <input type="file" name="userFiles1[]" class="form-control">
                                             </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Date (set the date upon update) <span class="text-danger">*</span></label>
-                                                <input type="date" name="created_date" class="form-control" required>
-                                            </div>
-                                        </div>
+                                        </div>-->
                                         
                                     </div>
 

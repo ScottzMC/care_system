@@ -13,10 +13,6 @@
 
 <body class="font-muli theme-cyan gradient">
 <!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-    </div>
-</div>
 
 <div id="main_content">
     <?php $this->load->view('menu/staff/nav'); ?>

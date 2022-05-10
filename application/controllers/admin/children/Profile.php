@@ -161,7 +161,6 @@
                     $age = $this->input->post('age');
                     $dob = $this->input->post('dob');
                     $child_status = $this->input->post('child_status');
-                    $exit_date = $this->input->post('exit_date');
                     $ethnic = $this->input->post('ethnic');
                     $support_hours = $this->input->post('support_hours');
                     $gender = $this->input->post('gender');
@@ -228,6 +227,52 @@
             }else{
                 redirect('admin/account/login');    
             }
+        }
+        
+        public function edit_admission_date($code){
+            
+            $this->load->model('Children_model');
+            
+            $admission_date = $this->input->post('admission_date');
+            
+            $array = array('admission_date' => $admission_date);
+            
+            $update_children = $this->Children_model->update_children_by_code($code, $array);
+            
+            if($update_children){ ?>
+                <script>
+                    alert('Updated Successfully');
+                    window.location.href="<?php echo site_url('admin/children/profile/detail/'.$code); ?>";
+                </script>
+          <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('admin/children/profile/detail/'.$code); ?>";
+                </script> 
+          <?php }  
+        }
+        
+        public function edit_exit_date($code){
+            
+            $this->load->model('Children_model');
+            
+            $exit_date = $this->input->post('exit_date');
+            
+            $array = array('exit_date' => $exit_date);
+            
+            $update_children = $this->Children_model->update_children_by_code($code, $array);
+            
+            if($update_children){ ?>
+                <script>
+                    alert('Updated Successfully');
+                    window.location.href="<?php echo site_url('admin/children/profile/detail/'.$code); ?>";
+                </script>
+          <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('admin/children/profile/detail/'.$code); ?>";
+                </script> 
+          <?php }  
         }
         
         public function edit_image($code){

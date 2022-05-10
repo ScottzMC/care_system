@@ -75,7 +75,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('staff/house/staff_communication/view/'.$code); ?>";
         </script> 
  <?php }
  

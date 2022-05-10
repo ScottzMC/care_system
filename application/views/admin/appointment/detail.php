@@ -23,10 +23,10 @@
             <div class="container-fluid">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="header-action">
-                        <h1 class="page-title">Calendar Events</h1>
+                        <h1 class="page-title">Appointments</h1>
                         <ol class="breadcrumb page-breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/appointment'); ?>">Calendar Events </a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/appointment'); ?>">Appointments </a></li>
                             <li class="breadcrumb-item active" aria-current="page"><?php echo $det->title; ?></li>
                         </ol>
                     </div>

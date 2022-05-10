@@ -73,7 +73,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Bully Risk Level</label>
-                                                <textarea name="bully_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->bully_risk_level; ?></textarea>
+                                                <textarea cols="10" rows="10" name="bully_risk_level" class="form-control" aria-label="With textarea"><?php echo $risk->bully_risk_level; ?></textarea>
                                             </div>
                                         </div>
                                         

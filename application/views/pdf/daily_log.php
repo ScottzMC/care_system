@@ -44,6 +44,30 @@
                                 
                             </div>
                             
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Daily Log</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-8 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Date</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <div class="msg">
+                                                <p><?php echo $det->title; ?></p>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -68,8 +92,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo $det->time; ?></small></span>
-                                            <h3 class="font600"><?php echo $det->title; ?></h3>
+                                            <small class="float-right text-right">Time - <?php echo $det->time; ?></small></span>
                                             <div class="msg">
                                                 <p><?php echo $det->summary; ?></p>
                                             </div>  
@@ -86,6 +109,9 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="timeline_item">
+                                            <div class="msg">
+                                                <small class="float-right text-right">Time - <?php echo $det->time; ?></small></span>
+                                            </div>
                                             <div class="msg">
                                                 <p><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></p>
                                             </div> 

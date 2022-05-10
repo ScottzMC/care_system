@@ -65,13 +65,13 @@
                                             <h6 class="font600"><?php echo $det->title; ?></h6>
                                             <div class="msg">
                                                 <?php 
-                                                $query = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$det->ingoing_staff' AND role = 'Staff' ")->result();
+                                                $query = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$det->ingoing_staff' ")->result();
                                             foreach($query as $qry){
                                                 $ingoing_firstname = $qry->firstname;
                                                 $ingoing_lastname = $qry->lastname;
                                             }
                                             
-                                            $sequel = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$det->outgoing_staff' AND role = 'Staff' ")->result();
+                                            $sequel = $this->db->query("SELECT firstname, lastname FROM users WHERE email = '$det->outgoing_staff' ")->result();
                                             foreach($sequel as $sql){
                                                 $outgoing_firstname = $sql->firstname;
                                                 $outgoing_lastname = $sql->lastname;
@@ -350,44 +350,104 @@
                                     <?php } ?>
                                 </div>
                                 
-                                <!--<div class="card">
+                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Send Mail</h3>
+                                        <h3 class="card-title">Has the house been checked for cleanliness, with particular attention to all the communal areas such as the Kitchen, lounge, all bathrooms?</h3>
                                     </div>
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item">
-                                            <form action="<?php echo base_url('staff/house/handover/send_mail/'.$code); ?>" method="POST">
-                                                <div class="msg">
-                                                <input type="email" class="form-control" name="email" placeholder="Recipient email address">
-                                            </div>  
-                                                <input type="hidden" name="title" value="<?php echo $det->title; ?>">
-                                                <input type="hidden" name="actions" value="<?php echo $det->actions; ?>">
-                                                <input type="hidden" name="gaming" value="<?php echo $det->gaming; ?>">
-                                                <input type="hidden" name="keys_pettycash" value="<?php echo $det->keys_pettycash; ?>">
-                                                <input type="hidden" name="keys_pettycash_comment" value="<?php echo $det->keys_pettycash_comment; ?>">
-                                                <input type="hidden" name="health_wellbeing" value="<?php echo $det->health_wellbeing; ?>">
-                                                <input type="hidden" name="cleanliness" value="<?php echo $det->cleanliness; ?>">
-                                                <input type="hidden" name="occupancy" value="<?php echo $det->occupancy; ?>">
-                                                <input type="hidden" name="edt_police_comment" value="<?php echo $det->edt_police_comment; ?>">
-                                                <input type="hidden" name="safeguarding" value="<?php echo $det->safeguarding; ?>">
-                                                <input type="hidden" name="appointments_diary" value="<?php echo $det->appointments_diary; ?>">
-                                                <input type="hidden" name="appointments_diary_support" value="<?php echo $det->appointments_diary_support; ?>">
-                                                <input type="hidden" name="appointments_diary_remind" value="<?php echo $det->appointments_diary_remind; ?>">
-                                                <input type="hidden" name="service_user" value="<?php echo $det->service_user; ?>">
-                                                <input type="hidden" name="maintenance" value="<?php echo $det->maintenance; ?>">
-                                                <input type="hidden" name="ingoing_staff" value="<?php echo $det->ingoing_staff; ?>">
-                                                <input type="hidden" name="outgoing_staff" value="<?php echo $det->outgoing_staff; ?>">
-                                                <input type="hidden" name="time" value="<?php echo $det->time; ?>">
-                                                <input type="hidden" name="date" value="<?php echo date('j M Y', strtotime($det->date)); ?>">
-                                                <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
-                                            </form>   
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->cleanliness; ?></h6>  
                                         </div>
-                                        
+                                        <br>
+                                        <div class="timeline_item">
+                                            <h6 class="font600"><b>Outgoing - </b><?php echo $out->cleanliness; ?></h6>  
+                                        </div>
                                     </div>
                                     
                                     <?php } ?>
-                                </div>-->
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Outstanding task to complete</h3>
+                                    </div>
+                                    <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <h6 class="font600"><b>Incoming - </b><?php echo $in->outstanding_task; ?></h6>  
+                                        </div>
+                                        <br>
+                                        <div class="timeline_item">
+                                            <h6 class="font600"><b>Outgoing - </b><?php echo $out->outstanding_task; ?></h6>  
+                                        </div>
+                                    </div>
+                                    
+                                    <?php } ?>
+                                </div>
+                                
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Send Mail</h3>
+                                        </div>
+                                        <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                        <div class="card-body">
+                                            
+                                            <div class="timeline_item ">
+                                                <form action="<?php echo base_url('staff/house/handover/send_mail/'.$det->handover_id.'/'.$code); ?>" method="POST">
+                                                    <input class="form-control" type="email" name="email" placeholder="Recipent email">
+                                                    <br>
+                                                    <div class="pull-right"><button type="submit" name="send">Send to Mail</button></div>
+                                                </form>   
+                                            </div>
+                                        </div>
+                                        
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Generate PDF</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="timeline_item">
+                                                <form action="<?php echo base_url('staff/generate_pdf/handover/'.$det->handover_id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                <div class="pull-right"><button type="submit">Generate PDF</button></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-xl-8 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Upload PDF</h3>
+                                        </div>
+                                        <?php if(!empty($detail)){ foreach($detail as $det){} ?>
+                                        <div class="card-body">
+                                            
+                                            <div class="timeline_item ">
+                                                <form action="<?php echo base_url('staff/house/handover/edit_document/'.$det->handover_id.'/'.$code); ?>" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                                                    <div class="col-md-4 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Document<span class="text-danger">*</span></label>
+                                                            <input type="file" name="userFiles1[]" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="pull-right"><button type="submit" name="send">Upload</button></div>
+                                                </form>   
+                                            </div>
+                                        </div>
+                                        
+                                        <?php } ?>
+                                    </div>
+                                
+                                </div>
                                 
                             </div>
                             

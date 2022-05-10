@@ -44,6 +44,14 @@
                                 
                             </div>
                             
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Reporting</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -64,17 +72,66 @@
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Info</h3>
+                                        <h3 class="card-title">Summary</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h3 class="font600"><?php echo $det->title; ?></h3>
+                                            <small class="float-right text-right">Date - <?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
                                             <div class="msg">
                                                 <p><?php echo $det->summary; ?></p>
                                             </div>  
                                         </div>
                                     </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-xl-8 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Staff</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <div class="msg">
+                                                <p><?php echo $det->staff; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-xl-8 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Social worker</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <div class="msg">
+                                                <p><?php echo $det->social_worker; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="col-xl-8 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Date range</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline_item">
+                                            <div class="msg">
+                                                <p><?php echo $det->duration; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                                 
                             </div>
@@ -200,56 +257,6 @@
                                         <div class="timeline_item">
                                             <div class="msg">
                                                 <p><?php echo $det->area_of_progress; ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="col-xl-8 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Staff</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="timeline_item">
-                                            <div class="msg">
-                                                <p><?php echo $det->staff; ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="col-xl-8 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Social worker</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="timeline_item">
-                                            <div class="msg">
-                                                <p><?php echo $det->social_worker; ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="col-xl-8 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Date range</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="timeline_item">
-                                            <div class="msg">
-                                                <p><?php echo $det->duration; ?></p>
                                             </div>
                                         </div>
                                     </div>

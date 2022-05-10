@@ -119,12 +119,12 @@
                     ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                            window.location.href="<?php echo site_url('staff/children/contact_detail/view/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                                window.location.href="<?php echo site_url('staff/children/contact_detail/view/'.$code); ?>";
                           </script> 
                   <?php }  
                     }

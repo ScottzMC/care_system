@@ -59,7 +59,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Education/Employment/Training</label>
-                                                <textarea name="education" class="form-control" aria-label="With textarea"><?php echo $report->education; ?></textarea>
+                                                <textarea cols="10" rows="10" name="education" class="form-control" aria-label="With textarea"><?php echo $report->education; ?></textarea>
                                             </div>
                                         </div>
                                         

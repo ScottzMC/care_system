@@ -148,6 +148,13 @@
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
+                                                <label>National Insurance Number <span class="text-danger">*</span></label>
+                                                <input type="text" name="nin" class="form-control" value="<?php echo $child->nin; ?>">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
                                                 <label>Legal status <span class="text-danger">*</span></label>
                                                 <input type="text" name="guardian" class="form-control" value="<?php echo $child->guardian; ?>">
                                             </div>
@@ -157,13 +164,6 @@
                                             <div class="form-group">
                                                 <label>Telephone Number <span class="text-danger">*</span></label>
                                                 <input type="text" name="telephone" class="form-control" value="<?php echo $child->telephone; ?>">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Date of Exit <span class="text-danger">*</span></label>
-                                                <input type="date" name="exit_date" value="empty" class="form-control">
                                             </div>
                                         </div>
                                         
@@ -226,6 +226,58 @@
                                 </form>
                             </div>
                             
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Edit Admission date</h3>
+                            </div>
+                            
+                            <div class="card-body">
+                                <form action="<?php echo base_url('staff/children/profile/edit_admission_date/'.$child->code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Admission Date <span class="text-danger">*</span></label>
+                                                <input type="date" name="admission_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 text-right m-t-20">
+                                            <button type="submit" name="edit" class="btn btn-primary">SAVE</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Edit Exit date</h3>
+                            </div>
+                            
+                            <div class="card-body">
+                                <form action="<?php echo base_url('staff/children/profile/edit_exit_date/'.$child->code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Exit Date <span class="text-danger">*</span></label>
+                                                <input type="date" name="exit_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 text-right m-t-20">
+                                            <button type="submit" name="edit" class="btn btn-primary">SAVE</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         
                         <div class="card">

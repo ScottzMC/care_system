@@ -94,7 +94,6 @@
                     'staff1' => $staff1,
                     'staff2' => $staff2,
                     'return_date' => $return_date,
-                    'document' => $fileName,
                     'created_date' => $date
                 );
                 
@@ -153,12 +152,12 @@
                     ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                            window.location.href="<?php echo site_url('staff/children/edt/view/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                                window.location.href="<?php echo site_url('staff/children/edt/view/'.$code); ?>";
                           </script> 
                   <?php }  
                     }

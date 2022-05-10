@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/support_plan/view/'.strtolower($code)); ?>">Support Plan</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/support_plan/detail/'.$support->id.'/'.$code); ?>"><?php echo $support->title; ?></a></li>
+                            <!--<li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/support_plan/detail/'.$support->id.'/'.$code); ?>"><?php echo $support->title; ?></a></li>-->
                             <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $support->title; ?></li>
                         </ol>
                     </div>
@@ -56,12 +56,12 @@
                             <div class="card-body">
                                 <form action="<?php echo base_url("admin/house/support_plan/edit/$support->id/$support->code/$code"); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-12">
+                                        <!--<div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Unit details <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" value="<?php echo $support->title; ?>">
                                             </div>
-                                        </div>
+                                        </div>-->
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                         
-                        <div class="card">
+                        <!--<div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Edit Area of support</h3>
                             </div>
@@ -171,7 +171,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>-->
 
                 </div>
             </div>

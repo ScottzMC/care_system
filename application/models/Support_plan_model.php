@@ -53,9 +53,15 @@
             return $query;
         }
         
-        public function display_area_of_support_comment(){
-            $this->db->order_by('title', 'ASC');
-            $query = $this->db->get('area_of_support_comment')->result();
+        public function display_area_of_support_comment($code){
+            //$this->db->order_by('title', 'ASC');
+            $query = $this->db->query("SELECT DISTINCT title, comment, area_support_id, code FROM area_of_support_comment WHERE code = '$code' ORDER BY title = 'ASC' ")->result();
+            return $query;
+        }
+        
+        public function display_area_of_support_comment_by_id($id){
+            //$this->db->where('area_support_id', $id);
+            $query = $this->db->query("SELECT DISTINCT title, comment, area_support_id, code FROM area_of_support_comment WHERE area_support_id = '$id' ")->result();
             return $query;
         }
         

@@ -61,17 +61,17 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Comments and further actions</label>
-                                                <textarea id="summernote" name="body" class="form-control" aria-label="With textarea"><?php echo $abilities->body; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Date (set the date upon update) <span class="text-danger">*</span></label>
                                                 <input type="date" name="created_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Comments and further actions</label>
+                                                <textarea id="summernote" name="body" class="form-control" aria-label="With textarea"><?php echo $abilities->body; ?></textarea>
                                             </div>
                                         </div>
                                         

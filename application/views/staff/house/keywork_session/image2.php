@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/keywork_session/view/'.strtolower($code)); ?>">Keywork Session</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/house/keywork_session/detail/'.$keywork->id.'/'.$code); ?>"><?php echo $keywork->title; ?></a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/house/keywork_session/detail/'.$keywork->id.'/'.$code); ?>"><?php echo $keywork->date_title; ?></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Photo 2</li>
                         </ol>
                     </div>

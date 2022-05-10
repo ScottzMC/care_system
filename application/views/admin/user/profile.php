@@ -58,7 +58,7 @@
                                 <div class="card">
                                     <div class="card-body w_user">
                                         <div class="user_avtar">
-                                            <img class="rounded-circle" height="90" width="120" src="https://scottnnaghor.com/care_system/uploads/profile/<?php echo $prof->photo; ?>" 
+                                            <img class="rounded-circle" height="90" width="120" src="<?php echo base_url('uploads/profile/'.$prof->photo); ?>" 
                                             alt="<?php echo $prof->firstname; ?> <?php echo $prof->lastname; ?>">
                                         </div>
                                         <div class="wid-u-info">
@@ -102,9 +102,6 @@
                                                 <b>Address 2</b>
                                                 <div class="pull-right"><?php echo $prof->address2; ?></div>
                                             </li>
-                                            <li class="list-group-item">
-                                                <b>Document</b>
-                                                <div class="pull-right"><a href="<?php echo base_url('admin/user/download/'.$prof->id); ?>" target="_blank">Download</a></div></li>
                                             <li class="list-group-item">
                                                 <b>Action</b>
                                                 <div class="pull-right"><a href="<?php echo site_url("admin/user/edit/$prof->id/$prof->code"); ?>">Edit</a></div>

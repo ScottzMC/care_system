@@ -88,12 +88,12 @@
                     if($insert){ ?>
                         <script>
                             alert('Added Successfully');
-                            window.location.href="<?php echo site_url('staff/house/all/unit/'.$house_code); ?>";
+                            window.location.href="<?php echo site_url('staff/house/guest_ban/view/'.$house_code); ?>";
                         </script>
               <?php }else{ ?>
                        <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('staff/house/all/unit/'.$house_code); ?>";
+                            window.location.href="<?php echo site_url('staff/house/guest_ban/view/'.$house_code); ?>";
                         </script> 
               <?php }
                    
@@ -120,6 +120,7 @@
                 $this->load->view('staff/house/guest_ban/edit', $data);
                 
                 if(isset($btn_submit)){
+                    $child_code = $this->input->post('child_code');
                     $room_number = $this->input->post('room_number');
                     $guest_name = $this->input->post('guest_name');
                     $reason_for_ban = $this->input->post('reason_for_ban');
@@ -127,7 +128,14 @@
                     $start_date = $this->input->post('start_date');
                     $end_date = $this->input->post('end_date');
                     
+                    $query = $this->db->query("SELECT fullname FROM children WHERE code = '$child_code' ")->result();
+                    foreach($query as $qry){
+                        $child_name = $qry->fullname;
+                    }
+                    
                     $array = array(
+                        'code' => $code,
+                        'child_name' => $child_name,
                         'room_number' => $room_number,
                         'guest_name' => $guest_name,
                         'reason_for_ban' => $reason_for_ban,
@@ -201,7 +209,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('staff/house/guest_ban/view/'.$code); ?>";
         </script> 
  <?php }
  

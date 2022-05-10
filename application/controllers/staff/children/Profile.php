@@ -27,6 +27,7 @@
                 $data['health_safety'] = $this->Children_model->display_health_safety_by_code_limit($code);
 
                 $data['case_recording'] = $this->Children_model->display_case_recording_by_code_limit($code);
+                $data['contact_detail'] = $this->Children_model->display_contact_detail_by_code_limit($code);
 
                 $data['count_incidents'] = $this->Children_model->count_incidents($code);
                 $data['count_absences'] = $this->Children_model->count_absences($code);
@@ -227,6 +228,52 @@
             }else{
                 redirect('staff/account/login');    
             }
+        }
+        
+        public function edit_admission_date($code){
+            
+            $this->load->model('Children_model');
+            
+            $admission_date = $this->input->post('admission_date');
+            
+            $array = array('admission_date' => $admission_date);
+            
+            $update_children = $this->Children_model->update_children_by_code($code, $array);
+            
+            if($update_children){ ?>
+                <script>
+                    alert('Updated Successfully');
+                    window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                </script>
+          <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                </script> 
+          <?php }  
+        }
+        
+        public function edit_exit_date($code){
+            
+            $this->load->model('Children_model');
+            
+            $exit_date = $this->input->post('exit_date');
+            
+            $array = array('exit_date' => $exit_date);
+            
+            $update_children = $this->Children_model->update_children_by_code($code, $array);
+            
+            if($update_children){ ?>
+                <script>
+                    alert('Updated Successfully');
+                    window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                </script>
+          <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/children/profile/detail/'.$code); ?>";
+                </script> 
+          <?php }  
         }
         
         public function edit_image($code){

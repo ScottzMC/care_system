@@ -73,8 +73,8 @@
                                                 <p><?php echo $inc->body; ?></p>
                                             </div>  
                                             <br><br>
-                                            <div class="pull-right"><a href="<?php echo base_url('admin/children/incident/download/'.$inc->id); ?>" target="_blank">Download</a></div>
-                                            <br><br>
+                                            <!--<div class="pull-right"><a href="< ?php echo base_url('admin/children/incident/download/'.$inc->id); ?>" target="_blank">Download</a></div>
+                                            <br><br>-->
                                             <div class="pull-right"><a href="<?php echo site_url("admin/children/incident/edit/$inc->id/$inc->code"); ?>">Edit</a></div>
                                         </div>
                                     </div>

@@ -61,8 +61,7 @@
                     $title = $this->input->post('title');
                     $additional_info = $this->input->post('additional_info');
                     $room_number = $this->input->post('room_number');
-                    $safety_check = $this->input->post('safety_check');
-                    $recorded_by = $this->input->post('recorded_by');
+                    $staff_initial = $this->input->post('staff_initial');
                     $due_date = $this->input->post('due_date');
                     $date = $this->input->post('created_date');
                     
@@ -229,18 +228,17 @@
                         'child_name' => $child_name,
                         'house_code' => $house_code,
                         'house_name' => $house,
-                        'title' => $title,
+                        //'title' => $title,
                         'additional_info' => $additional_info,
                         'room_number' => $room_number,
-                        'safety_check' => $safety_check,
-                        'recorded_by' => $recorded_by,
+                        'staff_initial' => $staff_initial,
                         'due_date' => $due_date,
                         'image1' => $fileName,
                         'image2' => $fileName2, 
                         'image3' => $fileName3, 
                         'image4' => $fileName4, 
                         'image5' => $fileName5, 
-                        'document' => $fileDocument,
+                        //'document' => $fileDocument,
                         'created_date' => $date
                     );
                     
@@ -249,12 +247,12 @@
                     if($insert){ ?>
                         <script>
                             alert('Added Successfully');
-                            window.location.href="<?php echo site_url('staff/house/all/unit/'.$house_code); ?>";
+                            window.location.href="<?php echo site_url('staff/house/health_safety/view/'.$house_code); ?>";
                         </script>
               <?php }else{ ?>
                        <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('staff/house/all/unit/'.$house_code); ?>";
+                            window.location.href="<?php echo site_url('staff/house/health_safety/view/'.$house_code); ?>";
                         </script> 
               <?php }
                 }
@@ -283,17 +281,15 @@
                     $title = $this->input->post('title');
                     $additional_info = $this->input->post('additional_info');
                     $room_number = $this->input->post('room_number');
-                    $safety_check = $this->input->post('safety_check');
-                    $recorded_by = $this->input->post('recorded_by');
+                    $staff_initial = $this->input->post('staff_initial');
                     $due_date = $this->input->post('due_date');
                     $date = $this->input->post('created_date');
                     
                     $array = array(
-                        'title' => $title,
+                        //'title' => $title,
                         'additional_info' => $additional_info,
                         'room_number' => $room_number,
-                        'safety_check' => $safety_check,
-                        'recorded_by' => $recorded_by,
+                        'staff_initial' => $staff_initial,
                         'due_date' => $due_date,
                         'created_date' => $date
                     );
@@ -684,7 +680,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('staff/house/health_safety/view/'.$code); ?>";
         </script> 
  <?php }
  

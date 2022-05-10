@@ -72,8 +72,8 @@
                                                 <p><?php echo $abilities->body; ?></p>
                                             </div>  
                                             <br><br>
-                                            <div class="pull-right"><a href="<?php echo base_url('admin/children/abilities_evaluation/download/'.$abilities->id); ?>" target="_blank">Download</a></div>
-                                            <br><br>
+                                            <!--<div class="pull-right"><a href="< ?php echo base_url('admin/children/abilities_evaluation/download/'.$abilities->id); ?>" target="_blank">Download</a></div>
+                                            <br><br>-->
                                             <div class="pull-right"><a href="<?php echo site_url("admin/children/abilities_evaluation/edit/$abilities->id/$abilities->code"); ?>">Edit</a></div>
                                       </div>
                                     </div>

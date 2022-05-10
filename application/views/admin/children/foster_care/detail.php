@@ -74,8 +74,8 @@
                                                 <p><?php echo $fost->body; ?></p>
                                             </div> 
                                             <br><br>
-                                            <div class="pull-right"><a href="<?php echo base_url('admin/children/foster_care/download/'.$fost->id); ?>" target="_blank">Download</a></div>
-                                            <br><br>
+                                            <!--<div class="pull-right"><a href="< ?php echo base_url('admin/children/foster_care/download/'.$fost->id); ?>" target="_blank">Download</a></div>
+                                            <br><br>-->
                                             <div class="pull-right"><a href="<?php echo site_url("admin/children/foster_care/edit/$fost->id/$fost->code"); ?>">Edit</a></div>
                                         </div>
                                     </div>

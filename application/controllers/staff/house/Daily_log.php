@@ -189,7 +189,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('staff/house/daily_log/view/'.$code); ?>";
         </script> 
  <?php }
  

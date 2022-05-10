@@ -97,7 +97,7 @@
                                         <th>ID</th>
                                         <th>Title</th>
                                         <th>Date</th>
-                                        <th>Action</th>
+                                        <!--<th>Action</th>-->
                                         <th>Action</th>
                                         <th>Action</th>
                                     </tr>
@@ -108,7 +108,7 @@
                                         <td><?php echo $proc->id; ?></td>
                                         <td><a href="<?php echo site_url('admin/procedure/detail/'.$proc->id); ?>"><span class="font-16"><?php echo $proc->title; ?></span></a></td>
                                         <td><?php echo date('l, dS M Y',strtotime($proc->created_date)); ?></td>
-                                        <td><a href="<?php echo base_url('admin/procedure/download/'.$proc->id); ?>" target="_blank">Download</a></td>
+                                        <!--<td><a href="< ?php echo base_url('admin/procedure/download/'.$proc->id); ?>" target="_blank">Download</a></td>-->
                                         <td><a href="<?php echo site_url('admin/procedure/edit/'.$proc->id); ?>">Edit</a></td>
                                         <td><button type="button" onclick="delete_procedure(<?php echo $proc->id; ?>)">Delete</button></td>
                                     </tr>
@@ -140,12 +140,12 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-4 col-sm-12">
+                                        <!--<div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Document <span class="text-danger">*</span></label>
                                                 <input type="file" name="userFiles1[]" class="form-control">
                                             </div>
-                                        </div>
+                                        </div>-->
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">

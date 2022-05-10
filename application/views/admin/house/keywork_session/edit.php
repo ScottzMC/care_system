@@ -32,12 +32,12 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/keywork_session/view/'.strtolower($code)); ?>">Keywork Session</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $keywork->title; ?></li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $keywork->date_title; ?></li>
                         </ol>
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Keywork-edit">Edit <?php echo $keywork->title; ?> Keywork Session</a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Keywork-edit">Edit <?php echo $keywork->date_title; ?> Keywork Session</a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="tab-pane active" id="Keywork-edit">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Edit <?php echo $keywork->title; ?> Keywork Session</h3>
+                                <h3 class="card-title">Edit <?php echo $keywork->date_title; ?> Keywork Session</h3>
                             </div>
                             <div class="card-body">
                                 <form action="<?php echo base_url("admin/house/keywork_session/edit/$keywork->id/$code"); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -58,36 +58,43 @@
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Date title <span class="text-danger">*</span></label>
+                                                <label>Date <span class="text-danger">*</span></label>
                                                 <input type="text" name="date_title" class="form-control" value="<?php echo $keywork->date_title; ?>">
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Title <span class="text-danger">*</span></label>
-                                                <input type="text" name="title" class="form-control" value="<?php echo $keywork->title; ?>">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Comments and further actions</label>
-                                                <textarea name="summary" class="form-control" aria-label="With textarea"><?php echo $keywork->summary; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Hours to be spent weekly <span class="text-danger">*</span></label>
+                                                <label>Hours weekly <span class="text-danger">*</span></label>
                                                 <input type="text" name="hours_spent" class="form-control" value="<?php echo $keywork->hours_spent; ?>">
                                             </div>
                                         </div>
                                         
+                                        <!--<div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Title <span class="text-danger">*</span></label>
+                                                <input type="text" name="title" class="form-control" value="<?php echo $keywork->title; ?>">
+                                            </div>
+                                        </div>-->
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Comments and further actions</label>
+                                                <textarea cols="10" rows="10" name="summary" class="form-control" aria-label="With textarea"><?php echo $keywork->summary; ?></textarea>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Length of time spent <span class="text-danger">*</span></label>
+                                                <label>Duration <span class="text-danger">*</span></label>
                                                 <input type="text" name="length_time" class="form-control" value="<?php echo $keywork->length_time; ?>">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Time <span class="text-danger">*</span></label>
+                                                <input type="text" name="time" class="form-control" value="<?php echo $keywork->time; ?>">
                                             </div>
                                         </div>
                                         

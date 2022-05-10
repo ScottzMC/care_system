@@ -85,11 +85,12 @@
                           <table class="table table-hover table-vcenter text-nowrap js-basic-example dataTable table-striped table_custom border-style spacing5">
                                 <thead>
                                     <tr>
-                                        <th>Young Person</th>
                                         <th>Room number</th>
+                                        <th>Guest name</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th><a href="<?php echo site_url('staff/house/guest_ban/add/'.strtolower($code)); ?>">Add</a></th>
+                                        <th>Action</th>
                                         <th>Action</th>
                                         <th>Action</th>
                                     </tr>
@@ -97,12 +98,13 @@
                                 <tbody>
                                   <?php if($guest_ban){ foreach($guest_ban as $guest){ ?>
                                     <tr>
-                                        <td><a href="<?php echo site_url("staff/children/profile/detail/$guest->code"); ?>"><span class="font-16"><?php echo $guest->child_name; ?></span></a></td>
                                         <td><a href="<?php echo site_url("staff/house/guest_ban/detail/$guest->id/$code"); ?>"><span class="font-16"><?php echo $guest->room_number; ?></span></a></td>
+                                        <td><?php echo $guest->guest_name; ?></td>
                                         <td><?php echo date('l, dS M Y',strtotime($guest->start_date)); ?></td>
                                         <td><?php echo date('l, dS M Y',strtotime($guest->end_date)); ?></td>
                                         <th><a href="<?php echo site_url('staff/house/guest_ban/add/'.strtolower($code)); ?>">Add</a></th>
                                         <td><a href="<?php echo site_url('staff/house/guest_ban/edit/'.$guest->id.'/'.$code); ?>">Edit</a></td>
+                                        <td><a href="<?php echo site_url("staff/house/guest_ban/detail/$guest->id/$code"); ?>">View</a></td>
                                         <td><button type="button" onclick="delete_guest_ban(<?php echo $guest->id; ?>)">Delete</button></td>
                                     </tr>
                                   <?php } }else{ echo ''; } ?>

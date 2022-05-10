@@ -45,6 +45,14 @@
                                 </div>
                                 
                             </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Support Work</h1>
+                                    </div>
+                                </div>
+                            </div>
                     
                             <div class="col-xl-8 col-xl-12">
                                 <div class="card">
@@ -55,7 +63,7 @@
                                     <div class="card-body">
 										<ul class="list-group">
                                             <li class="list-group-item">
-                                                <b>Child name </b>
+                                                <b>Young Person </b>
                                                 <div class="pull-right"><?php echo $det->child_name; ?></div>
                                             </li>
                                             <li class="list-group-item">

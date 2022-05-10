@@ -64,6 +64,11 @@
                                                 <p><?php echo $det->request; ?></p>
                                             </div>
                                             <br>
+                                            <h6 class="font600">Staff Initial</h6>
+                                            <div class="msg">
+                                                <p><?php echo $det->staff_initial; ?></p>
+                                            </div>  
+                                            <br>
                                             <h6 class="font600">Time</h6>
                                             <div class="msg">
                                                 <p><?php echo $det->time; ?></p>

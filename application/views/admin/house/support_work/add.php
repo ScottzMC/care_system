@@ -59,6 +59,34 @@
                 </div>
             </div>
         </div>
+        
+        <script>
+        function delete_task(id){
+          var del_id = id;
+          if(confirm("Are you sure you want to delete this task")){
+          $.post('<?php echo base_url('admin/house/support_work/delete_task'); ?>', {"del_id": del_id}, function(data){
+            alert('Deleted Successfully');
+            location.reload();
+            $('#cti').html(data)
+            });
+          }
+        }
+        
+        function delete_subtask(id){
+          var del_id = id;
+          if(confirm("Are you sure you want to delete this sub-task")){
+          $.post('<?php echo base_url('admin/house/support_work/delete_subtask'); ?>', {"del_id": del_id}, function(data){
+            alert('Deleted Successfully');
+            location.reload();
+            $('#cti').html(data)
+            });
+          }
+        }
+        
+        </script>
+
+        <p id='cti'></p>
+        
         <div class="section-body mt-4">
             <div class="container-fluid">
                 <div class="tab-content">
@@ -105,8 +133,8 @@
                                         
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Comments and further actions</label>
-                                                <textarea name="body" class="form-control" aria-label="With textarea"></textarea>
+                                                <label>Summary</label>
+                                                <textarea cols="10" rows="10" name="body" class="form-control" aria-label="With textarea"></textarea>
                                             </div>
                                         </div>
                                         
@@ -117,7 +145,7 @@
                                                 <?php if(!empty($task)){ 
                                                 foreach($task as $tsk){ ?>
                                                 <input type="hidden" name="task_id[]" value="<?php echo $tsk->id; ?>">
-                                                 <input type="checkbox" name="task[]" value="<?php echo $tsk->title; ?>"> <?php echo $tsk->title; ?>
+                                                 <input type="checkbox" name="task[]" value="<?php echo $tsk->id; ?>"> <?php echo $tsk->title; ?>
                                                 <br>
                                                 <?php } } ?>
                                             </div>
@@ -183,7 +211,7 @@
                                 <h3 class="card-title">Add Task</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('admin/house/support_work/add_task'); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('admin/house/support_work/add_task/'.$code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">

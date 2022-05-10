@@ -59,7 +59,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Areas of Risk/Concern</label>
-                                                <textarea name="area_of_risk" class="form-control" aria-label="With textarea"><?php echo $report->area_of_risk; ?></textarea>
+                                                <textarea cols="10" rows="10" name="area_of_risk" class="form-control" aria-label="With textarea"><?php echo $report->area_of_risk; ?></textarea>
                                             </div>
                                         </div>
                                         

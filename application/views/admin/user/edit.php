@@ -72,7 +72,6 @@
                                                     <option value="<?php echo $usr->role; ?>"><?php echo $usr->role; ?></option>
                                                     <option>Select</option>
                                                     <option value="Admin">Admin</option>
-                                                    <option value="HR">HR</option>
                                                     <option value="Staff">Staff</option>
                                                 </select>
                                             </div>

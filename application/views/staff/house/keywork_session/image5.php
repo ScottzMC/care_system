@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('staff/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('staff/house/keywork_session/view/'.strtolower($code)); ?>">Keywork Session</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/house/keywork_session/detail/'.$keywork->id.'/'.$code); ?>"><?php echo $keywork->title; ?></a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('staff/house/keywork_session/detail/'.$keywork->id.'/'.$code); ?>"><?php echo $keywork->date_title; ?></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Photo 5</li>
                         </ol>
                     </div>
@@ -54,7 +54,7 @@
                                 <h3 class="card-title">Edit Photo 5</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url("staff/keywork_session/edit_image5/$keywork->id/$code"); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url("staff/house/keywork_session/edit_image5/$keywork->id/$code"); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         
                                         <div class="col-md-4 col-sm-12">

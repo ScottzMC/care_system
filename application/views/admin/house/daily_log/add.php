@@ -74,7 +74,7 @@
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Title <span class="text-danger">*</span></label>
+                                                <label>Date <span class="text-danger">*</span></label>
                                                 <input type="hidden" name="house_code" value="<?php echo $code; ?>">
                                                 <input type="text" name="title" class="form-control">
                                             </div>

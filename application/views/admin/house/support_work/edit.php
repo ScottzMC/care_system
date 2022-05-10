@@ -36,7 +36,7 @@
                     </div>
 
                     <ul class="nav nav-tabs page-header-tab">
-                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Support-edit">Edit <?php echo $support->title; ?> Support Work</a></li>
+                        <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Support-edit">Edit <?php echo $support->title; ?></a></li>
                         <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Role-Model-add">Add</a></li>-->
                     </ul>
                 </div>
@@ -49,7 +49,7 @@
                     <div class="tab-pane active" id="Support-edit">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Edit <?php echo $support->title; ?> Support Work</h3>
+                                <h3 class="card-title">Edit <?php echo $support->title; ?></h3>
                             </div>
                             <div class="card-body">
                                 <form action="<?php echo base_url('admin/house/support_work/edit/'.$support->id.'/'.$code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -89,8 +89,8 @@
                                         
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label>Comments and further actions</label>
-                                                <textarea name="body" class="form-control" aria-label="With textarea"><?php echo $support->body; ?></textarea>
+                                                <label>Summary</label>
+                                                <textarea cols="10" rows="10" name="body" class="form-control" aria-label="With textarea"><?php echo $support->body; ?></textarea>
                                             </div>
                                         </div>
                                         

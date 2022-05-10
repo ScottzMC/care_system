@@ -52,7 +52,7 @@
                 $return_date = $this->input->post('return_date');
                 $date = $this->input->post('created_date');
                 
-                $files = $_FILES;
+                /*$files = $_FILES;
                 $cpt1 = count($_FILES['userFiles1']['name']);
         
                 for($i=0; $i<$cpt1; $i++){
@@ -78,6 +78,7 @@
                     $this->upload->do_upload('userFiles1');
                     $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
                 }
+                */
                 
                 $query = $this->db->query("SELECT fullname FROM children WHERE code = '$child_code' ")->result();
                 foreach($query as $qry){
@@ -94,7 +95,7 @@
                     'staff1' => $staff1,
                     'staff2' => $staff2,
                     'return_date' => $return_date,
-                    'document' => $fileName,
+                    //'document' => $fileName,
                     'created_date' => $date
                 );
                 
@@ -153,12 +154,12 @@
                     ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/children/profile/detail/'.$code); ?>";
+                            window.location.href="<?php echo site_url('admin/children/edt/view/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('admin/children/profile/detail/'.$code); ?>";
+                                window.location.href="<?php echo site_url('admin/children/edt/view/'.$code); ?>";
                           </script> 
                   <?php }  
                     }

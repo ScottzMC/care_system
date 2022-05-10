@@ -57,6 +57,23 @@
                 </div>
             </div>
         </div>
+        
+        <script>
+        function delete_support_area(id){
+          var del_id = id;
+          if(confirm("Are you sure you want to delete this area of support")){
+          $.post('<?php echo base_url('staff/house/support_plan/delete_area'); ?>', {"del_id": del_id}, function(data){
+            alert('Deleted Successfully');
+            location.reload();
+            $('#cti').html(data)
+            });
+          }
+        }
+        
+        </script>
+
+        <p id='cti'></p>
+        
         <div class="section-body mt-4">
             <div class="container-fluid">
                 <div class="tab-content">
@@ -80,12 +97,12 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-4 col-sm-12">
+                                        <!--<div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Unit details <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" value="">
                                             </div>
-                                        </div>
+                                        </div>-->
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
@@ -168,7 +185,7 @@
                                 <h3 class="card-title">Add Area of Support</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('staff/support_plan/area_of_support'); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('staff/house/support_plan/area_of_support/'.$code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
@@ -192,14 +209,13 @@
                                 <h3 class="card-title">All Area of Support</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('staff/support_plan/area_of_support'); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <?php if($support_area){ foreach($support_area as $area){ ?>
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label><b><?php echo $area->title; ?></b></label>
                                             </div>
-                                            <a href="<?php echo site_url('staff/house/support_plan/edit_area_of_support/'.$code); ?>" class="btn btn-primary">Edit</a>
+                                            <a href="<?php echo site_url('staff/house/support_plan/edit_area_of_support/'.$area->id.'/'.$code); ?>" class="btn btn-primary">Edit</a>
                                             <br><br>
                                             <button type="button" onclick="delete_support_area(<?php echo $area->id; ?>)" class="btn btn-danger">Delete</button>
                                             <br><br>
@@ -207,7 +223,6 @@
                                         <?php } } ?>
                                     </div>    
 
-                                </form>
                             </div>
                         </div>
                         

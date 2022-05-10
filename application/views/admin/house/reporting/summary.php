@@ -66,7 +66,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Comments and further actions</label>
-                                                <textarea name="summary" class="form-control" aria-label="With textarea"><?php echo $report->summary; ?></textarea>
+                                                <textarea cols="10" rows="10" name="summary" class="form-control" aria-label="With textarea"><?php echo $report->summary; ?></textarea>
                                             </div>
                                         </div>
                                         

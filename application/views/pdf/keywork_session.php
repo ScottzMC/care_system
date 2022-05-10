@@ -42,18 +42,25 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Keywork Session</h1>
+                                    </div>
+                                </div>
+                            </div>
                     
                             <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Info</h3>
+                                        <h3 class="card-title">Summary</h3>
                                     </div>
                                     <?php if(!empty($detail)){ foreach($detail as $det){} ?>
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600"><?php echo $det->date_title; ?></h4>
-                                            <h4 class="font600"><?php echo $det->title; ?></h4>
+                                            <h4 class="font600">Date - <?php echo $det->date_title; ?></h4>
+                                            <!--<h4 class="font600">Title - <?php echo $det->title; ?></h4>-->
                                             <div class="msg">
                                                 <p><?php echo $det->summary; ?></p>
                                             </div>  
@@ -63,14 +70,19 @@
                                                 <p><?php echo $det->staff_initial; ?></p>
                                             </div>  
                                             <br>
-                                            <h4 class="font600">Hours to be spent weekly</h4>
+                                            <h4 class="font600">Hours weekly</h4>
                                             <div class="msg">
                                                 <p><?php echo $det->hours_spent; ?></p>
                                             </div>  
                                             <br>
-                                            <h4 class="font600">Length of time spent</h4>
+                                            <h4 class="font600">Duration</h4>
                                             <div class="msg">
                                                 <p><?php echo $det->length_time; ?></p>
+                                            </div>  
+                                            <br>
+                                            <h4 class="font600">Time</h4>
+                                            <div class="msg">
+                                                <p><?php echo $det->time; ?></p>
                                             </div>  
                                             <br>
                                             <h4 class="font600">Independent Living Skills</h4>
@@ -116,7 +128,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 1</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo1?>" height="200" width="250" /></p>
                                             </div> 
@@ -147,7 +158,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 2</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo2?>" height="200" width="250" /></p>
                                             </div> 
@@ -178,7 +188,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 3</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo3?>" height="200" width="250" /></p>
                                             </div> 
@@ -209,7 +218,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 4</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo4?>" height="200" width="250" /></p>
                                             </div> 
@@ -240,7 +248,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 5</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo5?>" height="200" width="250" /></p>
                                             </div> 

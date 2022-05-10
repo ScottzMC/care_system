@@ -74,8 +74,8 @@
                                                 <p><?php echo $sanction->body; ?></p>
                                             </div> 
                                             <br><br>
-                                            <div class="pull-right"><a href="<?php echo base_url('admin/children/sanction_reward/download/'.$sanction->id); ?>" target="_blank">Download</a></div>
-                                            <br><br>
+                                            <!--<div class="pull-right"><a href="< ?php echo base_url('admin/children/sanction_reward/download/'.$sanction->id); ?>" target="_blank">Download</a></div>
+                                            <br><br>-->
                                             <div class="pull-right"><a href="<?php echo site_url("admin/children/sanction_reward/edit/$sanction->id/$sanction->code"); ?>">Edit</a></div>
                                         </div>
                                     </div>

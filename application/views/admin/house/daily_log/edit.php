@@ -32,7 +32,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/all/unit/'.$code); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/daily_log/view/'.strtolower($code)); ?>">Daily Log</a></li>
-                            <li class="breadcrumb-item"><?php echo $daily->title; ?></li>
+                            <li class="breadcrumb-item">Edit <?php echo $daily->title; ?></li>
                         </ol>
                     </div>
 
@@ -57,7 +57,7 @@
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Title <span class="text-danger">*</span></label>
+                                                <label>Date <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" value="<?php echo $daily->title; ?>">
                                             </div>
                                         </div>

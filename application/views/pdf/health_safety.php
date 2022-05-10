@@ -43,6 +43,14 @@
                                 </div>
                             </div>
                             
+                            <div class="col-xl-8 col-xl-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Health & Safety</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <?php foreach($detail as $det){} ?>
                             <div class="col-xl-8 col-md-12">
                                 <div class="card">
@@ -61,13 +69,13 @@
                             <div class="col-xl-8 col-xl-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Info</h3>
+                                        <h3 class="card-title">Summary</h3>
                                     </div>
                                     
                                     <div class="card-body">
                                         <div class="timeline_item ">
-                                            <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600"><?php echo $det->title; ?></h4>
+                                            <small class="float-right text-right">Date - <?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
+                                            <!--<h4 class="font600">Title - <?php echo $det->title; ?></h4>-->
                                             <div class="msg">
                                                 <p><?php echo $det->additional_info; ?></p>
                                             </div>  
@@ -75,16 +83,11 @@
                                             <h4 class="font600">Room Number</h4>
                                             <div class="msg">
                                                 <p><?php echo $det->room_number; ?></p>
-                                            </div>  
+                                            </div>   
                                             <br>
-                                            <h4 class="font600">Health & Safety checks</h4>
+                                            <h4 class="font600">Staff Initial</h4>
                                             <div class="msg">
-                                                <p><?php echo $det->safety_check; ?></p>
-                                            </div>  
-                                            <br>
-                                            <h4 class="font600">Recorded by</h4>
-                                            <div class="msg">
-                                                <p><?php echo $det->recorded_by; ?></p>
+                                                <p><?php echo $det->staff_initial; ?></p>
                                             </div>  
                                             <br>
                                             <h4 class="font600">Due date</h4>
@@ -122,7 +125,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 1</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo1?>" height="200" width="250" /></p>
                                             </div> 
@@ -153,7 +155,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 2</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo2?>" height="200" width="250" /></p>
                                             </div> 
@@ -184,7 +185,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 3</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo3?>" height="200" width="250" /></p>
                                             </div> 
@@ -215,7 +215,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 4</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo4?>" height="200" width="250" /></p>
                                             </div> 
@@ -246,7 +245,6 @@
                                     <div class="card-body">
                                         <div class="timeline_item ">
                                             <small class="float-right text-right"><?php echo date('l, dS M Y',strtotime($det->created_date)); ?></small></span>
-                                            <h4 class="font600">Photo 5</h4>
                                             <div class="msg">
                                                 <p><img src="<?=$photo5?>" height="200" width="250" /></p>
                                             </div> 

@@ -56,8 +56,9 @@
                 $this->load->view('admin/house/staff_communication/add', $data);
                 
                 if(isset($submit)){
-                    $title = $this->input->post('title');
+                    //$title = $this->input->post('title');
                     $request = $this->input->post('request');
+                    $staff_initial = $this->input->post('staff_initial');
                     $staff = $this->input->post('staff');
                     $imp_staff = implode(',', $staff);
                     
@@ -65,8 +66,9 @@
                     $date = $this->input->post('created_date');
                     
                     $array = array(
-                        'title' => $title,
+                        //'title' => $title,
                         'request' => $request,
+                        'staff_initial' => $staff_initial,
                         'time' => $time,
                         'created_date' => $date
                     );
@@ -104,75 +106,6 @@
             }
         }
         
-        /*public function add($code){
-            $this->load->model('Staff_communication_model');
-            $this->load->model('House_model');
-            
-            $session_role = $this->session->userdata('urole');
-            
-            $submit = $this->input->post('add');
-            
-            $house = $this->House_model->display_home($code);
-            foreach($house as $hse){
-                $house = $hse->housename;
-            }
-            
-            if(!empty($session_role) && $session_role == "Admin"){
-                
-                $data['house'] = $this->House_model->display_home($code);
-                $data['code'] = $code;
-                
-                $this->load->view('admin/house/staff_communication/add', $data);
-            
-                if(isset($submit)){
-                    $title = $this->input->post('title');
-                    $request = $this->input->post('request');
-                    $staff = $this->input->post('staff');
-                    $imp_staff = implode(',', $staff);
-                    
-                    $time = $this->input->post('time');
-                    $date = $this->input->post('created_date');
-                    
-                    $array = array(
-                    'title' => $title,
-                    'request' => $request,
-                    'time' => $time,
-                    'created_date' => $date
-                    );
-                
-                $ins = $this->Staff_communication_model->insert_staff_communication($array);
-                
-                $last_id = $this->db->insert_id();
-                
-                $exp_staff = explode(',', $imp_staff);
-                
-                    foreach($exp_staff as $exp){
-                
-                    $add_rray = array(
-                        'staffcom_id' => $last_id,
-                        'email' => $exp
-                    );
-                    
-                    $add = $this->Staff_communication_model->insert_explode_communication($add_rray);
-                    }
-                }
-                
-                if($ins && $add){ ?>
-                    <script>
-                        alert('Added Successfully');
-                        window.location.href="<?php echo site_url('admin/house/staff_communication/detail/'.$last_id.'/'.$code); ?>";
-                    </script>
-          <?php }else{ ?>
-                   <script>
-                        alert('Failed');
-                        window.location.href="<?php echo site_url('admin/house/staff_communication/detail/'.$last_id.'/'.$code); ?>";
-                    </script> 
-          <?php }
-           }else{
-                redirect('admin/account/login');    
-           }
-        }*/
-        
         public function edit($id, $code){
             $btn_submit = $this->input->post('edit');
             
@@ -189,8 +122,9 @@
                 $this->load->view('admin/house/staff_communication/edit', $data);
                 
                 if(isset($btn_submit)){
-                    $title = $this->input->post('title');
+                    //$title = $this->input->post('title');
                     $request = $this->input->post('request');
+                    $staff_initial = $this->input->post('staff_initial');
                     $staff = $this->input->post('staff');
                     $imp_staff = implode(',', $staff);
                     
@@ -198,8 +132,9 @@
                     $date = $this->input->post('created_date');
                     
                     $array = array(
-                        'title' => $title,
+                        //'title' => $title,
                         'request' => $request,
+                        'staff_initial' => $staff_initial,
                         'time' => $time,
                         'created_date' => $date
                     );
@@ -221,12 +156,12 @@
                     if($update && $add){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/staff_communication'); ?>";
+                            window.location.href="<?php echo site_url('admin/house/staff_communication/detail/'.$id.'/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                        <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/staff_communication'); ?>";
+                            window.location.href="<?php echo site_url('admin/house/staff_communication/detail/'.$id.'/'.$code); ?>";
                         </script> 
                   <?php }  
                     }
@@ -281,7 +216,7 @@
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('admin/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('admin/house/staff_communication/view/'.$code); ?>";
         </script> 
  <?php }
  

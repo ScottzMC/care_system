@@ -97,10 +97,10 @@
                                 <thead>
                                     <tr>
                                         <th>FullName</th>
-                                        <th>Topic</th>
                                         <th>Date</th>
+                                        <th>Plan of action</th>
                                         <th><a href="<?php echo site_url('staff/house/support_plan/add/'.$code); ?>">Add</a></th>
-                                        <th>Action</th>
+                                        <th>View</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -108,10 +108,10 @@
                                   <?php if($support_plan){ foreach($support_plan as $support){ ?>
                                     <tr>
                                         <td><a href="<?php echo site_url("staff/children/profile/detail/$support->code"); ?>"><span class="font-16"><?php echo $support->child_name; ?></span></a></td>
-                                        <td><a href="<?php echo site_url("staff/house/support_plan/detail/$support->id/$code"); ?>"><span class="font-16"><?php echo $support->title; ?></span></a></td>
                                         <td><?php echo date('l, dS M Y',strtotime($support->created_date)); ?></td>
+                                        <td><?php echo wordwrap($support->plan_of_action, 70,"<br>"); ?></td>
                                         <td><a href="<?php echo site_url('staff/house/support_plan/add/'.$code); ?>">Add</a></td>
-                                        <td><a href="<?php echo site_url('staff/house/support_plan/edit/'.$support->id.'/'.$support->code.'/'.$code); ?>">Edit</a></td>
+                                        <td><a href="<?php echo site_url("staff/house/support_plan/detail/$support->id/$support->code/$code"); ?>">View</a></td>
                                         <td><button type="button" onclick="delete_support_plan(<?php echo $support->id; ?>)">Delete</button></td>
                                     </tr>
                                   <?php } }else{ echo ''; } ?>

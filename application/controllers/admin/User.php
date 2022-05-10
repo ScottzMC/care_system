@@ -202,12 +202,12 @@
                     if($form_id){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>    
                 <?php }else{ ?>
                         <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>
                 <?php }
                 //}
@@ -239,12 +239,12 @@
                     if($form_nin){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>    
                 <?php }else{ ?>
                         <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>
                 <?php }
                 //}
@@ -278,12 +278,12 @@
                     if($form_reference){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>    
                 <?php }else{ ?>
                         <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>
                 <?php }
                 //}
@@ -366,12 +366,12 @@
                     if($form_address){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>    
                 <?php }else{ ?>
                         <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>
                 <?php }
                 //}
@@ -428,12 +428,12 @@
                     if($form_dbs){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>    
                 <?php }else{ ?>
                         <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>
                 <?php }
                 //}
@@ -490,12 +490,12 @@
                     if($form_dbs){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>    
                 <?php }else{ ?>
                         <script>
                             alert('Failed');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>
                 <?php }
                 //}
@@ -547,12 +547,12 @@
                     if($update_user){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>    
                 <?php }else{ ?>
                         <script>
                             alert('Update Failed');
-                            window.location.href="<?php echo site_url('admin/user'); ?>";
+                            window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                         </script>
                 <?php }
                 }
@@ -596,12 +596,12 @@
             if($update_image){ ?>
                 <script>
                     alert('Updated Successfully');
-                    window.location.href="<?php echo site_url('admin/user'); ?>";
+                    window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                 </script>
       <?php }else{ ?>
                <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('admin/user'); ?>";
+                    window.location.href="<?php echo site_url('admin/user/profile/'.$id.'/'.$code); ?>";
                 </script> 
       <?php }
         }
@@ -611,18 +611,6 @@
     
            $id = $this->input->post('del_id');
            $this->User_model->delete_user($id); 
-        }
-        
-        public function search(){
-          $search_query = $this->input->post('search_query');
-          
-          $this->load->model('User_model');
-          
-          $email = $this->session->userdata('uemail');
-    
-          $data["search"] = $this->User_model->fetch_search_data($search_query);
-
-          $this->load->view('admin/user/search', $data);
         }
         
         public function download($id){

@@ -30,7 +30,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/all/unit/'.strtolower($code)); ?>"><?php echo $prop->housename; ?></a></li>
                             <li class="breadcrumb-item" aria-current="page"><a href="<?php echo site_url('admin/house/health_safety/view/'.strtolower($code)); ?>">Health & Safety</a></li>
-                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/health_safety/detail/'.$health->id.'/'.$code); ?>"><?php echo $health->title; ?></a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/house/health_safety/detail/'.$health->id.'/'.$code); ?>"><?php echo $health->child_name; ?></a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit Photo 1</li>
                         </ol>
                     </div>

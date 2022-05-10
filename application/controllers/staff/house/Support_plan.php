@@ -19,7 +19,7 @@
             }
         }
         
-        public function detail($id, $code){
+        public function detail($id, $code, $house_code){
             $session_role = $this->session->userdata('urole');
             
             $this->load->model('House_model');
@@ -27,9 +27,9 @@
             
             if(!empty($session_role) && $session_role == "Staff"){
                 $data['detail'] = $this->Support_plan_model->display_support_plan_by_id($id);
-                $data['support_comment'] = $this->Support_plan_model->display_area_of_support_comment();
+                $data['support_comment'] = $this->Support_plan_model->display_area_of_support_comment($code);
                 $data['house'] = $this->House_model->display_home($code);
-                $data['code'] = $code;
+                $data['code'] = $house_code;
                 
                 $this->load->view('staff/house/support_plan/detail', $data);
             }else{
@@ -64,7 +64,7 @@
             if(isset($submit_btn)){
             
                 $code = $this->input->post('child_code');
-                $title = $this->input->post('title');
+                //$title = $this->input->post('title');
                 $area_of_support = $this->input->post('area_of_support');
                 $imp_area_of_support = implode(',', $area_of_support);
 
@@ -88,7 +88,7 @@
                     'child_name' => $child_name,
                     'house_code' => $house_code,
                     'house' => $house,
-                    'title' => $title,
+                    //'title' => $title,
                     'plan_of_action' => $plan_of_action,
                     'area_of_support' => $imp_area_of_support,
                     'support_me' => $support_me,
@@ -122,12 +122,12 @@
                 if($insert_support_plan){ ?>
                     <script>
                         alert('Added Successfully');
-                        window.location.href="<?php echo site_url('staff/house/all/unit/'.$house_code); ?>";
+                        window.location.href="<?php echo site_url('staff/house/support_plan/view/'.$house_code); ?>";
                     </script>
           <?php }else{ ?>
                    <script>
                         alert('Failed');
-                        window.location.href="<?php echo site_url('staff/house/all/unit/'.$house_code); ?>";
+                        window.location.href="<?php echo site_url('staff/house/support_plan/view/'.$house_code); ?>";
                     </script> 
           <?php }
             }
@@ -149,12 +149,12 @@
             if($insert_support_area){ ?>
                 <script>
                     alert('Added Successfully');
-                    window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('staff/house/support_plan/add/'.$code); ?>";
                 </script>
       <?php }else{ ?>
                <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+                    window.location.href="<?php echo site_url('staff/house/support_plan/add/'.$code); ?>";
                 </script> 
       <?php }
         }
@@ -171,14 +171,14 @@
                 $data['children'] = $this->Support_plan_model->display_children_by_code($code);
                 $data['support_plan'] = $this->Support_plan_model->display_support_plan_by_id($id);
                 $data['support_area'] = $this->Support_plan_model->display_area_of_support();
-                $data['support_comment'] = $this->Support_plan_model->display_area_of_support_comment();
+                $data['support_comment'] = $this->Support_plan_model->display_area_of_support_comment($code);
                 $data['house'] = $this->House_model->display_home($house_code);
                 $data['code'] = $house_code;
                 
                 $this->load->view('staff/house/support_plan/edit', $data);
                 
                 if(isset($btn_submit)){
-                    $title = $this->input->post('title');
+                    //$title = $this->input->post('title');
                     $area_of_support = $this->input->post('area_of_support');
                     $imp_area_of_support = implode(',', $area_of_support);
                     
@@ -191,7 +191,7 @@
                     $date = $this->input->post('created_date');
                     
                     $array = array(
-                        'title' => $title,
+                        //'title' => $title,
                         'area_of_support' => $imp_area_of_support,
                         'plan_of_action' => $plan_of_action,
                         'support_me' => $support_me,
@@ -207,12 +207,12 @@
                     if($update_support_plan){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$house_code); ?>";
+                            window.location.href="<?php echo site_url('admin/house/support_plan/detail/'.$id.'/'.$code.'/'.$house_code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$house_code); ?>";
+                                window.location.href="<?php echo site_url('admin/house/support_plan/detail/'.$id.'/'.$code.'/'.$house_code); ?>";
                             </script> 
                   <?php }  
                     }
@@ -231,8 +231,9 @@
             
             $data['house'] = $this->House_model->display_home($house_code);
             $data['code'] = $house_code;
+            $data['support_comment'] = $this->Support_plan_model->display_area_of_support_comment_by_id($id);
             
-            $this->load->view('staff/house/support_plan/edit', $data);
+            $this->load->view('staff/house/support_plan/area_of_support_comment', $data);
             
             if(isset($btn_submit)){
                 $area_id = $this->input->post('area_id');
@@ -242,17 +243,17 @@
                     'comment' => $comment
                 );
                 
-                $update_support = $this->Support_plan_model->update_support_plan_comment($area_id, $array);
+                $update_support = $this->Support_plan_model->update_support_plan_comment($id, $array);
                 
                 if($update_support){ ?>
                     <script>
                     alert('Updated Successfully');
-                    window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$house_code); ?>";
+                    window.location.href="<?php echo site_url('staff/house/support_plan/view/'.$house_code); ?>";
                     </script>
           <?php }else{ ?>
                    <script>
                     alert('Failed');
-                    window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$house_code); ?>";
+                    window.location.href="<?php echo site_url('staff/house/support_plan/view/'.$house_code); ?>";
                     </script> 
          <?php }  
             }
@@ -285,12 +286,12 @@
                     if($update_support_area){ ?>
                         <script>
                             alert('Updated Successfully');
-                            window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$code); ?>";
+                            window.location.href="<?php echo site_url('staff/house/support_plan/add/'.$code); ?>";
                         </script>
                   <?php }else{ ?>
                            <script>
                                 alert('Failed');
-                                window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$code); ?>";
+                                window.location.href="<?php echo site_url('staff/house/support_plan/add/'.$code); ?>";
                             </script> 
                   <?php }  
                     }
@@ -313,40 +314,11 @@
            $this->Support_plan_model->delete_support_area($id); 
         }
         
-        public function send_mail($code){
-          $email = $this->input->post('email');    
-        
-          $title = $this->input->post('title');
-          $code = $this->input->post('code');
-          $child_name = $this->input->post('child_name');
-          $area_of_support = $this->input->post('area_of_support');
-          $exp_area_of_support = explode(',', $area_of_support);
-          $plan_of_action = $this->input->post('plan_of_action');
-          $support_me = $this->input->post('support_me');
-          $often_will_support = $this->input->post('often_will_support');
-          $hours_spent_task = $this->input->post('hours_spent_task');
-          $additional_info = $this->input->post('additional_info'); 
+        public function send_mail($id, $code){
+          $email = $this->input->post('email');       
 
           $subject = "Support Plan";
-          $body = "
-            Please find below the information of the Support Plan - 
-            Code - $code 
-            Child Name - $child_name
-            
-            Title - $title
-            
-            Areas of Support - $exp_area_of_support
-            
-            Plan of action  - $plan_of_action 
-            
-            Who will support me? - $support_me 
-            
-            How often will I need support? - $often_will_support 
-            
-            Hours per week spent on task - $hours_spent_task 
-
-            Additional Information - $additional_info 
-            ";
+          $body = "Please find below attached the Support Plan document";
 
           $config = Array(
          'protocol' => 'smtp',
@@ -358,6 +330,16 @@
          'charset' => 'iso-8859-1',
          'wordwrap' => TRUE
          );
+         
+         $this->load->model('Support_plan_model');
+         $data['detail'] = $this->Support_plan_model->display_support_plan_by_id($id);
+         $detail = $data['detail'];
+         
+         foreach($detail as $det){
+             $pdf = $det->pdf;
+         }
+         
+         $atch = base_url('uploads/support_plan/'.$pdf);
 
          $this->load->library('email', $config);
          //$this->load->library('encrypt');
@@ -366,13 +348,64 @@
          //$this->email->cc("testcc@domainname.com");
          $this->email->subject("$subject");
          $this->email->message("$body");
+         $this->email->attach($atch); 
          $this->email->send();
          ?>
         <script>
             alert("Sent to Mail");
-            window.location.href="<?php echo site_url('staff/house/all/unit/'.$code); ?>";
+            window.location.href="<?php echo site_url('staff/house/support_plan/view/'.$code); ?>";
         </script> 
  <?php }
+ 
+        public function edit_document($id, $code, $house_code){
+            
+            $this->load->model('Support_plan_model');
+            
+            $files = $_FILES;
+            $cpt1 = count($_FILES['userFiles1']['name']);
+    
+            for($i=0; $i<$cpt1; $i++){
+                $_FILES['userFiles1']['name']= $files['userFiles1']['name'][$i];
+                $_FILES['userFiles1']['type']= $files['userFiles1']['type'][$i];
+                $_FILES['userFiles1']['tmp_name']= $files['userFiles1']['tmp_name'][$i];
+                $_FILES['userFiles1']['error']= $files['userFiles1']['error'][$i];
+                $_FILES['userFiles1']['size']= $files['userFiles1']['size'][$i];
+    
+                $config1 = array(
+                    'upload_path'   => "./uploads/support_plan/",
+                    //'upload_path'   => "./uploads/../../uploads/community/",
+                    'allowed_types' => "pdf|docx|doc",
+                    'overwrite'     => TRUE,
+                    'max_size'      => "30000",  // Can be set to particular file size
+                    //'max_height'    => "768",
+                    //'max_width'     => "1024"
+                );
+    
+                $this->load->library('upload', $config1);
+                $this->upload->initialize($config1);
+    
+                $this->upload->do_upload('userFiles1');
+                $fileName = str_replace(' ', '_', $_FILES['userFiles1']['name']);
+            }
+              
+            $array = array(
+                'pdf' => $fileName
+            );  
+            
+            $update = $this->Support_plan_model->update_support_plan_details($id, $array);
+            
+            if($update){ ?>
+                <script>
+                    alert('Added Document Successfully');
+                    window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$code.'/'.$house_code); ?>";
+                </script>
+      <?php }else{ ?>
+               <script>
+                    alert('Failed');
+                    window.location.href="<?php echo site_url('staff/house/support_plan/detail/'.$id.'/'.$code.'/'.$house_code); ?>";
+                </script> 
+      <?php }
+        }
     
     }
 

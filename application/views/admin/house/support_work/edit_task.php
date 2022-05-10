@@ -17,6 +17,10 @@
     <!-- Start project content area -->
     <?php $this->load->view('menu/admin/nav'); ?>
     <div class="page">
+        
+        <?php 
+        $property = $this->db->query("SELECT housename FROM properties WHERE code = '$code' ")->result();
+        foreach($property as $prop){} ?>
         <!-- Start Page header -->
         <div class="section-body">
             <div class="container-fluid">
@@ -48,7 +52,7 @@
                                 <h3 class="card-title">Edit Task</h3>
                             </div>
                             <div class="card-body">
-                                <form action="<?php echo base_url('admin/support_work/edit_task/'.$tsk->id); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                                <form action="<?php echo base_url('admin/house/support_work/edit_task/'.$tsk->id.'/'.$code); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">

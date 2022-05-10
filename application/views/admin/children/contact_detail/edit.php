@@ -13,6 +13,8 @@
 </head>
 
 <body class="font-muli theme-cyan gradient">
+    
+    <?php foreach($contact_detail as $contact){} ?>
 
 <div id="main_content">
     <!-- Start project content area -->
@@ -28,6 +30,7 @@
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/dashboard'); ?>">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/all'); ?>">Young People </a></li>
                             <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/profile/detail/'.$child->code); ?>"><?php echo $child->fullname; ?> Profile </a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url('admin/children/contact_detail/view/'.$contact->code); ?>">Contact Details </a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit <?php echo $child->fullname; ?> Contact Details</li>
                         </ol>
                     </div>
@@ -44,8 +47,6 @@
                 <div class="tab-content">
                     
                     <div class="tab-pane active" id="Printout-edit">
-                        
-                        <?php foreach($contact_detail as $contact){} ?>
                         
                         <div class="card">
                             <div class="card-header">
@@ -83,17 +84,17 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <textarea id="summernote" name="address" class="form-control" aria-label="With textarea"><?php echo $contact->address; ?></textarea>
-                                            </div>
-                                        </div>
-                                        
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Date (set the date upon update) <span class="text-danger">*</span></label>
                                                 <input type="date" name="created_date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <textarea id="summernote" name="address" class="form-control" aria-label="With textarea"><?php echo $contact->address; ?></textarea>
                                             </div>
                                         </div>
                                         

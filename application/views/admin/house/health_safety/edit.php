@@ -54,17 +54,17 @@
                                 <form action="<?php echo base_url("admin/house/health_safety/edit/$health->id/$code"); ?>" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                                     <div class="row">
                                         
-                                        <div class="col-md-4 col-sm-12">
+                                        <!--<div class="col-md-4 col-sm-12">
                                             <div class="form-group">
                                                 <label>Title <span class="text-danger">*</span></label>
                                                 <input type="text" name="title" class="form-control" value="<?php echo $health->title; ?>">
                                             </div>
-                                        </div>
+                                        </div>-->
                                         
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <label>Comments and further actions</label>
-                                                <textarea name="additional_info" class="form-control" aria-label="With textarea"><?php echo $health->additional_info; ?></textarea>
+                                                <textarea cols="10" rows="10" name="additional_info" class="form-control" aria-label="With textarea"><?php echo $health->additional_info; ?></textarea>
                                             </div>
                                         </div>
                                         
@@ -77,15 +77,8 @@
                                         
                                         <div class="col-md-4 col-sm-12">
                                             <div class="form-group">
-                                                <label>Health & Safety Check <span class="text-danger">*</span></label>
-                                                <input type="text" name="safety_check" class="form-control" value="<?php echo $health->safety_check; ?>">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Recorded By <span class="text-danger">*</span></label>
-                                                <input type="text" name="recorded_by" class="form-control" value="<?php echo $health->recorded_by; ?>" required>
+                                                <label>Staff Initial <span class="text-danger">*</span></label>
+                                                <input type="text" name="staff_initial" class="form-control" value="<?php echo $health->staff_initial; ?>" required>
                                             </div>
                                         </div>
                                         
